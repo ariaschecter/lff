@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -27,5 +28,14 @@ Route::prefix('admin')->group(function () {
         Route::get('/user', 'index');
         Route::get('/user/{id}', 'show');
         Route::post('/user', 'store');
+    });
+});
+
+Route::prefix('auth')->group(function () {
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::post('/', 'cekAuth');
+        Route::get('/register', 'create');
+        Route::post('/register', 'store');
     });
 });
