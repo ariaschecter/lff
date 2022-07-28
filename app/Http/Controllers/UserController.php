@@ -12,7 +12,7 @@ class UserController extends Controller
         return view('admin.users.index', [
             'active' => 'users',
             'title' => 'Users',
-            'data' => User::paginate(3),
+            'data' => User::paginate(10),
         ]);
     }
 
