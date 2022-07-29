@@ -20,6 +20,7 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Role</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -30,7 +31,9 @@
                                         <th>{{ $i++ }}</th>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
+                                        <td>{{ $item->role->role_name }}</td>
                                         <td>
+                                            <a href="" class="btn btn-success">Update</a>
                                             <a href="" class="btn btn-warning">Reset</a>
                                             <a href="" class="btn btn-danger">Delete</a>
                                         </td>

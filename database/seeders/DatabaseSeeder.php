@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,9 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
+        User::factory(30)->create();
 
         Role::factory()->create(['role_name' => 'Admin']);
         Role::factory()->create(['role_name' => 'User']);
+
+        Category::factory()->create(['category_name' => 'Design']);
+        Category::factory()->create(['category_name' => 'Front-End']);
     }
 }

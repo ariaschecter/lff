@@ -19,6 +19,8 @@
 <script src="{{ url('assets/vendors/jquery.flot/jquery.flot.resize.js') }}"></script>
 <script src="{{ url('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ url('assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
+<script src="{{ url('assets/vendors/sweetalert2/sweetalert2.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <!-- End plugin js for this page -->
 
 <!-- inject:js -->
@@ -29,7 +31,10 @@
 <!-- Custom js for this page -->
 <script src="{{ url('assets/js/dashboard-light.js') }}"></script>
 <script src="{{ url('assets/js/datepicker.js') }}"></script>
+<script>
+  // Script confirmation button
+</script>
 <!-- End custom js for this page -->
 
 </body>
-</html>    
+</html>

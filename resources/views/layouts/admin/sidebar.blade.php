@@ -19,18 +19,64 @@
             <span class="link-title">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item nav-category">Products</li>
-        <li class="nav-item {{ ('products' == $active)? 'active' : '' }}">
-          <a href="{{ url('admin/products') }}" class="nav-link">
-            <i class="link-icon" data-feather="box"></i>
-            <span class="link-title">All Products</span>
+
+        <li class="nav-item nav-category">Course</li>
+        <li class="nav-item {{ ('course' == $active)?'active' : '' }}">
+          <a href="{{ url('admin/course') }}" class="nav-link">
+            <i class="link-icon" data-feather="book"></i>
+            <span class="link-title">Course</span>
           </a>
         </li>
-        <li class="nav-item nav-category">User</li>
+        <li class="nav-item {{ ('course_list' == $active)?'active' : '' }}">
+          <a href="{{ url('admin/course_list') }}" class="nav-link">
+            <i class="link-icon" data-feather="list"></i>
+            <span class="link-title">Course List</span>
+          </a>
+        </li>
+        <li class="nav-item {{ ('course_access' == $active)?'active' : '' }}">
+          <a href="{{ url('admin/course_access') }}" class="nav-link">
+            <i class="link-icon" data-feather="key"></i>
+            <span class="link-title">Course Access</span>
+          </a>
+        </li>
+        <li class="nav-item {{ ('category' == $active)?'active' : '' }}">
+          <a href="{{ url('admin/category') }}" class="nav-link">
+            <i class="link-icon" data-feather="tag"></i>
+            <span class="link-title">Category</span>
+          </a>
+        </li>
+
+        <li class="nav-item nav-category">Finance</li>
+        <li class="nav-item {{ ('order' == $active)? 'active' : '' }}">
+          <a href="{{ url('admin/order') }}" class="nav-link">
+            <i class="link-icon" data-feather="shopping-cart"></i>
+            <span class="link-title">Order</span>
+          </a>
+        </li>
+        <li class="nav-item {{ ('payment' == $active)? 'active' : '' }}">
+          <a href="{{ url('admin/payment') }}" class="nav-link">
+            <i class="link-icon" data-feather="dollar-sign"></i>
+            <span class="link-title">Payment</span>
+          </a>
+        </li>
+        <li class="nav-item {{ ('payment_method' == $active)? 'active' : '' }}">
+          <a href="{{ url('admin/payment_method') }}" class="nav-link">
+            <i class="link-icon" data-feather="pocket"></i>
+            <span class="link-title">Payment Method</span>
+          </a>
+        </li>
+
+        <li class="nav-item nav-category">Admin</li>
         <li class="nav-item {{ ('users' == $active)? 'active' : '' }}">
           <a href="{{ url('admin/user') }}" class="nav-link">
             <i class="link-icon" data-feather="users"></i>
-            <span class="link-title">All Users</span>
+            <span class="link-title">Users</span>
+          </a>
+        </li>
+        <li class="nav-item {{ ('role' == $active)? 'active' : '' }}">
+          <a href="{{ url('admin/role') }}" class="nav-link">
+            <i class="link-icon" data-feather="shield"></i>
+            <span class="link-title">Roles</span>
           </a>
         </li>
         {{-- <li class="nav-item nav-category">web apps</li>
@@ -52,21 +98,21 @@
     </div>
   </nav>
       <!-- partial -->
-  
+
       <div class="page-wrapper">
-                  
+
           <!-- partial:partials/_navbar.html -->
           <nav class="navbar">
               <a href="#" class="sidebar-toggler">
                   <i data-feather="menu"></i>
               </a>
               <div class="navbar-content">
-                  <form class="search-form">
+                  <form class="search-form" method="GET">
                       <div class="input-group">
             <div class="input-group-text">
               <i data-feather="search"></i>
             </div>
-                          <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+                          <input type="text" class="form-control" id="keyword" name="keyword" value="{{ request()->keyword }}" placeholder="Search here...">
                       </div>
                   </form>
                   <ul class="navbar-nav">
@@ -75,7 +121,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile"> 
+                            <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile">
                             {{-- Gambar ada 2 link --}}
                         </a>
                         <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
