@@ -30,14 +30,17 @@ Route::prefix('admin')->group(function () {
         Route::get('/user', 'index');
         Route::get('/user/{id}', 'show');
         Route::post('/user', 'store');
+        Route::get('/user/reset/{id}', 'reset');
+        Route::get('/user/update/{id}', 'edit');
+        Route::post('/user/update/{id}', 'update');
     });
 
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/category', 'index');
         Route::get('/category/add', 'create');
         Route::post('/category/add', 'store');
-        Route::get('/category/{id}', 'edit');
-        Route::post('/category/{id}', 'update');
+        Route::get('/category/update/{id}', 'edit');
+        Route::post('/category/update/{id}', 'update');
         Route::get('/category/delete/{id}', 'destroy');
     });
 
@@ -45,8 +48,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/role', 'index');
         Route::get('/role/add', 'create');
         Route::post('/role/add', 'store');
-        Route::get('/role/{id}', 'edit');
-        Route::post('/role/{id}', 'update');
+        Route::get('/role/update/{id}', 'edit');
+        Route::post('/role/update/{id}', 'update');
         Route::get('/role/delete/{id}', 'destroy');
     });
 });

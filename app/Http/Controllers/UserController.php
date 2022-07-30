@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
+use Alert;
 
 class UserController extends Controller
 {
@@ -11,14 +13,14 @@ class UserController extends Controller
     {
         $search = $request->keyword;
         if($search){
-            $data = User::where('name', 'LIKE', "%{$search}%")
+            $data = User::with('role')->where('name', 'LIKE', "%{$search}%")
                         ->orWhere('email', 'LIKE', "%{$search}%")
                         ->paginate(10);
         } else {
-            $data = User::paginate(10);
+            $data = User::with(['role'])->paginate(10);
         }
 
-        return view('admin.users.index', [
+        return view('admin.user.index', [
             'active' => 'users',
             'title' => 'Users',
             'data' => $data,
@@ -42,12 +44,44 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        //
+        $data = User::where('id',$id)->first();
+        return view('admin.user.edit', [
+            'active' => 'users',
+            'title' => 'Edit User',
+            'data' => $data,
+            'roles' => Role::all(),
+        ]);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $data = User::where('id',$id)->first();
+
+        $validated = $request->validate([
+            'name' => 'required',
+            'role_id' => 'required',
+        ]);
+
+        $update = [
+            'name' => $request->name,
+            'role_id' => $request->role_id,
+            'active' => $request->active,
+            'updated_at' => now(),
+        ];
+        User::where('id', $id)->update($update);
+        Alert::success('Congrats', 'You\'ve Update a User!');
+        return redirect('admin/user');
+    }
+
+    public function reset($id)
+    {
+        $update = [
+            'password' => bcrypt('123456'),
+            'updated_at' => now(),
+        ];
+        User::where('id', $id)->update($update);
+        Alert::success('Congrats', "You're new Password is '123456'");
+        return redirect('admin/user');
     }
 
     public function destroy($id)

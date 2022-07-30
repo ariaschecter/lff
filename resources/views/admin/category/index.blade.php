@@ -30,7 +30,7 @@
                                     <th>{{ $i++ }}</th>
                                     <td>{{ $item->category_name }}</td>
                                     <td>
-                                        <a href="{{ url('admin/'.$active.'/'.$item->id) }}" class="btn btn-success">Update</a>
+                                        <a href="{{ url('admin/'.$active.'/update/'.$item->id) }}" class="btn btn-success">Update</a>
                                         <a href="{{ url('admin/'.$active.'/delete/'.$item->id) }}" class="btn btn-danger show_confirm">Delete</a>
                                     </td>
                                 </tr>

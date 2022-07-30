@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Role;
+use App\Models\User;
 use Alert;
 
 class RoleController extends Controller
@@ -66,6 +67,7 @@ class RoleController extends Controller
     public function destroy($id)
     {
         Role::where('id', $id)->delete();
+        User::where('role_id', $id)->delete();
         Alert::success('Congrats', 'You\'ve Deleted a Role!');
         return redirect('admin/role');
     }

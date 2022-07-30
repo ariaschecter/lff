@@ -7,7 +7,7 @@
         <li class="breadcrumb-item active" aria-current="page">Users</li>
     </ol>
 </nav>
-
+@include('sweetalert::alert')
 <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
 <div class="card">
@@ -27,14 +27,14 @@
                             <tbody>
                                 @php $i = 1; @endphp
                                 @foreach ($data as $item)
-                                    <tr>
+                                    <tr class="{{ ($item->active == 0)?'table-danger':'' }}">
                                         <th>{{ $i++ }}</th>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->role->role_name }}</td>
                                         <td>
-                                            <a href="" class="btn btn-success">Update</a>
-                                            <a href="" class="btn btn-warning">Reset</a>
+                                            <a href="{{ url('admin/user/update/'. $item->id) }}" class="btn btn-success">Update</a>
+                                            <a href="{{ url('admin/user/reset/'. $item->id) }}" class="btn btn-warning">Reset</a>
                                             <a href="" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
