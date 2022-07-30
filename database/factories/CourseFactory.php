@@ -17,7 +17,12 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'course_name' => fake()->name(),
+            'course_picture' => 'https://picsum.photos/300?random='.fake()->randomNumber(3, false),
+            'category_id' => fake()->numberBetween(1,2),
+            'desc' => fake()->paragraph(),
+            'price' => fake()->randomNumber(6, true),
+            'view' => fake()->randomNumber(5, true),
         ];
     }
 }

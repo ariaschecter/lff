@@ -21,19 +21,19 @@
         </li>
 
         <li class="nav-item nav-category">Course</li>
-        <li class="nav-item {{ ('course' == $active)?'active' : '' }}">
+        <li class="nav-item {{ $active == 'courses' ? 'active' : '' }}">
           <a href="{{ url('admin/course') }}" class="nav-link">
             <i class="link-icon" data-feather="book"></i>
             <span class="link-title">Course</span>
           </a>
         </li>
-        <li class="nav-item {{ ('course_list' == $active)?'active' : '' }}">
+        {{-- <li class="nav-item {{ $active == 'course_list' ? 'active' : '' }}">
           <a href="{{ url('admin/course_list') }}" class="nav-link">
             <i class="link-icon" data-feather="list"></i>
             <span class="link-title">Course List</span>
           </a>
-        </li>
-        <li class="nav-item {{ ('course_access' == $active)?'active' : '' }}">
+        </li> --}}
+        <li class="nav-item {{ $active == 'access' ? 'active' : '' }}">
           <a href="{{ url('admin/course_access') }}" class="nav-link">
             <i class="link-icon" data-feather="key"></i>
             <span class="link-title">Course Access</span>

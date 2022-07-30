@@ -38,12 +38,12 @@ License: For each use you must have a valid license purchased only from above li
 	<link rel="stylesheet" href="{{ url('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
 	<!-- endinject -->
 
-  <!-- Layout styles -->  
+  <!-- Layout styles -->
 	<link rel="stylesheet" href="{{ url('assets/css/demo1/style.css') }}">
+    
   <!-- End layout styles -->
 
   <link rel="shortcut icon" href="{{ url('assets/images/favicon.png') }}" />
 </head>
 <body>
 	<div class="main-wrapper">
-			

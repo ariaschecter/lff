@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Course;
 use App\Models\Role;
 use App\Models\Category;
 
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(50)->create();
+        Course::factory(15)->create();
 
         Role::factory()->create(['role_name' => 'Admin']);
         Role::factory()->create(['role_name' => 'User']);

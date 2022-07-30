@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CourseListController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 
@@ -28,11 +30,29 @@ Route::get('/dashboard', function () {
 Route::prefix('admin')->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('/user', 'index');
+        // Route::post('/user', 'store');
         Route::get('/user/{id}', 'show');
-        Route::post('/user', 'store');
         Route::get('/user/reset/{id}', 'reset');
         Route::get('/user/update/{id}', 'edit');
         Route::post('/user/update/{id}', 'update');
+    });
+
+    Route::controller(CourseController::class)->group(function () {
+        Route::get('/course', 'index');
+        Route::get('/course/add', 'create');
+        Route::post('/course/add', 'store');
+        Route::get('/course/update/{id}', 'edit');
+        Route::post('/course/update/{id}', 'update');
+        Route::get('/course/delete/{id}', 'destroy');
+    });
+
+    Route::controller(CourseListController::class)->group(function () {
+        Route::get('/course_list/{id}', 'index');
+        Route::get('/course_list/{id}/add', 'create');
+        Route::post('/course_list/{id}/add', 'store');
+        Route::get('/course_list/{course_id}/update/{id}', 'edit');
+        Route::post('/course_list/{course_id}/update/{id}', 'update');
+        Route::get('/course_list/{course_id}/delete/{id}', 'destroy');
     });
 
     Route::controller(CategoryController::class)->group(function () {
