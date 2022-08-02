@@ -12,7 +12,7 @@
 <div class="row col-lg-12">
     <div class="col-lg-3 mt-3">
         <div class="card mb-3 p-2">
-            <img src="https://picsum.photos/100?random=298" class="card-img-top" alt="...">
+            <img src="{{ $course->course_picture }}" class="card-img-top" alt="{{ $course->course_name }}">
             <div class="card-body">
                 <h2 class="card-title">{{ $course->course_name }}</h2>
                 <h5 class="card-text mb-1">Rp. <del class="text-danger">{{ $course->price }}</del><strong> | {{ $course->price*(100-$course->discount)/100 }}</strong></h5>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Payment;
 use App\Models\CourseAccess;
 use Alert;
 
@@ -46,7 +47,10 @@ class OrderController extends Controller
 
     public function destroy($order_ref)
     {
+        $order = Order::where('order_ref', $order_ref)->first();
+
         Order::where('order_ref', $order_ref)->delete();
+        Payment::where('order_id', $order->id)->delete();
         Alert::success('Congrats', 'You\'ve Deleted a Order!');
         return redirect('admin/order');
     }

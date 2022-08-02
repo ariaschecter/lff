@@ -11,6 +11,10 @@ class Payment extends Model
 
     protected $guarded = ['id'];
 
+    public function order(){
+        return $this->belongsTo(Order::class, 'order_id');
+    }
+
     public static function getAll(){
         return self::join('orders','payments.order_id','=','orders.id')
         ->join('payment_methods','payments.payment_method_id','=','payment_methods.id')

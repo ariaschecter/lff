@@ -28,7 +28,13 @@ class PaymentController extends Controller
     }
 
     public function show($payment_ref){
-
+        $payment = Payment::where('payment_ref', $payment_ref)->first();
+        return view('admin.payment.show', [
+            'active' => 'payment',
+            'arsip' => false,
+            'title' => 'Payment',
+            'payment' => $payment,
+        ]);
     }
 
     public function edit($payment_ref)
@@ -45,15 +51,51 @@ class PaymentController extends Controller
         ];
 
         CourseAccess::insert($data);
-        Payment::where('payment_ref', $payment_ref)->update(['payment_status' => 1]);
-        Alert::success('Congrats', 'You\'ve Accept a Order!');
+        Payment::where('payment_ref', $payment_ref)->update(['payment_status' => 2]);
+        Alert::success('Congrats', 'You\'ve Accept a Payment!');
+        return redirect('admin/payment');
+    }
+
+    public function tolak($payment_ref){
+        $payment = Payment::where('payment_ref', $payment_ref)->first();
+        $order = Order::where('id', $payment->order_id)->first();
+
+        $data = [
+            'payment_status' => 1,
+            'updated_at' => now(),
+        ];
+
+        $update = [
+            'order_status' => 0,
+            'updated_at' => now(),
+        ];
+        
+        Order::where('id', $payment->order_id)->update($update);
+        Payment::where('payment_ref', $payment_ref)->update($data);
+
+        Alert::success('Congrats', 'You\'ve Decline a Payment!');
         return redirect('admin/payment');
     }
 
     public function destroy($payment_ref)
     {
+        $payment = Payment::where('payment_ref', $payment_ref)->first();
+        $order = Order::where('id', $payment->order_id)->first();
+
+        $data = [
+            'user_id' => $order->user_id,
+            'course_id' => $order->course_id,
+        ];
+        $update = [
+            'order_status' => 0,
+            'updated_at' => now(),
+        ];
+
+        Order::where('id', $payment->order_id)->update($update);
         Payment::where('payment_ref', $payment_ref)->delete();
-        Alert::success('Congrats', 'You\'ve Deleted a Order!');
+        CourseAccess::where($data)->delete();
+
+        Alert::success('Congrats', 'You\'ve Deleted a Payment!');
         return redirect('admin/payment');
     }
 }

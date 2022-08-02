@@ -29,19 +29,22 @@
                             @php $i = 1; @endphp
                             @foreach ($data as $item)
                             @php
-                                // dd($item);
+                                if($item->payment_status == 1){
+                                    $table = 'table-warning';
+                                } else if($item->payment_status == 0){
+                                    $table = '';
+                                } else if($item->payment_status == 2){
+                                    $table = 'table-success';
+                                }
                             @endphp
-                                <tr class="{{ $item->payment_status == 1?'table-success':'' }}">
+                                <tr class="{{ $table }}">
                                     <th>{{ $i++ }}</th>
                                     <td>{{ $item->payment_ref }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->course_name }}</td>
                                     <td>
-                                        @if ($item->payment_status == 0)
                                         <a href="{{ url('admin/'.$active.'/'.$item->payment_ref) }}" class="btn btn-primary">Show</a>
-                                        @endif
-                                        <a href="{{ url('admin/'.$active.'/delete/'.$item->payment_ref) }}" class="btn btn-danger show_confirm">Delete</a>
                                     </td>
                                 </tr>
                                 @php

@@ -72,6 +72,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/payment', 'index');
         Route::get('/payment/{payment_ref}', 'show');
         Route::get('/payment/accept/{payment_ref}', 'edit');
+        Route::get('/payment/decline/{payment_ref}', 'tolak');
         Route::get('/payment/delete/{payment_ref}', 'destroy');
     });
 
