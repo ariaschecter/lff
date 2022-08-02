@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('order_ref')->unique();
             $table->foreignId('user_id');
             $table->foreignId('course_id');
-            $table->integer('status');
+            $table->integer('order_status');
             $table->timestamps();
         });
     }

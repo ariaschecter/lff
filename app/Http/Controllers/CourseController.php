@@ -15,6 +15,8 @@ class CourseController extends Controller
         $search = $request->keyword;
         if($search){
             $data = Course::where('course_name', 'LIKE', "%{$search}%")
+                        ->orWhere('price', 'LIKE', "%{$search}%")
+                        ->orWhere('discount', 'LIKE', "%{$search}%")
                             ->paginate(10);
         } else {
             $data = Course::paginate(10);

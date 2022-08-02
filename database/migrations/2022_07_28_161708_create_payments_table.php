@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id');
             $table->foreignId('payment_method_id');
-            $table->string('ref');
+            $table->string('payment_ref')->unique();
             $table->string('payment_picture');
-            $table->integer('status');
+            $table->integer('payment_status');
             $table->timestamps();
         });
     }

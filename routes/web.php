@@ -5,6 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseListController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 
@@ -25,6 +28,10 @@ Route::get('/dashboard', function () {
         'title' => 'Users',
         'sub' => 'All Users',
     ]);
+});
+
+Route::get('/abc', function () {
+    return view('abc');
 });
 
 Route::prefix('admin')->group(function () {
@@ -53,6 +60,28 @@ Route::prefix('admin')->group(function () {
         Route::get('/course_list/{course_id}/update/{id}', 'edit');
         Route::post('/course_list/{course_id}/update/{id}', 'update');
         Route::get('/course_list/{course_id}/delete/{id}', 'destroy');
+    });
+
+    Route::controller(OrderController::class)->group(function () {
+        Route::get('/order', 'index');
+        Route::get('/order/accept/{order_ref}', 'edit');
+        Route::get('/order/delete/{order_ref}', 'destroy');
+    });
+
+    Route::controller(PaymentController::class)->group(function () {
+        Route::get('/payment', 'index');
+        Route::get('/payment/{payment_ref}', 'show');
+        Route::get('/payment/accept/{payment_ref}', 'edit');
+        Route::get('/payment/delete/{payment_ref}', 'destroy');
+    });
+
+    Route::controller(PaymentMethodController::class)->group(function () {
+        Route::get('/payment_method', 'index');
+        Route::get('/payment_method/add', 'create');
+        Route::post('/payment_method/add', 'store');
+        Route::get('/payment_method/update/{id}', 'edit');
+        Route::post('/payment_method/update/{id}', 'update');
+        Route::get('/payment_method/delete/{id}', 'destroy');
     });
 
     Route::controller(CategoryController::class)->group(function () {

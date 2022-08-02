@@ -9,10 +9,19 @@ use Alert;
 
 class CourseListController extends Controller
 {
-    public function index($id)
+    public function index(Request $request, $id)
     {
         $course = Course::where('id', $id)->first();
-        $data = CourseList::where('course_id', $id)->orderBy('no', 'ASC')->get();
+        $search = $request->keyword;
+        if($search){
+            $data = CourseList::where('no', 'LIKE', "%{$search}%")
+                        ->orWhere('list_name', 'LIKE', "%{$search}%")
+                        ->orWhere('link', 'LIKE', "%{$search}%")
+                        ->orderBy('no', 'ASC')
+                        ->paginate(10);
+        } else {
+            $data = CourseList::where('course_id', $id)->orderBy('no', 'ASC')->paginate(10);
+        }
 
         return view('admin.course_list.index', [
             'active' => 'course',

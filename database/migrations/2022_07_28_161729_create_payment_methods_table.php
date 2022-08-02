@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
+            $table->string('payment_method');
             $table->string('payment_name');
             $table->string('rekening');
             $table->timestamps();

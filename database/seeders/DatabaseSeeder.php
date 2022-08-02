@@ -7,7 +7,10 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\Role;
+use App\Models\Order;
+use App\Models\Payment;
 use App\Models\Category;
+use App\Models\PaymentMethod;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,11 +23,24 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(50)->create();
         Course::factory(15)->create();
+        Order::factory(30)->create();
+        Payment::factory(30)->create();
 
         Role::factory()->create(['role_name' => 'Admin']);
         Role::factory()->create(['role_name' => 'User']);
 
         Category::factory()->create(['category_name' => 'Design']);
         Category::factory()->create(['category_name' => 'Front-End']);
+
+        PaymentMethod::factory()->create([
+            'payment_method' => 'BRI',
+            'payment_name' => 'Aria Maulana Eka Mahendra',
+            'rekening' => '45623999',
+        ]);
+        PaymentMethod::factory()->create([
+            'payment_method' => 'DANA',
+            'payment_name' => 'Aria Maulana Eka Mahendra',
+            'rekening' => '081235375978',
+        ]);
     }
 }
