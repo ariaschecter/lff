@@ -19,18 +19,20 @@
             @php
             $angka = $payment->payment_status;
                 if($angka == 0){
-                    $btn = 'btn-danger';
+                    $btn = 'Review';
                 } else if($angka == 1){
-                    $btn = 'btn-warning';
+                    $btn = 'Decline';
                 } else if($angka == 2){
-                    $btn = 'btn-success';
+                    $btn = 'Accept';
                 }
             @endphp
-            <div class="btn {{ $btn }} mb-2">Status</div>
+            <div class="btn btn-primary mb-2">Status : {{ $btn }}</div>
             <div class="">
+                @if ($angka != 2)
                 <a href="{{ url('admin/payment/accept/'.$payment->payment_ref) }}" class="btn btn-success">Accept</a>
                 <a href="{{ url('admin/payment/decline/'.$payment->payment_ref) }}" class="btn btn-warning">Decline</a>
-                <a href="{{ url('admin/payment/delete/'.$payment->payment_ref) }}" class="btn btn-danger show_confirm">Delete</a>
+                @endif
+                {{-- <a href="{{ url('admin/payment/delete/'.$payment->payment_ref) }}" class="btn btn-danger show_confirm">Delete</a> --}}
             </div>
         </div>
     </div>

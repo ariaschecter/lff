@@ -17,7 +17,9 @@ class CourseAccessFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'course_id' => fake()->numberBetween(1,15),
+            'user_id' => fake()->numberBetween(1,50),
+            'last_access' => 0,
         ];
     }
 }

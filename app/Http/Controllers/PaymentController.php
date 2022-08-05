@@ -56,7 +56,7 @@ class PaymentController extends Controller
         return redirect('admin/payment');
     }
 
-    public function tolak($payment_ref){
+    public function destroy($payment_ref){
         $payment = Payment::where('payment_ref', $payment_ref)->first();
         $order = Order::where('id', $payment->order_id)->first();
 
@@ -69,7 +69,7 @@ class PaymentController extends Controller
             'order_status' => 0,
             'updated_at' => now(),
         ];
-        
+
         Order::where('id', $payment->order_id)->update($update);
         Payment::where('payment_ref', $payment_ref)->update($data);
 
@@ -77,25 +77,25 @@ class PaymentController extends Controller
         return redirect('admin/payment');
     }
 
-    public function destroy($payment_ref)
-    {
-        $payment = Payment::where('payment_ref', $payment_ref)->first();
-        $order = Order::where('id', $payment->order_id)->first();
+    // public function destroy($payment_ref)
+    // {
+    //     $payment = Payment::where('payment_ref', $payment_ref)->first();
+    //     $order = Order::where('id', $payment->order_id)->first();
 
-        $data = [
-            'user_id' => $order->user_id,
-            'course_id' => $order->course_id,
-        ];
-        $update = [
-            'order_status' => 0,
-            'updated_at' => now(),
-        ];
+    //     $data = [
+    //         'user_id' => $order->user_id,
+    //         'course_id' => $order->course_id,
+    //     ];
+    //     $update = [
+    //         'order_status' => 0,
+    //         'updated_at' => now(),
+    //     ];
 
-        Order::where('id', $payment->order_id)->update($update);
-        Payment::where('payment_ref', $payment_ref)->delete();
-        CourseAccess::where($data)->delete();
+    //     Order::where('id', $payment->order_id)->update($update);
+    //     Payment::where('payment_ref', $payment_ref)->delete();
+    //     CourseAccess::where($data)->delete();
 
-        Alert::success('Congrats', 'You\'ve Deleted a Payment!');
-        return redirect('admin/payment');
-    }
+    //     Alert::success('Congrats', 'You\'ve Deleted a Payment!');
+    //     return redirect('admin/payment');
+    // }
 }
