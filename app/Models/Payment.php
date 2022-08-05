@@ -19,7 +19,7 @@ class Payment extends Model
         return self::join('orders','payments.order_id','=','orders.id')
         ->join('payment_methods','payments.payment_method_id','=','payment_methods.id')
         ->join('users','orders.user_id','=','users.id')
-        ->join('courses','payments.id','=','courses.id')
+        ->join('courses','orders.course_id','=','courses.id')
         ->select('*')
         ->orderBy('payments.payment_status', 'ASC')
         ->paginate(10);
@@ -30,7 +30,7 @@ class Payment extends Model
         return self::join('orders','payments.order_id','=','orders.id')
         ->join('payment_methods','payments.payment_method_id','=','payment_methods.id')
         ->join('users','orders.user_id','=','users.id')
-        ->join('courses','payments.id','=','courses.id')
+        ->join('courses','orders.course_id','=','courses.id')
         ->orWhere('payments.payment_ref', 'LIKE', "%{$search}%")
         ->orWhere('users.name', 'LIKE', "%{$search}%")
         ->orWhere('users.email', 'LIKE', "%{$search}%")
