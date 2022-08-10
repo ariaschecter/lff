@@ -34,6 +34,14 @@ class DatabaseSeeder extends Seeder
         Category::factory()->create(['category_name' => 'Design']);
         Category::factory()->create(['category_name' => 'Front-End']);
 
+        User::factory()->create([
+            'name' => 'Aria Maulana',
+            'email' => 'admin',
+            'password' => '$2y$10$YYvY2j6E.h53BMlYtxBI7e6tiwxMriOhq8Un1PtEKdDzWuOzwzVMW',
+            'role_id' => '1',
+            'active' => '1',
+
+        ]);
         PaymentMethod::factory()->create([
             'payment_method' => 'BRI',
             'payment_name' => 'Aria Maulana Eka Mahendra',

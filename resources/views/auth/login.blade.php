@@ -38,7 +38,7 @@ License: For each use you must have a valid license purchased only from above li
 	<link rel="stylesheet" href="{{ url('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
 	<!-- endinject -->
 
-  <!-- Layout styles -->  
+  <!-- Layout styles -->
 	<link rel="stylesheet" href="{{ url('assets/css/demo1/style.css') }}">
   <!-- End layout styles -->
 
@@ -49,7 +49,7 @@ License: For each use you must have a valid license purchased only from above li
 
         <div class="page-wrapper full-page">
 			<div class="page-content d-flex align-items-center justify-content-center">
-
+                @include('sweetalert::alert')
 				<div class="row w-100 mx-0 auth-page">
 					<div class="col-md-8 col-xl-6 mx-auto">
 						<div class="card">
@@ -67,26 +67,27 @@ License: For each use you must have a valid license purchased only from above li
 
 
                                         <form class="forms-sample" method="post" action="{{ url('auth') }}">
-                                        <div class="mb-3">
-                                            <label for="email" class="form-label">Email address</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Email">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="password" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="password" autocomplete="current-password" placeholder="Password">
-                                        </div>
-                                        {{-- <div class="form-check mb-3">
-                                            <input type="checkbox" class="form-check-input" id="authCheck">
-                                            <label class="form-check-label" for="authCheck">
-                                            Remember me
-                                            </label>
-                                        </div> --}}
-                                        <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
-                                        <div class="d-block mt-3 text-muted">Not a user? <span><a href="{{ url('auth/register') }}">Sign up</a></span></div>
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Email address</label>
+                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                            </div>
+                                            {{-- <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="authCheck">
+                                                <label class="form-check-label" for="authCheck">
+                                                Remember me
+                                                </label>
+                                            </div> --}}
+                                            <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
+                                            <div class="d-block mt-3 text-muted">Not a user? <span><a href="{{ url('auth/register') }}">Sign up</a></span></div>
                                         </form>
 
 
-                                        
+
                                     </div>
                                 </div>
                             </div>

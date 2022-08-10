@@ -79,21 +79,6 @@
             <span class="link-title">Roles</span>
           </a>
         </li>
-        {{-- <li class="nav-item nav-category">web apps</li>
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
-            <i class="link-icon" data-feather="mail"></i>
-            <span class="link-title">Email</span>
-            <i class="link-arrow" data-feather="chevron-down"></i>
-          </a>
-          <div class="collapse" id="emails">
-            <ul class="nav sub-menu">
-              <li class="nav-item">
-                <a href="pages/email/inbox.html" class="nav-link">Inbox</a>
-              </li>
-            </ul>
-          </div>
-        </li> --}}
       </ul>
     </div>
   </nav>
@@ -155,7 +140,7 @@
                                     </a>
                                 </li>
                                 <li class="dropdown-item py-2">
-                                    <a href="javascript:;" class="text-body ms-0">
+                                    <a href="{{ url('auth/logout') }}" class="text-body ms-0">
                                     <i class="me-2 icon-md" data-feather="log-out"></i>
                                     <span>Log Out</span>
                                     </a>

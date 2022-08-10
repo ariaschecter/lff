@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Alert;
 
 class AuthController extends Controller
 {
@@ -11,8 +13,26 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function cekAuth(Request $request){
+    public function authenticate(Request $request){
+        $credentials = $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        $isActive =  User::where('email', $request->email)->first();
 
+        if($isActive->active != 1){
+            Alert::warning('Warning', 'Please Confirmation your Email');
+            return back();
+        }
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
 
     public function create(){
@@ -37,4 +57,15 @@ class AuthController extends Controller
 
         return redirect('auth');
     }
+
+    public function logout(){
+        Auth::logout();
+
+        session()->invalidate();
+
+        session()->regenerateToken();
+
+        return redirect('/auth');
+    }
+
 }

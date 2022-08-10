@@ -26,20 +26,11 @@ use App\Http\Controllers\RoleController;
 Route::get('/dashboard', function () {
     return view('welcome',[
         'active' => 'dashboard',
-        'title' => 'Users',
-        'sub' => 'All Users',
+        'title' => 'Dashboard',
     ]);
 });
 
-Route::get('/abc', function () {
-    return view('abc', [
-        'active' => 'dashboard',
-        'title' => 'Users',
-        'sub' => 'All Users',
-    ]);
-});
-
-Route::prefix('admin')->group(function () {
+Route::middleware('isAdmin')->prefix('admin')->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('/user', 'index');
         // Route::post('/user', 'store');
@@ -118,11 +109,21 @@ Route::prefix('admin')->group(function () {
     });
 });
 
-Route::prefix('auth')->group(function () {
+Route::prefix('user')->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::get('/', 'index');
         Route::post('/', 'cekAuth');
         Route::get('/register', 'create');
         Route::post('/register', 'store');
+    });
+});
+
+Route::prefix('auth')->group(function () {
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('/', 'index')->middleware('guest');
+        Route::post('/', 'authenticate');
+        Route::get('/register', 'create')->middleware('guest');
+        Route::post('/register', 'store');
+        Route::get('/logout', 'logout');
     });
 });
