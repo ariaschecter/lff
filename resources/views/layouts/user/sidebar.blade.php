@@ -37,7 +37,9 @@
     <nav class="side-mobile-menu">
         <ul id="mobile-menu-active">
             <li class="nav-item">
-                <a class="nav-link" href="#" id="navbarDropdown1" role="button"  aria-expanded="false">Dashboard</a></li>
+                <a class="nav-link" href="index.html" id="navbarDropdown1" role="button"
+                    aria-expanded="false">Dashboard</a>
+            </li>
             <li class="has-dropdown">
                 <a href="#" id="navbarDropdown2" role="button">
                     Course

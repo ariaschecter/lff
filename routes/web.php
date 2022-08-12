@@ -11,6 +11,7 @@ use App\Http\Controllers\CourseAccessController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SendEmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,10 @@ Route::get('/dashboard', function () {
         'active' => 'dashboard',
         'title' => 'Dashboard',
     ]);
+});
+
+Route::get('/verify', function(){
+    dd($_REQUEST['email']);
 });
 
 Route::middleware('isAdmin')->prefix('admin')->group(function () {
@@ -124,6 +129,16 @@ Route::prefix('auth')->group(function () {
         Route::post('/', 'authenticate');
         Route::get('/register', 'create')->middleware('guest');
         Route::post('/register', 'store');
+        Route::get('/register/success/{email}', 'success')->middleware('guest');
+        Route::get('/verify', 'verify')->middleware('guest');
+        Route::get('/forgotpassword', 'forgotpassword')->middleware('guest');
+        Route::post('/forgotpassword', 'forgot')->middleware('guest');
+        Route::get('/reset', 'reset');
+        Route::post('/reset', 'updatePassword');
         Route::get('/logout', 'logout');
     });
+});
+
+Route::controller(AuthController::class)->group(function () {
+    Route::post('/resend-email', 'resend')->middleware('guest');
 });

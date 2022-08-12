@@ -69,9 +69,6 @@
 </footer>
 <!--footer-area end-->
 
-
-
-
 <!-- JS here -->
 
 <script src="{{ url('user/js/vendor/modernizr-3.5.0.min.js') }}"></script>

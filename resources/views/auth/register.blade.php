@@ -1,77 +1,32 @@
-<!DOCTYPE html>
-<!--
-Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
-Author: NobleUI
-Website: https://www.nobleui.com
-Portfolio: https://themeforest.net/user/nobleui/portfolio
-Contact: nobleui123@gmail.com
-Purchase: https://1.envato.market/nobleui_admin
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="NobleUI">
-	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+@extends('layouts.user.template')
 
-	<title>Login Page | LFF</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <!-- End fonts -->
-
-	<!-- core:css -->
-	<link rel="stylesheet" href="{{ url('assets/vendors/core/core.css') }}">
-	<!-- endinject -->
-
-	<!-- Plugin css for this page -->
-  <link rel="stylesheet" href="{{ url('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
-	<!-- End plugin css for this page -->
-
-	<!-- inject:css -->
-	<link rel="stylesheet" href="{{ url('assets/fonts/feather-font/css/iconfont.css') }}">
-	<link rel="stylesheet" href="{{ url('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-	<!-- endinject -->
-
-  <!-- Layout styles -->  
-	<link rel="stylesheet" href="{{ url('assets/css/demo1/style.css') }}">
-  <!-- End layout styles -->
-
-  <link rel="shortcut icon" href="{{ url('assets/images/favicon.png') }}" />
-</head>
-<body>
-	<div class="main-wrapper">
-
-        <div class="page-wrapper full-page">
-			<div class="page-content d-flex align-items-center justify-content-center">
-
-				<div class="row w-100 mx-0 auth-page">
-					<div class="col-md-8 col-xl-6 mx-auto">
-						<div class="card">
-							<div class="row">
-                                <div class="col-md-4 pe-md-0">
-                                <div class="auth-side-wrapper">
-                                    {{-- <img src="https://picsum.photos/300/430?random=1" alt=""> --}}
-                                </div>
-                                </div>
-                                <div class="col-md-8 ps-md-0">
-                                <div class="auth-form-wrapper px-4 py-5">
-                                    <a href="{{ url('auth') }}" class="noble-ui-logo d-block mb-2">LF<span>F</span></a>
-                                    <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-
-
-
+@section('body')
+<main>
+    <!--page-title-area start-->
+    <!-- Section: Design Block -->
+    <!-- Section: Design Block -->
+    <section class="vh-100" style="background-color: white;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
 
                                     <form method="POST" action="{{ url('auth/register') }}">
                                         @csrf
+                                        <div class="d-flex align-items-center mb-3 pb-1">
+                                            <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
+                                            <span class="h1 fw-bold mb-0">Register</span>
+                                        </div>
+
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register Your
+                                            Account Here</h5>
+
                                         <div class="mb-1">
-                                            <label for="name" class="form-label">Nama</label>
-                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" placeholder="Input Nama">
+                                            <label for="name" class="form-label">Name</label>
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" placeholder="Input Name">
                                         </div>
                                         @error('name') <div class="text-danger">{{ $message }}</div> @enderror
                                         <div class="mb-1">
@@ -89,44 +44,69 @@ License: For each use you must have a valid license purchased only from above li
                                             <input type="password" class="form-control @error('password1') is-invalid @enderror" id="password1" name="password1" placeholder="Password Confirmation">
                                         </div>
                                         @error('password1') <div class="text-danger">{{ $message }}</div> @enderror
-                                        {{-- <div class="form-check mb-3">
-                                            <input type="checkbox" class="form-check-input" id="authCheck">
-                                            <label class="form-check-label" for="authCheck">
-                                            Remember me
-                                            </label>
+
+
+                                        <div class="pt-1 mb-4">
+                                            <button class="btn theme_btn btn-lg btn-block"
+                                                type="submit">Register</button>
+                                        </div>
+
+                                        <p class="mb-2 pb-lg-2" style="color: #393f81;">Already a user? <a
+                                                href="{{ url('auth') }}" style="color: #393f81;">Sign In</a></p>
+                                        {{-- <div class="text-center">
+                                            <p>or sign up with:</p>
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-google"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-twitter"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-github"></i>
+                                            </button>
                                         </div> --}}
-                                        <button class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Sign Up</button>
-                                        <div class="d-block mt-3 text-muted">Already a user? <span><a href="{{ url('auth') }}">Sign In</a></span></div>
+                                        <a href="#!" class="small text-muted">Terms of use.</a>
+                                        <a href="#!" class="small text-muted">Privacy policy</a>
                                     </form>
 
-
-
-
-                                </div>
                                 </div>
                             </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-    </div>
-
-	<!-- core:js -->
-	<script src="{{ url('assets/vendors/core/core.js') }}"></script>
-	<!-- endinject -->
-
-	<!-- Plugin js for this page -->
-	<!-- End plugin js for this page -->
-
-	<!-- inject:js -->
-	<script src="{{ url('assets/vendors/feather-icons/feather.min.js') }}"></script>
-	<script src="{{ url('assets/js/template.js') }}"></script>
-	<!-- endinject -->
-
-	<!-- Custom js for this page -->
-	<!-- End custom js for this page -->
-
-</body>
-</html>
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                                    alt="login form" class="img-fluid"
+                                    style="border-radius: 0 1rem 1rem 0; height: 100%;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--contact-form-area end-->
+    <!-- subscribe-area start -->
+    <section class="subscribe-area footer-bg border-bot pt-145 pb-50 pt-md-90 pt-xs-90">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <div class="subscribe-wrapper text-center mb-30">
+                        <h2>Subscribe our Newsletter & Get every updates.</h2>
+                        <div class="subscribe-form-box pos-rel">
+                            <form class="subscribe-form">
+                                <input type="text" placeholder="Write Your E-mail">
+                            </form>
+                            <button class="sub_btn">Subscribe Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- subscribe-area end -->
+</main>
+@endsection
