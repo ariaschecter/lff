@@ -24,22 +24,22 @@
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register Your
                                             Account Here</h5>
 
-                                        <div class="mb-1">
+                                        <div class="form-outline mb-1">
                                             <label for="name" class="form-label">Name</label>
                                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" placeholder="Input Name">
                                         </div>
                                         @error('name') <div class="text-danger">{{ $message }}</div> @enderror
-                                        <div class="mb-1">
+                                        <div class="form-outline mb-1">
                                             <label for="email" class="form-label">Email address</label>
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder="Email">
                                         </div>
                                         @error('email') <div class="text-danger">{{ $message }}</div> @enderror
-                                        <div class="mb-1">
+                                        <div class="form-outline mb-1">
                                             <label for="password" class="form-label">Password</label>
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
                                         </div>
                                         @error('password') <div class="text-danger">{{ $message }}</div> @enderror
-                                        <div class="mb-1">
+                                        <div class="form-outline mb-1">
                                             <label for="password1" class="form-label">Password Confirmation</label>
                                             <input type="password" class="form-control @error('password1') is-invalid @enderror" id="password1" name="password1" placeholder="Password Confirmation">
                                         </div>
