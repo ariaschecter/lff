@@ -47,7 +47,7 @@
 
 
                                         <div class="pt-1 mb-4">
-                                            <button class="btn theme_btn btn-lg btn-block"
+                                            <button class="btn theme_btn free-btn"
                                                 type="submit">Register</button>
                                         </div>
 
