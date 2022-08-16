@@ -45,15 +45,24 @@ class AuthController extends Controller
     }
 
     public function store(Request $request){
+        $email = $request->email;
         $validated = $request->validate([
             'name' => 'required',
+            'image' => 'image|file|max:1024',
             'email' => 'required|unique:users,email',
             'password' => 'required',
             'password1' => 'required|same:password',
         ]);
 
+        if($request->user_picture){
+            $upload = $request->file('user_picture')->store('img/profile');
+        } else {
+            $upload = 'img/profile/default.png';
+        }
+
         $data = [
             'name' => $request->name,
+            'user_picture' => $upload,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'created_at' => now(),
@@ -62,29 +71,14 @@ class AuthController extends Controller
 
         $token = Str::random(30);
 
-        $akses = [
-            'email' => $request->email,
-            'token' => $token,
-            'end_verif' => time() + 300,
-        ];
 
-        $mail = [
-            'name' => $request->name,
-            'url' => url('auth/verify?email='.$request->email.'&&token='.$token),
-        ];
 
-        Mail::to($request->email)->send(new EmailConfirmation($mail));
         User::insert($data);
-        UserToken::insert($akses);
-        Alert::info('Info', 'Check your Inbox Mail to verify your Email Address');
-
-        return redirect('auth/register/success/'.$request->email);
+        return User::pageVerify($email, $token);
     }
 
     public function success($email){
-       return view('auth.success', [
-            'email' => $email,
-        ]);
+
     }
 
     public function verify(){
@@ -113,32 +107,10 @@ class AuthController extends Controller
     }
 
     public function resend(Request $request){
-        $mail = User::where('email', $request->email)->first();
+        $email = $request->email;
 
-        if($mail->active == 1){
-            Alert::warning('Warning', 'Your Email has been verified');
-            return redirect('auth');
-        }else {
-            $token = Str::random(30);
-
-            $akses = [
-                'email' => $request->email,
-                'token' => $token,
-                'end_verif' => time() + 300,
-            ];
-
-            $mail = [
-                'name' => $request->name,
-                'url' => url('auth/verify?email='.$request->email.'&&token='.$token),
-            ];
-
-            Mail::to($request->email)->send(new EmailConfirmation($mail));
-            UserToken::insert($akses);
-
-            Alert::info('Info', 'Check your Inbox Mail to verify your Email Address');
-
-            return redirect('auth/register/success/'.$request->email);
-        }
+        $token = Str::random(30);
+        return User::pageVerify($email, $token);
     }
 
     public function forgotpassword(){
@@ -146,26 +118,15 @@ class AuthController extends Controller
     }
 
     public function forgot(Request $request){
-        $data = User::where('email', $request->email)->first();
+        $email = $request->email;
+        $token = Str::random(30);
+        $data = User::where('email', $email)->first();
         if($data){
             if($data->active == 1){
-                $token = Str::random(30);
-                $reset = [
-                    'email' => $request->email,
-                    'token' =>  $token,
-                    'created_at' => now(),
-                ];
-                $mail = [
-                    'name' => $data->name,
-                    'url' => url('auth/reset?email='.$request->email.'&&token='.$token),
-                ];
-                Mail::to($request->email)->send(new EmailConfirmation($mail));
-                DB::table('password_resets')->insert($reset);
-                Alert::success('Success', 'we Have Sent a Mail to your account');
-                return redirect('auth');
+                return User::pageForgot($email, $token);
             } else {
                 Alert::warning('Warning', 'Your Account is not Verified');
-                return redirect('auth/register/success/'.$request->email);
+                return User::pageVerify($email, $token);
             }
         } else {
             Alert::error('Error', 'Your Account is not registered');
@@ -178,7 +139,8 @@ class AuthController extends Controller
         $token = $_REQUEST['token'];
 
         $data = DB::table('password_resets')->where('email', $email)
-                        ->where('token', $token)->first();
+                        ->where('token', $token)
+                        ->where('end_verif', '>', time())->first();
 
         if($data){
             return view('auth.reset',[
@@ -191,6 +153,7 @@ class AuthController extends Controller
     }
 
     public function updatePassword(Request $request){
+        $email = $request->email;
         $validated = $request->validate([
             'password' => 'required',
             'password1' => 'required|same:password',
@@ -200,8 +163,8 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
             'updated_at' => now(),
         ];
-
-        User::where('email', $request->email)->update($data);
+        User::where('email', $email)->update($data);
+        DB::table('password_resets')->where('email', $email)->delete();
         Alert::success('Success', 'Your Password is successfully reseted');
         return redirect('auth');
     }

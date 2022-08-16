@@ -1,6 +1,7 @@
 @extends('layouts.user.template')
 
 @section('body')
+@include('sweetalert::alert')
 <main>
     <!--page-title-area start-->
     <!-- Section: Design Block -->
@@ -14,7 +15,7 @@
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form method="POST" action="{{ url('auth/register') }}">
+                                    <form method="POST" action="{{ url('auth/register') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="d-flex align-items-center mb-3 pb-1">
                                             <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
@@ -34,6 +35,11 @@
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder="Email">
                                         </div>
                                         @error('email') <div class="text-danger">{{ $message }}</div> @enderror
+                                        <div class="mb-1">
+                                            <label for="user_picture" class="form-label">User Picture</label>
+                                            <input type="file" class="form-control @error('user_picture') is-invalid @enderror" id="user_picture" name="user_picture">
+                                        </div>
+                                        @error('user_picture') <div class="text-danger">{{ $message }}</div> @enderror
                                         <div class="mb-1">
                                             <label for="password" class="form-label">Password</label>
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
@@ -89,24 +95,5 @@
         </div>
     </section>
     <!--contact-form-area end-->
-    <!-- subscribe-area start -->
-    <section class="subscribe-area footer-bg border-bot pt-145 pb-50 pt-md-90 pt-xs-90">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-8">
-                    <div class="subscribe-wrapper text-center mb-30">
-                        <h2>Subscribe our Newsletter & Get every updates.</h2>
-                        <div class="subscribe-form-box pos-rel">
-                            <form class="subscribe-form">
-                                <input type="text" placeholder="Write Your E-mail">
-                            </form>
-                            <button class="sub_btn">Subscribe Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- subscribe-area end -->
 </main>
 @endsection

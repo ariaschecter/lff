@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class UserToken extends Model
 {
     use HasFactory;
+
+    public static function addAksesToken($email, $token){
+        $akses = [
+            'email' => $email,
+            'token' => $token,
+            'end_verif' => time() + 300,
+        ];
+
+        return UserToken::insert($akses);
+    }
 }

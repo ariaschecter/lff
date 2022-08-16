@@ -47,7 +47,7 @@
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-xl-2">
-                        <div class="logo"><a href="index.html"><img src="{{ url('user/img/logo/header_logo.png') }}" alt=""></a>
+                        <div class="logo"><a href="{{ url('') }}"><img src="{{ url('user/img/logo/header_logo.png') }}" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-xl-7">
@@ -55,10 +55,11 @@
                             <div class="nav-container">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="index.html" id="navbarDropdown1" role="button"
-                                                aria-expanded="false">Dashboard</a>
-                                        </li>
+                                        @auth
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ url('dashboard') }}" id="navbarDropdown1" role="button" aria-expanded="false">Dashboard</a>
+                                            </li>
+                                        @endauth
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
                                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -102,9 +103,9 @@
                         <div class="right-nav d-flex align-items-center justify-content-end">
                             <div class="right-btn mr-25 mr-xs-15">
                                 <ul class="d-flex align-items-center">
-                                    <li><a href="register3.html" class="theme_btn free_btn">Register</a></li>
-                                    <li><a class="sign-in ml-20" href="login.html"><img src="{{ url('user/img/icon/user.svg') }}"
-                                                alt=""></a></li>
+                                    <li><a href="{{ url('auth') }}" class="theme_btn border_btn" style="margin-right: 10px">Login</a></li>
+                                    <li><a href="{{ url('auth/register') }}" class="theme_btn free_btn">Register</a></li>
+                                    {{-- <li><a class="sign-in ml-20" href="login.html"><img src="{{ url('user/img/icon/user.svg') }}" alt=""></a></li> --}}
                                 </ul>
                             </div>
                             <div class="hamburger-menu d-md-inline-block d-lg-none text-right">

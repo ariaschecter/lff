@@ -1,6 +1,7 @@
 @extends('layouts.user.template')
 
 @section('body')
+@include('sweetalert::alert')
 <main>
     <!--page-title-area start-->
     <!-- Section: Design Block -->
@@ -58,24 +59,5 @@
         </div>
     </section>
     <!--contact-form-area end-->
-    <!-- subscribe-area start -->
-    <section class="subscribe-area footer-bg border-bot pt-145 pb-50 pt-md-90 pt-xs-90">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-8">
-                    <div class="subscribe-wrapper text-center mb-30">
-                        <h2>Subscribe our Newsletter & Get every updates.</h2>
-                        <div class="subscribe-form-box pos-rel">
-                            <form class="subscribe-form">
-                                <input type="text" placeholder="Write Your E-mail">
-                            </form>
-                            <button class="sub_btn">Subscribe Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- subscribe-area end -->
 </main>
 @endsection

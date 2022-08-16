@@ -125,14 +125,13 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('auth')->group(function () {
     Route::controller(AuthController::class)->group(function () {
-        Route::get('/', 'index')->middleware('guest');
+        Route::get('/', 'index'); // guest
         Route::post('/', 'authenticate');
-        Route::get('/register', 'create')->middleware('guest');
+        Route::get('/register', 'create'); // guest
         Route::post('/register', 'store');
-        Route::get('/register/success/{email}', 'success')->middleware('guest');
-        Route::get('/verify', 'verify')->middleware('guest');
-        Route::get('/forgotpassword', 'forgotpassword')->middleware('guest');
-        Route::post('/forgotpassword', 'forgot')->middleware('guest');
+        Route::get('/verify', 'verify'); // guest
+        Route::get('/forgotpassword', 'forgotpassword'); // guest
+        Route::post('/forgotpassword', 'forgot'); // guest
         Route::get('/reset', 'reset');
         Route::post('/reset', 'updatePassword');
         Route::get('/logout', 'logout');
@@ -140,5 +139,5 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::controller(AuthController::class)->group(function () {
-    Route::post('/resend-email', 'resend')->middleware('guest');
+    Route::post('/resend-email', 'resend'); // guest
 });

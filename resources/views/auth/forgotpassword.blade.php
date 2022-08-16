@@ -1,107 +1,46 @@
-<!DOCTYPE html>
-<!--
-Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
-Author: NobleUI
-Website: https://www.nobleui.com
-Portfolio: https://themeforest.net/user/nobleui/portfolio
-Contact: nobleui123@gmail.com
-Purchase: https://1.envato.market/nobleui_admin
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="NobleUI">
-	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+@extends('layouts.user.template')
 
-	<title>Forgot Password | LFF</title>
+@section('body')
+@include('sweetalert::alert')
+<main>
+    <!--page-title-area start-->
+    <!-- Section: Design Block -->
+    <section class="vh-100" style="background-color: white;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                                    alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <!-- End fonts -->
+                                    <form class="forms-sample" method="post" action="{{ url('auth/forgotpassword') }}">
+                                        @csrf
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Forgot Password</h5>
+                                        <h6 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">make sure your account is registered</h6>
 
-	<!-- core:css -->
-	<link rel="stylesheet" href="{{ url('assets/vendors/core/core.css') }}">
-	<!-- endinject -->
+                                        <div class="form-outline mb-4">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email address">
+                                        </div>
 
-	<!-- Plugin css for this page -->
-  <link rel="stylesheet" href="{{ url('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
-	<!-- End plugin css for this page -->
+                                        <div class="pt-1 mb-4">
+                                            <button class="btn theme_btn btn-lg btn-block"
+                                                type="submit">Reset Password</button>
+                                        </div>
+                                    </form>
 
-	<!-- inject:css -->
-	<link rel="stylesheet" href="{{ url('assets/fonts/feather-font/css/iconfont.css') }}">
-	<link rel="stylesheet" href="{{ url('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-	<!-- endinject -->
-
-  <!-- Layout styles -->
-	<link rel="stylesheet" href="{{ url('assets/css/demo1/style.css') }}">
-  <!-- End layout styles -->
-
-  <link rel="shortcut icon" href="{{ url('assets/images/favicon.png') }}" />
-</head>
-<body>
-	<div class="main-wrapper">
-
-        <div class="page-wrapper full-page">
-			<div class="page-content d-flex align-items-center justify-content-center">
-                @include('sweetalert::alert')
-				<div class="row w-100 mx-0 auth-page">
-					<div class="col-md-8 col-xl-6 mx-auto">
-						<div class="card">
-							<div class="row">
-                                <div class="col-md-4 pe-md-0">
-                                <div class="auth-side-wrapper">
-                                    {{-- <img src="https://picsum.photos/300/430?random=1" alt=""> --}}
-                                </div>
-                                </div>
-                                <div class="col-md-8 ps-md-0">
-                                    <div class="auth-form-wrapper px-4 py-5">
-                                        <a href="{{ url('auth') }}" class="noble-ui-logo d-block mb-2">LF<span>F</span></a>
-                                        <h5 class="text-muted fw-normal mb-4">Forgot Password.</h5>
-
-
-
-                                        <form class="forms-sample" method="post" action="{{ url('auth/forgotpassword') }}">
-                                            @csrf
-                                            <div class="mb-3">
-                                                <label for="email" class="form-label">Email address</label>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Forgot Password</button>
-                                        </form>
-
-
-
-                                    </div>
                                 </div>
                             </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-    </div>
-
-	<!-- core:js -->
-	<script src="{{ url('assets/vendors/core/core.js') }}"></script>
-	<!-- endinject -->
-
-	<!-- Plugin js for this page -->
-	<!-- End plugin js for this page -->
-
-	<!-- inject:js -->
-	<script src="{{ url('assets/vendors/feather-icons/feather.min.js') }}"></script>
-	<script src="{{ url('assets/js/template.js') }}"></script>
-	<!-- endinject -->
-
-	<!-- Custom js for this page -->
-	<!-- End custom js for this page -->
-
-</body>
-</html>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--contact-form-area end-->
+</main>
+@endsection
