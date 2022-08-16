@@ -28,11 +28,11 @@
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
                                             account</h5>
 
-                                            <div class="mb-3">
+                                            <div class="form-outline mb-3">
                                                 <label for="email" class="form-label">Email address</label>
                                                 <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                                             </div>
-                                            <div class="mb-3">
+                                            <div class="form-outline mb-3">
                                                 <div class="d-flex justify-content-between">
                                                     <label class="form-label" for="password">Password</label><a href="{{ url('auth/forgotpassword') }}"><small>Forgot Password?</small></a>
                                                 </div>
@@ -40,7 +40,7 @@
                                             </div>
 
                                         <div class="pt-1 mb-4">
-                                            <button class="btn theme_btn btn-lg btn-block"
+                                            <button class="btn theme_btn free-btn"
                                                 type="submit">Login</button>
                                         </div>
 
