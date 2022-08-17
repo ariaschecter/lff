@@ -3071,7 +3071,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 .slider__content .highlight-text span {
-  color: #FF723A;
+  color: #3ab1c8;
 }
 
 .main-title {
@@ -5826,7 +5826,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 .social-media a {
-  color: #FF723A;
+  color: #070f4e;
   font-size: 19px;
   background-color: #ffffff;
   width: 45px;
@@ -8790,3 +8790,5 @@ body {
 .form-outline .form-control{
   border-radius: 11px;
 }
+
+
