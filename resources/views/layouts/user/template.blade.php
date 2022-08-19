@@ -3,4 +3,5 @@
 <div class="page-content">
         @yield('body')
 </div>
+
 @include('layouts.user.footer')
