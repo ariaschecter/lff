@@ -109,8 +109,16 @@ class AuthController extends Controller
     public function resend(Request $request){
         $email = $request->email;
 
-        $token = Str::random(30);
-        return User::pageVerify($email, $token);
+        $data = User::where('email', $email)->first();
+
+        if($data->active != 1){
+            $token = Str::random(30);
+            return User::pageVerify($email, $token);
+        } else {
+            Alert::warning('Warning', 'Your Account has been Verified, please login!');
+            return redirect('auth');
+        }
+
     }
 
     public function forgotpassword(){

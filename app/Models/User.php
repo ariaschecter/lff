@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
 use App\Models\UserToken;
 use Alert;
 use Mail;
 use App\Mail\EmailConfirmation;
-use Illuminate\Support\Facades\DB;
+use App\Mail\ResetPassword;
 
 class User extends Authenticatable
 {
@@ -57,9 +58,10 @@ class User extends Authenticatable
         ];
         $mail = [
             'name' => $data->name,
+            'email' => $email,
             'url' => url('auth/reset?email='.$email.'&&token='.$token),
         ];
-        Mail::to($email)->send(new EmailConfirmation($mail));
+        Mail::to($email)->send(new ResetPassword($mail));
         DB::table('password_resets')->insert($reset);
         Alert::success('Success', 'we Have Sent a Mail to your account');
         return redirect('auth');
