@@ -30,6 +30,7 @@ class AuthController extends Controller
                 Alert::warning('Warning', 'Please Confirmation your Email');
                 return back();
             }
+            
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');
@@ -71,14 +72,8 @@ class AuthController extends Controller
 
         $token = Str::random(30);
 
-
-
         User::insert($data);
         return User::pageVerify($email, $token);
-    }
-
-    public function success($email){
-
     }
 
     public function verify(){
