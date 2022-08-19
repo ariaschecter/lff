@@ -35,21 +35,21 @@
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder="Email">
                                         </div>
                                         @error('email') <div class="text-danger">{{ $message }}</div> @enderror
-                                        <div class="mb-1">
+                                        
                                         <div class="form-outline mb-4">
                                             <label for="user_picture" class="form-label">User Picture</label>
                                             <input type="file" class="form-control @error('user_picture') is-invalid @enderror" id="user_picture" name="user_picture">
                                         </div>
 
                                         @error('user_picture') <div class="text-danger">{{ $message }}</div> @enderror
-                                        <div class="mb-1">
-                                        <div class="form-outline mb-1">
+                                        
 
                                         <div class="form-outline mb-4">
                                             <label for="password" class="form-label">Password</label>
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
                                         </div>
                                         @error('password') <div class="text-danger">{{ $message }}</div> @enderror
+                                        
                                         <div class="form-outline mb-4">
                                             <label for="password1" class="form-label">Password Confirmation</label>
                                             <input type="password" class="form-control @error('password1') is-invalid @enderror" id="password1" name="password1" placeholder="Password Confirmation">
