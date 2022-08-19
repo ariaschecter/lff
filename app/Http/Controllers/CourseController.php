@@ -15,8 +15,8 @@ class CourseController extends Controller
         $search = $request->keyword;
         if($search){
             $data = Course::where('course_name', 'LIKE', "%{$search}%")
-                        ->orWhere('price', 'LIKE', "%{$search}%")
-                        ->orWhere('discount', 'LIKE', "%{$search}%")
+                        ->orWhere('price_old', 'LIKE', "%{$search}%")
+                        ->orWhere('price_new', 'LIKE', "%{$search}%")
                             ->paginate(10);
         } else {
             $data = Course::paginate(10);
@@ -44,7 +44,8 @@ class CourseController extends Controller
             'course_picture' => 'required',
             'category_id' => 'required',
             'desc' => 'required',
-            'price' => 'required',
+            'price_old' => 'required',
+            'price_new' => 'required',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -54,8 +55,8 @@ class CourseController extends Controller
             'course_picture' => $request->course_picture,
             'category_id' => $request->category_id,
             'desc' => $request->desc,
-            'price' => $request->price,
-            'discount' => $request->discount,
+            'price_old' => $request->price_old,
+            'price_new' => $request->price_new,
             'view' => 0,
         ];
 
@@ -84,7 +85,8 @@ class CourseController extends Controller
                 'course_picture' => 'required',
                 'category_id' => 'required',
                 'desc' => 'required',
-                'price' => 'required',
+                'price_old' => 'required',
+                'price_new' => 'required',
             ]);
         } else {
             $validated = $request->validate([
@@ -92,7 +94,8 @@ class CourseController extends Controller
                 'course_picture' => 'required',
                 'category_id' => 'required',
                 'desc' => 'required',
-                'price' => 'required',
+                'price_old' => 'required',
+                'price_new' => 'required',
             ]);
         }
 
@@ -101,8 +104,8 @@ class CourseController extends Controller
             'course_picture' => $request->course_picture,
             'category_id' => $request->category_id,
             'desc' => $request->desc,
-            'price' => $request->price,
-            'discount' => $request->discount,
+            'price_old' => $request->price_old,
+            'price_new' => $request->price_new,
             'updated_at' => now(),
         ];
         Course::where('id', $id)->update($update);

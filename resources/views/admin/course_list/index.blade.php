@@ -15,9 +15,9 @@
             <img src="{{ $course->course_picture }}" class="card-img-top" alt="{{ $course->course_name }}">
             <div class="card-body">
                 <h2 class="card-title">{{ $course->course_name }}</h2>
-                <h5 class="card-text mb-1">Rp. <del class="text-danger">{{ $course->price }}</del><strong> | {{ $course->price*(100-$course->discount)/100 }}</strong></h5>
+                <h5 class="card-text mb-1">Rp. <del class="text-danger">{{ $course->price_old }}</del><strong> | {{ $course->price_new }}</strong></h5>
                 <p class="card-text mb-1">{{ $course->desc }}</p>
-                <div class="btn btn-primary">{{ $course->view }} Views</div>
+                <div class="btn btn-primary">{{ $course->view }} Enroll</div>
             </div>
           </div>
     </div>

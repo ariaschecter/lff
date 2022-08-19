@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('course_picture');
             $table->foreignId('category_id');
             $table->text('desc');
-            $table->integer('price');
-            $table->integer('discount')->nullable();
-            $table->integer('view');
+            $table->integer('price_old');
+            $table->integer('price_new');
+            $table->integer('enroll');
             $table->timestamps();
         });
     }

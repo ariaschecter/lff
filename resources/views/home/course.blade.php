@@ -26,11 +26,7 @@
                                 <ul class="cart-list-tag d-sm-inline-flex align-items-center mb-50">
                                     <li>
                                         <div class="price-list">
-                                            @if ($price['old'])
-                                                <h5><span>Rp. {{ number_format($price['old'], 0) }}</span> <b class="sub-title">Rp. {{ number_format($price['new'], 0) }}</b></h5>
-                                            @else
-                                                <h5><b class="sub-title">Rp. {{ number_format($price['new'], 0) }}</b></h5>
-                                            @endif
+                                            <h5><span>Rp. {{ number_format($course->price_old, 0) }}</span> <b class="sub-title">Rp. {{ number_format($course->price_new, 0) }}</b></h5>
                                         </div>
                                     </li>
                                     <li>

@@ -15,7 +15,7 @@
         <div class="card-body">
             <h2 class="card-title">Name {{ $payment->order->user->name }}</h2>
             <h5 class="card-text mb-1">Course {{ $payment->order->course->course_name }}</h5>
-            <p class="card-text mb-1">Rp. <del class="text-danger">{{ $payment->order->course->price }}</del><strong> | {{ $payment->order->course->price*(100-$payment->order->course->discount)/100 }}</strong></p>
+            <p class="card-text mb-1">Rp. <del class="text-danger">{{ $payment->order->course->price_old }}</del><strong> | {{ $payment->order->course->price_new }}</strong></p>
             @php
             $angka = $payment->payment_status;
                 if($angka == 0){

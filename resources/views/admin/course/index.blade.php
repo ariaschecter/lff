@@ -21,9 +21,9 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Discount</th>
-                                    <th>Views</th>
+                                    <th>Price Old</th>
+                                    <th>Price New</th>
+                                    <th>Enroll</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -34,9 +34,9 @@
                                     <th>{{ $i++ }}</th>
                                     <td>{{ $item->course_name }}</td>
                                     <td>{{ $item->category->category_name }}</td>
-                                    <td>Rp. {{ $item->price*(100-$item->discount)/100 }}</td>
-                                    <td>{{ $item->discount == null?'0': $item->discount }} %</td>
-                                    <td>{{ $item->view }}</td>
+                                    <td>Rp. {{ number_format($item->price_old, 0) }}</td>
+                                    <td>Rp. {{ number_format($item->price_new, 0) }}</td>
+                                    <td>{{ $item->enroll }}</td>
                                     <td>
                                         <a href="{{ url('admin/'.$active.'_list/'.$item->id) }}" class="btn btn-primary">View</a>
                                         <a href="{{ url('admin/'.$active.'/update/'.$item->id) }}" class="btn btn-success">Update</a>

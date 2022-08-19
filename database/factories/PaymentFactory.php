@@ -21,6 +21,7 @@ class PaymentFactory extends Factory
             'order_id' => fake()->numberBetween(1,30),
             'payment_method_id' => fake()->numberBetween(1,2),
             'payment_ref' => strtoupper(Str::random(10)),
+            'payment_price' => fake()->randomNumber(5,true),
             'payment_picture' => 'https://picsum.photos/300?random='.fake()->randomNumber(3, false),
             'payment_status' => fake()->numberBetween(0,1),
         ];

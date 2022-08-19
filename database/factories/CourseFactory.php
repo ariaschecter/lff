@@ -21,8 +21,9 @@ class CourseFactory extends Factory
             'course_picture' => 'https://picsum.photos/300?random='.fake()->randomNumber(3, false),
             'category_id' => fake()->numberBetween(1,2),
             'desc' => fake()->paragraph(),
-            'price' => fake()->randomNumber(6, true),
-            'view' => fake()->randomNumber(4, true),
+            'price_old' => fake()->randomNumber(6, true),
+            'price_new' => fake()->randomNumber(6, true),
+            'enroll' => fake()->randomNumber(4, true),
         ];
     }
 }

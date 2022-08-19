@@ -41,15 +41,15 @@
                     </div>
                     @error('desc') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="mb-1">
-                        <label for="price" class="form-label">Price</label>
-                        <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ $data->price }}" placeholder="Input Course">
+                        <label for="price_old" class="form-label">Price Old</label>
+                        <input type="number" class="form-control @error('price_old') is-invalid @enderror" id="price_old" name="price_old" value="{{ $data->price_old }}" placeholder="Input Course">
                     </div>
-                    @error('price') <div class="text-danger">{{ $message }}</div> @enderror
+                    @error('price_old') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="mb-1">
-                        <label for="discount" class="form-label">Discount (%)</label>
-                        <input type="number" step="any" min="0" max="100" class="form-control @error('discount') is-invalid @enderror" id="discount" name="discount" value="{{ $data->discount }}" placeholder="Input Course">
+                        <label for="price_new" class="form-label">Price New</label>
+                        <input type="number" class="form-control @error('price_new') is-invalid @enderror" id="price_new" name="price_new" value="{{ $data->price_new }}" placeholder="Input Course">
                     </div>
-                    @error('discount') <div class="text-danger">{{ $message }}</div> @enderror
+                    @error('price_new') <div class="text-danger">{{ $message }}</div> @enderror
 
 
                     <button class="btn btn-primary m-1 text-white">Edit Course</button>
