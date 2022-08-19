@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Course;
+use App\Models\CourseList;
 use App\Models\CourseAccess;
 use App\Models\Role;
 use App\Models\Order;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(50)->create();
         Course::factory(15)->create();
+        CourseList::factory(10)->create();
         CourseAccess::factory(30)->create();
         Order::factory(30)->create();
         Payment::factory(5)->create();

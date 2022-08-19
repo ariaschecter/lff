@@ -14,6 +14,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SendEmailController;
 
+use App\Models\Course;
+use App\Models\User;
+use App\Models\Category;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +30,14 @@ use App\Http\Controllers\SendEmailController;
 */
 
 Route::get('/', function(){
-    return view('dashboard');
+    $categories = Category::all();
+    $popularCourse = Course::with(['courselist', 'category'])->orderBy('view', 'DESC')->take(6)->get();
+    // dd($popularCourse);
+    return view('home.dashboard', [
+        'categories' => $categories,
+        'courses' => $popularCourse,
+        'students' => User::where('role_id', 2)->get(),
+    ]);
 });
 
 Route::middleware('auth')->get('/dashboard', function () {
@@ -35,7 +46,7 @@ Route::middleware('auth')->get('/dashboard', function () {
     switch($role){
         case 1: return view('admin.dashboard', [
             'title' => 'Dashboard',
-            'active' => 'dashboard'
+            'active' => 'dashboard',
         ]);
         case 2: return view('user.dashboard');
     }

@@ -1,6 +1,7 @@
 @extends('layouts.user.template')
 
 @section('body')
+
 <main>
     <!--slider-area start-->
     <section class="slider-area pt-180 pt-xs-150 pt-150 pb-xs-35">
@@ -193,157 +194,41 @@
                  <div class="col-xl-12 text-center">
                      <div class="portfolio-menu mb-30">
                          <button class="gf_btn active" data-filter='*'>All</button>
-                         <button class="gf_btn" data-filter='.cat1'>Career</button>
-                         <button class="gf_btn" data-filter='.cat2'>Development</button>
-                         <button class="gf_btn" data-filter='.cat3'>Business</button>
-                         <button class="gf_btn" data-filter='.cat4'>science</button>
-                         <button class="gf_btn" data-filter='.cat5'>Design</button>
+                         @foreach ($categories as $item)
+                            <button class="gf_btn" data-filter='.{{ $item->id }}'>{{ $item->category_name }}</button>
+                         @endforeach
                      </div>
                  </div>
              </div>
              <div class="grid row">
-                 <div class="col-lg-4 col-md-6 grid-item cat2 cat3">
-                     <div class="z-gallery mb-30">
-                         <div class="z-gallery__thumb mb-20">
-                             <a href="course-details.html"><img class="img-fluid" src="{{ url('user/img/course/01.png') }}" alt=""></a>
-                             <div class="feedback-tag">4.8(256)</div>
-                             <div class="heart-icon"><i class="fas fa-heart"></i></div>
-                         </div>
-                         <div class="z-gallery__content">
-                             <div class="course__tag mb-15">
-                                 <span>Science</span>
-                                 <span>Lab</span>
-                                 <a class="f-right" href="instructor-details.html"><img src="{{ url('user/img/course/in1.png') }}" alt=""></a>
-                             </div>
-                             <h4 class="sub-title mb-20"><a href="course-details.html">Take Your Career to the Next Level Future</a></h4>
-                             <div class="course__meta">
-                                 <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> 12 Class</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> Higher</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> 6395+</span>
-                                 <span>$260</span>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6 grid-item cat1 cat3 cat4">
-                    <div class="z-gallery mb-30">
-                         <div class="z-gallery__thumb mb-20">
-                             <a href="course-details.html"><img class="img-fluid" src="{{ url('user/img/course/02.png') }}" alt=""></a>
-                             <div class="feedback-tag">4.8(256)</div>
-                             <div class="heart-icon"><i class="fas fa-heart"></i></div>
-                         </div>
-                         <div class="z-gallery__content">
-                             <div class="course__tag mb-15">
-                                 <span>Science</span>
-                                 <span>Lab</span>
-                                 <a class="f-right" href="instructor-details.html"><img src="{{ url('user/img/course/in2.png') }}" alt=""></a>
-                             </div>
-                             <h4 class="sub-title mb-20"><a href="course-details.html">Your Career to build for the pro level</a></h4>
-                             <div class="course__meta">
-                                 <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> 12 Class</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> Higher</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> 6395+</span>
-                                 <span>$260</span>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6 grid-item cat2 cat1 cat5">
-                     <div class="z-gallery mb-30">
-                         <div class="z-gallery__thumb mb-20">
-                             <a href="course-details.html"><img class="img-fluid" src="{{ url('user/img/course/03.png') }}" alt=""></a>
-                             <div class="feedback-tag">4.8(256)</div>
-                             <div class="heart-icon"><i class="fas fa-heart"></i></div>
-                         </div>
-                         <div class="z-gallery__content">
-                             <div class="course__tag mb-15">
-                                 <span>Science</span>
-                                 <span>Lab</span>
-                                 <a class="f-right" href="instructor-details.html"><img src="{{ url('user/img/course/in3.png') }}" alt=""></a>
-                             </div>
-                             <h4 class="sub-title mb-20"><a href="course-details.html">Take A Course For You Biright Future</a></h4>
-                             <div class="course__meta">
-                                 <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> 12 Class</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> Higher</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> 6395+</span>
-                                 <span>$260</span>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6 grid-item cat2 cat3">
-                     <div class="z-gallery mb-30">
-                         <div class="z-gallery__thumb mb-20">
-                             <a href="course-details.html"><img class="img-fluid" src="{{ url('user/img/course/04.png') }}" alt=""></a>
-                             <div class="feedback-tag">4.8(256)</div>
-                             <div class="heart-icon"><i class="fas fa-heart"></i></div>
-                         </div>
-                         <div class="z-gallery__content">
-                             <div class="course__tag mb-15">
-                                 <span>Science</span>
-                                 <span>Lab</span>
-                                 <a class="f-right" href="instructor-details.html"><img src="{{ url('user/img/course/in4.png') }}" alt=""></a>
-                             </div>
-                             <h4 class="sub-title mb-20"><a href="course-details.html">Take Your Career to the Next Level Future</a></h4>
-                             <div class="course__meta">
-                                 <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> 12 Class</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> Higher</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> 6395+</span>
-                                 <span>$260</span>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6 grid-item cat5 cat4">
-                     <div class="z-gallery mb-30">
-                         <div class="z-gallery__thumb mb-20">
-                             <a href="course-details.html"><img class="img-fluid" src="{{ url('user/img/course/05.png') }}" alt=""></a>
-                             <div class="feedback-tag">4.8(256)</div>
-                             <div class="heart-icon"><i class="fas fa-heart"></i></div>
-                         </div>
-                         <div class="z-gallery__content">
-                             <div class="course__tag mb-15">
-                                 <span>Science</span>
-                                 <span>Lab</span>
-                                 <a class="f-right" href="instructor-details.html"><img src="{{ url('user/img/course/in5.png') }}" alt=""></a>
-                             </div>
-                             <h4 class="sub-title mb-20"><a href="course-details.html">Your Career to build for the pro level</a></h4>
-                             <div class="course__meta">
-                                 <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> 12 Class</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> Higher</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> 6395+</span>
-                                 <span>$260</span>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6 grid-item cat3 cat1">
-                     <div class="z-gallery mb-30">
-                         <div class="z-gallery__thumb mb-20">
-                             <a href="course-details.html"><img class="img-fluid" src="{{ url('user/img/course/06.png') }}" alt=""></a>
-                             <div class="feedback-tag">4.8(256)</div>
-                             <div class="heart-icon"><i class="fas fa-heart"></i></div>
-                         </div>
-                         <div class="z-gallery__content">
-                             <div class="course__tag mb-15">
-                                 <span>Science</span>
-                                 <span>Lab</span>
-                                 <a class="f-right" href="instructor-details.html"><img src="{{ url('user/img/course/in6.png') }}" alt=""></a>
-                             </div>
-                             <h4 class="sub-title mb-20"><a href="course-details.html">Take A Course For You Biright Future</a></h4>
-                             <div class="course__meta">
-                                 <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> 12 Class</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> Higher</span>
-                                 <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> 6395+</span>
-                                 <span>$260</span>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+                @foreach ($courses as $item)
+                    <div class="col-lg-4 col-md-6 grid-item {{ $item->category_id }}">
+                        <div class="z-gallery mb-30">
+                            <div class="z-gallery__thumb mb-20">
+                                <a href="course-details.html"><img class="img-fluid" src="{{ $item->course_picture }}" alt="{{ $item->course_name }}"></a>
+                                <div class="feedback-tag">{{ $item->category->category_name }}</div>
+                                <div class="heart-icon"><i class="fas fa-heart"></i></div>
+                            </div>
+                            <div class="z-gallery__content">
+                                <div class="course__tag mb-15">
+                                    <span class="text-dark"><strong>Rp. {{ number_format($item->price, 0) }}</strong></span>
+                                    {{-- <a class="f-right" href="instructor-details.html"><img src="{{ url('user/img/course/in1.png') }}" alt=""></a> --}}
+                                </div>
+                                <h4 class="sub-title mb-20"><a href="{{ url('course/'.$item->id) }}">{{ $item->course_name }}</a></h4>
+
+                                <div class="course__meta">
+                                    <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> {{ count($item->courselist) }} Class</span>
+                                    <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> All Levels</span>
+                                    <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> {{ $item->view }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 @endforeach
              </div>
              <div class="row">
                   <div class="col-lg-12 mt-20 text-center mb-20 wow fadeInUp2 animated" data-wow-delay='.3s'>
-                     <a href="courses.html" class="theme_btn">All Categories</a>
+                     <a href="{{ url('courses') }}" class="theme_btn">All Courses</a>
                  </div>
              </div>
          </div>
@@ -360,11 +245,12 @@
                              <div class="chose-img-wrapper mb-50 pos-rel">
                                  <div class="coures-member">
                                      <h5>Total Students</h5>
+                                     {{-- Belum --}}
                                      <img class="choses chose_01" src="{{ url('user/img/chose/01.png') }}" alt="Chose-img">
                                      <img class="choses chose_02" src="{{ url('user/img/chose/02.png') }}" alt="Chose-img">
                                      <img class="choses chose_03" src="{{ url('user/img/chose/03.png') }}" alt="Chose-img">
                                      <img class="choses chose_04" src="{{ url('user/img/chose/04.png') }}" alt="Chose-img">
-                                     <span>25k+</span>
+                                     <span>{{ count($students) }}+</span>
                                  </div>
                                  <div class="feature tag_01"><span><img src="{{ url('user/img/icon/shield-check.svg') }}" alt=""></span> Safe & Secured</div>
                                  <div class="feature tag_02"><span><img src="{{ url('user/img/icon/catalog.svg') }}" alt=""></span> 120+ Catalog</div>

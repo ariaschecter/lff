@@ -22,7 +22,7 @@ class CourseFactory extends Factory
             'category_id' => fake()->numberBetween(1,2),
             'desc' => fake()->paragraph(),
             'price' => fake()->randomNumber(6, true),
-            'view' => fake()->randomNumber(5, true),
+            'view' => fake()->randomNumber(4, true),
         ];
     }
 }
