@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
@@ -24,11 +25,20 @@ use App\Http\Controllers\SendEmailController;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('welcome',[
-        'active' => 'dashboard',
-        'title' => 'Dashboard',
-    ]);
+Route::get('/', function(){
+    return view('dashboard');
+});
+
+Route::middleware('auth')->get('/dashboard', function () {
+    $role = Auth::user()->role_id;
+
+    switch($role){
+        case 1: return view('admin.dashboard', [
+            'title' => 'Dashboard',
+            'active' => 'dashboard'
+        ]);
+        case 2: return view('user.dashboard');
+    }
 });
 
 Route::get('/verify', function(){
