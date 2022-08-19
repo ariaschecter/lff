@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\DB;
 class AuthController extends Controller
 {
     public function index(){
-        return view('auth.login');
+        return view('auth.login', [
+            'title' => 'Login Page',
+        ]);
     }
 
     public function authenticate(Request $request){
@@ -30,7 +32,7 @@ class AuthController extends Controller
                 Alert::warning('Warning', 'Please Confirmation your Email');
                 return back();
             }
-            
+
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');
@@ -42,7 +44,9 @@ class AuthController extends Controller
     }
 
     public function create(){
-        return view('auth.register');
+        return view('auth.register',[
+            'title' => 'Register Page',
+        ]);
     }
 
     public function store(Request $request){
@@ -117,7 +121,9 @@ class AuthController extends Controller
     }
 
     public function forgotpassword(){
-        return view('auth.forgotpassword');
+        return view('auth.forgotpassword', [
+            'title' => 'Forgot Password',
+        ]);
     }
 
     public function forgot(Request $request){
@@ -147,6 +153,7 @@ class AuthController extends Controller
 
         if($data){
             return view('auth.reset',[
+                'title' => 'Reset Password',
                 'email' => $email,
             ]);
         } else {

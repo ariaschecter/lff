@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(50)->create();
         Course::factory(15)->create();
-        CourseList::factory(10)->create();
+        CourseList::factory(20)->create();
         CourseAccess::factory(30)->create();
         Order::factory(30)->create();
         Payment::factory(5)->create();

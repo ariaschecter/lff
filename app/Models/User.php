@@ -44,6 +44,7 @@ class User extends Authenticatable
         Mail::to($email)->send(new EmailConfirmation($mail));
         Alert::info('Info', 'Check your Inbox Mail to verify your Email Address');
         return view('auth.success', [
+            'title' => 'Register Success',
             'email' => $email,
         ]);
     }

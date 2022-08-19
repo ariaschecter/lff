@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
@@ -14,10 +15,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SendEmailController;
 
-use App\Models\Course;
-use App\Models\User;
-use App\Models\Category;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,31 +26,15 @@ use App\Models\Category;
 |
 */
 
-Route::get('/', function(){
-    $categories = Category::all();
-    $popularCourse = Course::with(['courselist', 'category'])->orderBy('view', 'DESC')->take(6)->get();
-    // dd($popularCourse);
-    return view('home.dashboard', [
-        'categories' => $categories,
-        'courses' => $popularCourse,
-        'students' => User::where('role_id', 2)->get(),
-    ]);
-});
-
-Route::middleware('auth')->get('/dashboard', function () {
-    $role = Auth::user()->role_id;
-
-    switch($role){
-        case 1: return view('admin.dashboard', [
-            'title' => 'Dashboard',
-            'active' => 'dashboard',
-        ]);
-        case 2: return view('user.dashboard');
-    }
-});
-
-Route::get('/verify', function(){
-    dd($_REQUEST['email']);
+Route::prefix('/')->group(function(){
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/', 'index')->name('home');
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
+        Route::get('/courses', 'courses');
+        Route::get('/course/{course}', 'course');
+        Route::get('/categories', 'categories');
+        Route::get('/category/{category}', 'category');
+    });
 });
 
 Route::middleware('isAdmin')->prefix('admin')->group(function () {
@@ -135,18 +116,9 @@ Route::middleware('isAdmin')->prefix('admin')->group(function () {
     });
 });
 
-Route::prefix('user')->group(function () {
-    Route::controller(AuthController::class)->group(function () {
-        Route::get('/', 'index');
-        Route::post('/', 'cekAuth');
-        Route::get('/register', 'create');
-        Route::post('/register', 'store');
-    });
-});
-
 Route::prefix('auth')->group(function () {
     Route::controller(AuthController::class)->group(function () {
-        Route::get('/', 'index'); // guest
+        Route::get('/', 'index')->name('login'); // guest
         Route::post('/', 'authenticate');
         Route::get('/register', 'create'); // guest
         Route::post('/register', 'store');
