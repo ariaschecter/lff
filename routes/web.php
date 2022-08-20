@@ -36,7 +36,7 @@ Route::prefix('/')->group(function(){
     });
 });
 
-Route::middleware('isAdmin')->prefix('admin')->group(function () {
+Route::middleware('auth','isAdmin')->prefix('admin')->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('/user', 'index');
         // Route::post('/user', 'store');
@@ -133,3 +133,5 @@ Route::prefix('auth')->group(function () {
 Route::controller(AuthController::class)->group(function () {
     Route::post('/resend-email', 'resend'); // guest
 });
+
+

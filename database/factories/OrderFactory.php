@@ -21,6 +21,7 @@ class OrderFactory extends Factory
             'order_ref' => strtoupper(Str::random(14)),
             'user_id' => fake()->numberBetween(1,10),
             'course_id' => fake()->numberBetween(1,5),
+            'price' => fake()->randomNumber(5,true),
             'order_status' => fake()->numberBetween(0,1),
         ];
     }

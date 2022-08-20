@@ -37,6 +37,7 @@ class CourseAccessController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
         $validated = $request->validate([
             'user_id' => 'required',
             'course_id' => 'required',

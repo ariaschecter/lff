@@ -14,7 +14,7 @@ class CourseAccess extends Model
     public static function getAll(){
         return self::join('users','course_accesses.user_id','=','users.id')
         ->join('courses','course_accesses.course_id','=','courses.id')
-        ->orderBy('course_accesses.created_at', 'asc')
+        ->orderBy('course_accesses.course_id', 'asc')
         ->paginate(10);
     }
 
@@ -23,7 +23,7 @@ class CourseAccess extends Model
         ->join('courses','course_accesses.course_id','=','courses.id')
         ->orWhere('users.name', 'LIKE', "%{$search}%")
         ->orWhere('courses.course_name', 'LIKE', "%{$search}%")
-        ->orderBy('course_accesses.created_at', 'asc')
+        ->orderBy('course_accesses.course_id', 'asc')
         ->paginate(10);
     }
 

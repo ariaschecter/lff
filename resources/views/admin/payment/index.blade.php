@@ -39,7 +39,7 @@
                             @endphp
                                 <tr class="{{ $table }}">
                                     <th>{{ $i++ }}</th>
-                                    <td>{{ $item->payment_ref }}</td>
+                                    <td>#{{ $item->payment_ref }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->course_name }}</td>

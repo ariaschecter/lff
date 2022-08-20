@@ -57,4 +57,11 @@
         </div>
     </div>
 </div>
+<script>
+    var category_id = document.querySelector('#category_id');
+
+    dselect(category_id, {
+        search: true
+    });
+</script>
 @endsection
