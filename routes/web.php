@@ -31,8 +31,8 @@ Route::prefix('/')->group(function(){
         Route::get('/dashboard', 'dashboard')->name('dashboard');
         Route::get('/courses', 'courses');
         Route::get('/course/{course}', 'course');
-        Route::get('/categories', 'categories');
-        Route::get('/category/{category}', 'category');
+        Route::get('/categories', 'categories'); // belum
+        Route::get('/category/{category}', 'category'); // belum
     });
 });
 
