@@ -2,7 +2,7 @@
 
 @section('body')
 @php
-    $tahun = 2020;
+    $tahun = 2021;
     $prodi = 10370311;
 @endphp
 <div class="row col-lg-12">

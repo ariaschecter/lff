@@ -22,7 +22,7 @@ class PaymentFactory extends Factory
             'payment_method_id' => fake()->numberBetween(1,2),
             'payment_ref' => strtoupper(Str::random(10)),
             'payment_picture' => 'https://picsum.photos/300?random='.fake()->randomNumber(3, false),
-            'payment_status' => fake()->numberBetween(0,1),
+            'payment_status' => fake()->numberBetween(0,2),
         ];
     }
 }

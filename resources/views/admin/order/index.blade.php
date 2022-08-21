@@ -29,9 +29,6 @@
                         <tbody>
                             @php $i = 1; @endphp
                             @foreach ($data as $item)
-                            @php
-                                // dd($item);
-                            @endphp
                                 <tr class="{{ $item->order_status == 1?'table-success':'' }}">
                                     <th>{{ $i++ }}</th>
                                     <td>#{{ $item->order_ref }}</td>
@@ -46,9 +43,6 @@
                                         <a href="{{ url('admin/'.$active.'/delete/'.$item->order_ref) }}" class="btn btn-danger show_confirm">Delete</a>
                                     </td>
                                 </tr>
-                                @php
-                                    // endif;
-                                @endphp
                             @endforeach
                         </tbody>
                     </table>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
@@ -26,6 +27,12 @@ use App\Http\Controllers\SendEmailController;
 */
 
 Route::prefix('/')->group(function(){
+    Route::get('abc', function(){
+        return view('abc', [
+            'title' => 'abc',
+            'active' => 'abc',
+        ]);
+    });
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'index')->name('home');
         Route::get('/dashboard', 'dashboard')->name('dashboard');
@@ -33,6 +40,13 @@ Route::prefix('/')->group(function(){
         Route::get('/course/{course}', 'course');
         Route::get('/categories', 'categories'); // belum
         Route::get('/category/{category}', 'category'); // belum
+    });
+
+    Route::controller(PersonController::class)->group(function () {
+        Route::get('/progres', 'progres');
+        Route::get('/course', 'course');
+        Route::get('/order', 'order');
+        Route::get('/payment', 'payment');
     });
 });
 

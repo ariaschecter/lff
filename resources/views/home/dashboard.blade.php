@@ -210,16 +210,15 @@
                                 <div class="heart-icon"><i class="fas fa-heart"></i></div>
                             </div>
                             <div class="z-gallery__content">
-                                <div class="course__tag mb-15">
-                                    <span class="text-dark"><strong>Rp. {{ number_format($item->price, 0) }}</strong></span>
-                                    {{-- <a class="f-right" href="instructor-details.html"><img src="{{ url('user/img/course/in1.png') }}" alt=""></a> --}}
-                                </div>
+                             <div class="price-list">
+                                 <h5><span class="text-danger">Rp. {{ number_format($item->price_old, 0) }}</span> <b class="sub-title">Rp. {{ number_format($item->price_new, 0) }}</b></h5>
+                             </div>
                                 <h4 class="sub-title mb-20"><a href="{{ url('course/'.$item->id) }}">{{ $item->course_name }}</a></h4>
 
                                 <div class="course__meta">
                                     <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> {{ count($item->courselist) }} Class</span>
                                     <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> All Levels</span>
-                                    <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> {{ $item->view }}</span>
+                                    <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> {{ $item->enroll }}</span>
                                 </div>
                             </div>
                         </div>
