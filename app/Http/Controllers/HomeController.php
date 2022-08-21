@@ -21,7 +21,7 @@ class HomeController extends Controller
 
     public function index(){
         $categories = Category::all();
-        $popularCourse = Course::with(['courselist', 'category'])->orderBy('view', 'DESC')->take(6)->get();
+        $popularCourse = Course::with(['courselist', 'category'])->orderBy('enroll', 'DESC')->take(6)->get();
         // dd($popularCourse);
         return view('home.dashboard', [
             'title' => 'Home',
@@ -39,7 +39,7 @@ class HomeController extends Controller
                 'title' => 'Dashboard',
                 'active' => 'dashboard',
             ]);
-            case 2: return view('user.dashboard',[
+            case 2: return view('person.dashboard',[
                 'title' => 'Dashboard',
             ]);
         }
@@ -87,7 +87,10 @@ class HomeController extends Controller
     }
 
     public function categories(){
-
+        return view('home.categories', [
+            'title' => 'All Categories',
+            'categories' => Category::all(),
+        ]);
     }
 
     public function category(){

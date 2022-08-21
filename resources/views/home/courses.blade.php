@@ -1,7 +1,10 @@
 @extends('layouts.user.template')
 
 @section('body')
-    <div class="container">
+
+
+    <section class="feature-course pt-150 pb-130 pt-md-95 pb-md-80 pt-xs-95 pb-xs-80">
+        <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-8">
                 <div class="subscribe-wrapper text-center mb-30">
@@ -14,9 +17,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <section class="feature-course pt-150 pb-130 pt-md-95 pb-md-80 pt-xs-95 pb-xs-80">
+         </div>
         <div class="container">
             <div class="row">
                <div class="col-xl-12">
@@ -54,7 +55,7 @@
                                <div class="course__meta">
                                    <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> {{ count($item->courselist) }} Class</span>
                                    <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> All Levels</span>
-                                   <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> {{ $item->view }}</span>
+                                   <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> {{ $item->enroll }}</span>
                                </div>
                            </div>
                        </div>

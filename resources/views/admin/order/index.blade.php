@@ -22,21 +22,20 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Course Name</th>
+                                    <th>Price</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                         <tbody>
                             @php $i = 1; @endphp
                             @foreach ($data as $item)
-                            @php
-                                // dd($item);
-                            @endphp
                                 <tr class="{{ $item->order_status == 1?'table-success':'' }}">
                                     <th>{{ $i++ }}</th>
-                                    <td>{{ $item->order_ref }}</td>
+                                    <td>#{{ $item->order_ref }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->course_name }}</td>
+                                    <td>Rp. {{ number_format($item->price, 0) }}</td>
                                     <td>
                                         @if ($item->order_status == 0)
                                         <a href="{{ url('admin/'.$active.'/accept/'.$item->order_ref) }}" class="btn btn-success">Accept</a>
@@ -44,9 +43,6 @@
                                         <a href="{{ url('admin/'.$active.'/delete/'.$item->order_ref) }}" class="btn btn-danger show_confirm">Delete</a>
                                     </td>
                                 </tr>
-                                @php
-                                    // endif;
-                                @endphp
                             @endforeach
                         </tbody>
                     </table>

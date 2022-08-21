@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('order_ref')->unique();
             $table->foreignId('user_id');
             $table->foreignId('course_id');
+            $table->integer('price');
             $table->integer('order_status');
             $table->timestamps();
         });

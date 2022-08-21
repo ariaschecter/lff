@@ -40,10 +40,12 @@ License: For each use you must have a valid license purchased only from above li
 
   <!-- Layout styles -->
 	<link rel="stylesheet" href="{{ url('assets/css/demo1/style.css') }}">
-    
+
   <!-- End layout styles -->
 
   <link rel="shortcut icon" href="{{ url('assets/images/favicon.png') }}" />
+
+    <script src="{{ url('assets/js/dselect.js') }}"></script>
 </head>
 <body>
 	<div class="main-wrapper">

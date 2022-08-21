@@ -36,11 +36,26 @@
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <button class="btn btn-primary m-1 text-white">Add Course Access</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    var course_id = document.querySelector('#course_id');
+
+dselect(course_id, {
+    search: true
+});
+
+var user_id = document.querySelector('#user_id');
+
+dselect(user_id, {
+    search: true
+});
+
+</script>
 @endsection

@@ -45,4 +45,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    var role_id = document.querySelector('#role_id');
+
+    dselect(role_id, {
+        search: true
+    });
+</script>
 @endsection

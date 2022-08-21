@@ -31,7 +31,9 @@
 <!-- Custom js for this page -->
 <script src="{{ url('assets/js/dashboard-light.js') }}"></script>
 <script src="{{ url('assets/js/datepicker.js') }}"></script>
+
 <script>
+
   // Script confirmation button
 </script>
 <!-- End custom js for this page -->

@@ -26,17 +26,32 @@
                     </div>
                     <div class="mb-1">
                         <label for="user_id" class="form-label">User</label>
-                        <select class="form-select" id="user_id" name="user_id">
+                        <select class="form-select" id="user_id" name="user_id" placeholder="Email ..">
                             @foreach ($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                <option value="{{ $user->id }}">{{ $user->email }}</option>
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <button class="btn btn-primary m-1 text-white">Add Course Access</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    var course_id = document.querySelector('#course_id');
+
+dselect(course_id, {
+    search: true
+});
+
+var user_id = document.querySelector('#user_id');
+
+dselect(user_id, {
+    search: true
+});
+
+</script>
 @endsection
