@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Course;
 use App\Models\Payment;
 use App\Models\CourseAccess;
 use Alert;
@@ -41,6 +42,7 @@ class OrderController extends Controller
 
         CourseAccess::insert($data);
         Order::where('order_ref', $order_ref)->update(['order_status' => 1]);
+        Course::newEnroll($order->course_id);
         Alert::success('Congrats', 'You\'ve Accept a Order!');
         return redirect('admin/order');
     }

@@ -37,7 +37,6 @@ class CourseAccessController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         $validated = $request->validate([
             'user_id' => 'required',
             'course_id' => 'required',
@@ -49,9 +48,10 @@ class CourseAccessController extends Controller
             return back();
         } else {
             CourseAccess::insert($validated);
+            Course::newEnroll($request->course_id);
             Alert::success('Congrats', 'You\'ve Add New Course Access!');
+            return redirect('admin/course_access');
         }
-        return redirect('admin/course_access');
     }
 
     public function edit($id)

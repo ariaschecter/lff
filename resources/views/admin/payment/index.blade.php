@@ -29,12 +29,10 @@
                             @php $i = 1; @endphp
                             @foreach ($data as $item)
                             @php
-                                if($item->payment_status == 1){
-                                    $table = 'table-warning';
-                                } else if($item->payment_status == 0){
-                                    $table = '';
-                                } else if($item->payment_status == 2){
-                                    $table = 'table-success';
+                                switch ($item->payment_status) {
+                                    case 0: $table = ''; break;
+                                    case 0: $table = 'table-warning'; break;
+                                    case 0: $table = 'table-success'; break;
                                 }
                             @endphp
                                 <tr class="{{ $table }}">

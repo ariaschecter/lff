@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ url('user/css/slick.css') }}">
     <link rel="stylesheet" href="{{ url('user/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ url('user/css/main.css') }}">
+    <script src="{{ url('assets/js/dselect.js') }}"></script>
 </head>
 
 <body>
@@ -42,3 +43,6 @@
         </div>
     </div>
     <!-- preloader end  -->
+
+
+    @include('sweetalert::alert')

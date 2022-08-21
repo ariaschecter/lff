@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('course_id');
             $table->integer('price');
-            $table->integer('order_status');
+            $table->integer('order_status')->default(0);
             $table->timestamps();
         });
     }

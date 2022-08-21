@@ -46,7 +46,10 @@ Route::prefix('/')->group(function(){
         Route::get('/progres', 'progres');
         Route::get('/course', 'course');
         Route::get('/order', 'order');
+        Route::get('/course/order/{course}', 'storeOrder');
         Route::get('/payment', 'payment');
+        Route::get('/payment/add', 'addPayment');
+        Route::post('/payment/add', 'storePayment');
     });
 });
 

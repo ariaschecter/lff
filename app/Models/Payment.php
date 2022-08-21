@@ -15,6 +15,10 @@ class Payment extends Model
         return $this->belongsTo(Order::class, 'order_id');
     }
 
+    public function paymentmethod(){
+        return $this->belongsTo(PaymentMethod::class, 'payment_method_id');
+    }
+
     public static function getAll(){
         return self::join('orders','payments.order_id','=','orders.id')
         ->join('payment_methods','payments.payment_method_id','=','payment_methods.id')

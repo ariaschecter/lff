@@ -18,4 +18,8 @@ class Course extends Model
     public function courselist(){
         return $this->hasMany(CourseList::class, 'course_id');
     }
+
+    public static function newEnroll($id){
+        return Course::where('id', $id)->increment('enroll');
+    }
 }

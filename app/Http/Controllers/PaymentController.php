@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use App\Models\Order;
+use App\Models\Course;
 use App\Models\CourseAccess;
 use Alert;
 
@@ -51,6 +52,7 @@ class PaymentController extends Controller
         ];
 
         CourseAccess::insert($data);
+        Course::newEnroll($order->course_id);
         Payment::where('payment_ref', $payment_ref)->update(['payment_status' => 2]);
         Alert::success('Congrats', 'You\'ve Accept a Payment!');
         return redirect('admin/payment');

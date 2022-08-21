@@ -53,7 +53,7 @@ class AuthController extends Controller
         $email = $request->email;
         $validated = $request->validate([
             'name' => 'required',
-            'image' => 'image|file|max:1024',
+            'user_picture' => 'image|file|max:1024',
             'email' => 'required|unique:users,email',
             'password' => 'required',
             'password1' => 'required|same:password',

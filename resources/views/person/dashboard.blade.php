@@ -1,7 +1,9 @@
 @extends('layouts.user.person')
 
 @section('body')
-
+@php
+    $h1 = '<h1>asdnasnd</h1>';
+@endphp
     <div class="courses-details-wrapper mb-30">
         <h2 class="courses-title mb-30">{{ $course->course_name }}</h2>
         {{-- <h5>Photography Specialist By Jason Momoa</h5> --}}
