@@ -13,7 +13,7 @@
             <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Pay a Course</h5>
 
             <div class="form-outline mb-4">
-                <label for="order_id" class="select-label mt-2 ms-2">Order</label>
+                <label for="order_id" class="select-label mt-2 ms-3">Order</label>
                 <select class="nice-select" id="order_id" name="order_id">
                     @foreach ($orders as $order)
                         <option class="form-control" value="{{ $order->id }}">
@@ -29,16 +29,16 @@
             </div> --}}
 
             <div class="form-outline mb-4">
+                <label for="payment_method_id" class="select-label mt-2 ms-3">Payment Method</label>
                 <select class="nice-select" id="payment_method_id" name="payment_method_id">
                     @foreach ($paymentmethod as $method)
                         <option class="form-control" value="{{ $method->id }}">{{ $method->payment_method.' - '. $method->rekening.' - '.$method->payment_name }}</option>
                     @endforeach
                 </select>
-                <label for="payment_method_id" class="select-label mt-2 ms-2">Payment Method</label>
             </div>
 
             <div class="form-outline mb-4">
-                <label for="payment_picture" class="form-label">Payment Picture</label>
+                <label for="payment_picture" class="form-label mb-3">Payment Picture</label>
                 <input type="file" class="form-control @error('payment_picture') is-invalid @enderror" id="payment_picture" name="payment_picture">
             </div>
 
