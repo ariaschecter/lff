@@ -13,8 +13,8 @@
             <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Pay a Course</h5>
 
             <div class="form-outline mb-4">
-                <label for="order_id" class="form-label">Order</label>
-                <select class="form-select" id="order_id" name="order_id">
+                <label for="order_id" class="select-label mt-2 ms-2">Order</label>
+                <select class="nice-select" id="order_id" name="order_id">
                     @foreach ($orders as $order)
                         <option class="form-control" value="{{ $order->id }}">
                             #{{ $order->order_ref.' - '. $order->course->course_name.' - Rp. '. number_format($order->price, 0) }}
@@ -29,12 +29,12 @@
             </div> --}}
 
             <div class="form-outline mb-4">
-                <label for="payment_method_id" class="form-label">Payment Method</label>
-                <select class="form-select" id="payment_method_id" name="payment_method_id">
+                <select class="nice-select" id="payment_method_id" name="payment_method_id">
                     @foreach ($paymentmethod as $method)
                         <option class="form-control" value="{{ $method->id }}">{{ $method->payment_method.' - '. $method->rekening.' - '.$method->payment_name }}</option>
                     @endforeach
                 </select>
+                <label for="payment_method_id" class="select-label mt-2 ms-2">Payment Method</label>
             </div>
 
             <div class="form-outline mb-4">
