@@ -1,15 +1,15 @@
 @include('layouts.user.header')
-@include('layouts.user.topbar')
 
-<div class="overflow-hidden p-2">
-    @include('layouts.user.sidebarsettings')
+@include('layouts.user.sidebarsettings')
+    <div id="content" class="p-4 p-md-5">
 
-        <div class="col-xxl-8 col-xl-7">
-                @yield('body')
-        </div>
+        @include('layouts.user.topbar')
+
+        @yield('body')
 
     </div>
 </div>
+
 
 
 <!-- JS here -->
@@ -33,6 +33,7 @@
 <script src="{{ url('user/js/jquery.easypiechart.js') }}"></script>
 <script src="{{ url('user/js/plugins.js') }}"></script>
 <script src="{{ url('user/js/main.js') }}"></script>
+<script src="{{ url('user/js/popper.js') }}"></script>
 </body>
 
 </html>

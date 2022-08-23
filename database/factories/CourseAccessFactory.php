@@ -18,8 +18,8 @@ class CourseAccessFactory extends Factory
     {
         return [
             'course_id' => fake()->numberBetween(1,15),
-            'user_id' => fake()->numberBetween(1,50),
-            'last_access' => 0,
+            'user_id' => fake()->numberBetween(1,5),
+            'last_access' => fake()->numberBetween(1,5),
         ];
     }
 }

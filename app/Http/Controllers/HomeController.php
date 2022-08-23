@@ -44,9 +44,6 @@ class HomeController extends Controller
             ]);
             case 2: return view('person.dashboard',[
                 'title' => 'Dashboard',
-                'course' => $course,
-            'lists' => $lists,
-            'time' => $time,
             ]);
         }
     }

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(50)->create();
+
         Course::factory(15)->create();
         CourseList::factory(20)->create();
         CourseAccess::factory(30)->create();
@@ -42,8 +42,16 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$10$YYvY2j6E.h53BMlYtxBI7e6tiwxMriOhq8Un1PtEKdDzWuOzwzVMW',
             'role_id' => '1',
             'active' => '1',
-
         ]);
+        User::factory()->create([
+            'name' => 'Aria Maulana',
+            'email' => 'user',
+            'password' => '$2y$10$UV83EkAa7s.RyDm0tncUf..cOEzLBK4i2s8niLs03yRxFGVCHiw4q',
+            'role_id' => '2',
+            'active' => '1',
+        ]);
+        User::factory(30)->create();
+
         PaymentMethod::factory()->create([
             'payment_method' => 'BRI',
             'payment_name' => 'Aria Maulana Eka Mahendra',
