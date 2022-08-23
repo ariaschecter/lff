@@ -43,8 +43,10 @@ Route::prefix('/')->group(function(){
     });
 
     Route::controller(PersonController::class)->group(function () {
-        Route::get('/progres', 'progres');
+        Route::get('/progress', 'progress');
         Route::get('/course', 'course');
+        Route::get('/course/access/{course}', 'getLast');
+        Route::get('/course/access/{course}/{courselist}', 'access');
         Route::get('/order', 'order');
         Route::get('/course/order/{course}', 'storeOrder');
         Route::get('/payment', 'payment');

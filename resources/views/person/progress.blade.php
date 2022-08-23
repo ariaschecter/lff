@@ -6,8 +6,8 @@
         <div class="row">
            <div class="col-xl-12">
                 <div class="section-title text-center mb-50">
-                    <h5 class="bottom-line mb-25">My Course</h5>
-                    <h2>Explore our Courses</h2>
+                    <h5 class="bottom-line mb-25">My Progress</h5>
+                    <h2>All Progress</h2>
                 </div>
             </div>
         </div>
@@ -32,14 +32,13 @@
                        </div>
                        <div class="z-gallery__content">
                            <h4 class="sub-title mb-20"><a href="{{ url('course/access/'.$item->course->id) }}">{{ $item->course->course_name }}</a></h4>
-
-                           <div class="course__meta">
-                               <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> {{ count($item->course->courselist) }} Class</span>
-                               <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> All Levels</span>
-                               <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> {{ $item->course->enroll }}</span>
+                           <div class="progress">
+                               <div class="progress-bar" role="progressbar" style="width: 25%;"
+                                   aria-valuenow="{{ $item->last_access }}" aria-valuemin="0" aria-valuemax="{{ count($item->course->courselist) }}">{{ $item->last_access*100 / count($item->course->courselist) }}%
+                               </div>
                            </div>
-                       </div>
-                   </div>
+                        </div>
+                    </div>
                </div>
             @endforeach
         </div>

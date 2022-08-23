@@ -11,6 +11,8 @@ class CourseAccess extends Model
 
     protected $guarded = ['id'];
 
+    
+
     public static function getAll(){
         return self::join('users','course_accesses.user_id','=','users.id')
         ->join('courses','course_accesses.course_id','=','courses.id')

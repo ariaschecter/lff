@@ -18,6 +18,7 @@ class CourseListFactory extends Factory
     public function definition()
     {
         return [
+            'id' => fake()->randomNumber(4, true),
             'no' => fake()->numberBetween(1,10),
             'course_id' => 1,
             'list_name' => fake()->name(),

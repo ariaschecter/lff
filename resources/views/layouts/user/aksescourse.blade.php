@@ -1,13 +1,10 @@
+
 @include('layouts.user.header')
+@include('layouts.user.topbar')
 
-@include('layouts.user.sidebarsettings')
-    <div id="content" class="p-4 p-md-5">
-        
-        @include('layouts.user.topbar')
-
-        @yield('body')
-
-    </div>
+@include('layouts.user.sidebarcourse')
+<div class="col-xxl-8 col-xl-7">
+    @yield('body')
 </div>
 
 

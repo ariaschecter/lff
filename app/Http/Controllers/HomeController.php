@@ -33,10 +33,6 @@ class HomeController extends Controller
     public function dashboard(){
         $role = Auth::user()->role_id;
 
-        $course = Course::where('id', 1)->first();
-        $lists = CourseList::where('course_id', 1)->orderBy('no', 'ASC')->get();
-        $time = round(CourseList::where('course_id', 1)->sum('time')/60, 2);
-
         switch($role){
             case 1: return view('admin.dashboard', [
                 'title' => 'Dashboard',

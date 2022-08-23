@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
 use App\Models\Course;
+use App\Models\CourseList;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Payment;
@@ -22,8 +23,17 @@ class PersonController extends Controller
         // $this->middleware('auth', ['only'/'except' => ['confirmPage', 'confirmOrder', 'invoice']]);
     }
 
-    public function progres(){
-        
+    public function progress(){
+        $id = Auth::user()->id;
+
+        $courses = CourseAccess::with('course')->where('user_id', $id)->get();
+        $categories = Category::all();
+
+        return view('person.progress', [
+            'title' => 'My Progress',
+            'categories' => $categories,
+            'courses' => $courses,
+        ]);
     }
 
     public function course(){
@@ -122,6 +132,50 @@ class PersonController extends Controller
         Alert::success('Success', 'Kamu telah melakukan pembayaran');
         return redirect('payment');
 
+    }
+
+    public function getLast(Course $course){
+        if(!$course) return redirect('progress');
+        $akses = CourseAccess::where('user_id', Auth::id())
+                    ->where('course_id', $course->id)->first();
+
+        if($akses){
+            $last = CourseList::where('course_id', $course->id)
+                ->where('no', $akses->last_access)->first();
+
+                return redirect('course/access/'.$course->id.'/'.$last->id);
+        }
+
+    }
+
+    public function access(Course $course, CourseList $courselist){
+        $sertif = false;
+        $akses = CourseAccess::where('course_id', $course->id)->where('user_id', Auth::id())->first();
+        $last = CourseList::where('course_id', $course->id)
+                ->where('no', $akses->last_access)->first();
+        if($course->id != $courselist->course_id) return abort(404);
+
+        if($courselist->no == $akses->last_access + 1) {
+            CourseAccess::where('course_id', $course->id)->where('user_id', Auth::id())
+                        ->update(['last_access' => $courselist->no]);
+        } else if($courselist->no > $akses->last_access) {
+            return redirect('course/access/'.$course->id.'/'.$last->id);
+        } else if ($courselist->no == count($course->courselist)){
+            $sertif = true;
+        }
+
+        $next = CourseList::where('course_id', $course->id)->where('no', '>', $courselist->no)->orderBy('no', 'ASC')->first();
+
+        $lists = CourseList::where('course_id', $course->id)->orderBy('no', 'ASC')->get();
+        $time = round(CourseList::where('course_id', $course->id)->sum('time')/60, 2);
+        return view('person.access', [
+            'title' => $course->course_name,
+            'course' => $course,
+            'time' => $time,
+            'lists' => $lists,
+            'next' => $next,
+            'sertif' => $sertif,
+        ]);
     }
 
 }
