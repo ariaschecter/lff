@@ -24,7 +24,7 @@ class CourseListFactory extends Factory
             'list_name' => fake()->name(),
             'free' => fake()->numberBetween(0,1),
             'time' => fake()->numberBetween(1,10),
-            'link' => Str::random(10),
+            'link' => 'J2PP0822jFM',
         ];
     }
 }

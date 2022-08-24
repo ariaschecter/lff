@@ -8,6 +8,7 @@ use Alert;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\CourseList;
+use App\Models\CourseAccess;
 use App\Models\Category;
 
 class HomeController extends Controller
@@ -65,12 +66,17 @@ class HomeController extends Controller
         $id = $course->id;
         $lists = CourseList::where('course_id', $id)->orderBy('no', 'ASC')->get();
         $time = round(CourseList::where('course_id', $id)->sum('time')/60, 2);
+        $payed = CourseAccess::where('user_id', Auth::id())->where('course_id', $course->id)->first();
+
+        $payed ? $link = url('course/access/'.$course->id) : $link = url('course/order/'.$course->id);
 
         return view('home.course', [
             'title' => $course->course_name,
             'course' => $course,
             'lists' => $lists,
             'time' => $time,
+            'payed' => $payed,
+            'link' => $link,
         ]);
     }
 

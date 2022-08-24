@@ -7,12 +7,20 @@
                 <h5>{{ count($course->courselist) }} Lessons ( {{ $time }}h )</h5>
 
                 <ul class="learn-list">
+                    @php
+                        $access = true;
+                    @endphp
                     @foreach ($lists as $list)
                         <li>
-                            <a href="{{ $list->no ? url('course/access/'.$course->id.'/'. $list->no) : '#' }}">
-                                <span class="play-video"><i class="fal {{ $list->no ? 'fa-play' : 'fa-lock-alt' }}"></i></span> {{ $list->no }}. {{ $list->list_name }} <span class="time float-end">{{ $list->time }} minu</span>
+                            <a href="{{ $access ? url('course/access/'.$course->id.'/'. $list->id) : '#' }}">
+                                <span class="play-video"><i class="fal {{ $access ? 'fa-play' : 'fa-lock-alt' }}"></i></span> {{ $list->no }}. {{ $list->list_name }} <span class="time float-end">{{ $list->time }} minu</span>
                             </a>
                         </li>
+
+                        @php
+                            if($list->id == $lastaccess->id) $access = false;
+
+                        @endphp
 
 
                         {{-- <li>

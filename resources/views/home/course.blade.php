@@ -31,7 +31,7 @@
                                     </li>
                                     <li>
                                          <div class="cart-btn">
-                                              <a class="theme_btn" href="@auth {{ url('course/order/'.$course->id) }} @else {{ url('auth') }} @endauth">Add To Cart</a>
+                                              <a class="theme_btn" href="@auth {{ $link }} @else {{ url('auth') }} @endauth">{{ $payed ? 'Continue Learning' : 'Add To Cart' }}</a>
                                           </div>
                                     </li>
                                     <li>

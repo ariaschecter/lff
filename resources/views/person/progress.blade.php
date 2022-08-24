@@ -33,7 +33,7 @@
                        <div class="z-gallery__content">
                            <h4 class="sub-title mb-20"><a href="{{ url('course/access/'.$item->course->id) }}">{{ $item->course->course_name }}</a></h4>
                            <div class="progress">
-                               <div class="progress-bar" role="progressbar" style="width: 25%;"
+                               <div class="progress-bar" role="progressbar" style="width: {{ $item->last_access*100 / count($item->course->courselist) }}%;"
                                    aria-valuenow="{{ $item->last_access }}" aria-valuemin="0" aria-valuemax="{{ count($item->course->courselist) }}">{{ $item->last_access*100 / count($item->course->courselist) }}%
                                </div>
                            </div>

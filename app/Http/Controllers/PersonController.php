@@ -61,7 +61,7 @@ class PersonController extends Controller
     }
 
     public function storeOrder(Course $course){
-        $cek = Order::where('course_id', $course->id)->first();
+        $cek = Order::where('user_id', Auth::id())->where('course_id', $course->id)->first();
 
         $data = [
             'order_ref' => Str::random(14),
@@ -150,6 +150,7 @@ class PersonController extends Controller
 
     public function access(Course $course, CourseList $courselist){
         $sertif = false;
+        $noakhir = CourseList::where('course_id', $course->id)->orderBy('no', 'DESC')->first();
         $akses = CourseAccess::where('course_id', $course->id)->where('user_id', Auth::id())->first();
         $last = CourseList::where('course_id', $course->id)
                 ->where('no', $akses->last_access)->first();
@@ -158,21 +159,26 @@ class PersonController extends Controller
         if($courselist->no == $akses->last_access + 1) {
             CourseAccess::where('course_id', $course->id)->where('user_id', Auth::id())
                         ->update(['last_access' => $courselist->no]);
+            return redirect('course/access/'.$course->id);
         } else if($courselist->no > $akses->last_access) {
             return redirect('course/access/'.$course->id.'/'.$last->id);
-        } else if ($courselist->no == count($course->courselist)){
+        } else if ($courselist->id == $noakhir->id){
             $sertif = true;
         }
 
         $next = CourseList::where('course_id', $course->id)->where('no', '>', $courselist->no)->orderBy('no', 'ASC')->first();
+        $lastaccess = CourseList::where('course_id', $course->id)->where('no', $akses->last_access)->first();
+        // dd($lastaccess);
 
         $lists = CourseList::where('course_id', $course->id)->orderBy('no', 'ASC')->get();
         $time = round(CourseList::where('course_id', $course->id)->sum('time')/60, 2);
         return view('person.access', [
             'title' => $course->course_name,
             'course' => $course,
-            'time' => $time,
+            'courselist' => $courselist,
             'lists' => $lists,
+            'time' => $time,
+            'lastaccess' => $lastaccess,
             'next' => $next,
             'sertif' => $sertif,
         ]);
