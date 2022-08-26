@@ -67,6 +67,7 @@
         </div>
     </div>
 </footer>
+
 <!--footer-area end-->
 
 <!-- JS here -->

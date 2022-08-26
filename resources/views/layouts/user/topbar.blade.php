@@ -6,11 +6,17 @@
     <div id="theme-menu-two" class="main-header-area main-head-three pl-100 pr-100 pt-20 pb-15">
         <div class="container-fluid">
             <div class="row align-items-center">
+                <div class="col-xl-1">
+                    <button type="button" id="sidebarCollapse" class="btn text-sidebar ">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                    <span></span>
+                </div>
                 <div class="col-xl-2">
                     <div class="logo"><a href="{{ url('') }}"><img src="{{ url('user/img/logo/header_logo.png') }}" alt="logo"></a>
                     </div>
                 </div>
-                <div class="col-xl-7">
+                <div class="col-xl-6">
                     <nav class="main-menu navbar navbar-expand-lg justify-content-center">
                         <div class="nav-container">
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
