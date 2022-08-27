@@ -10,10 +10,11 @@
           </iframe>
           <h2 class="courses-title mb-30">{{ $courselist->no.' - '.$courselist->list_name }}</h2>
           <div class="courses-tag-btn">
-              <a href="#">Add to wishlist</a>
+            <a href="" class="btn btn-primary">Prev</a>
+              {{-- <a href="#">Add to wishlist</a>
               <a href="#">Share</a>
-              <a href="#">Gift this course</a>
-              <a href="{{ $sertif ? url('course/sertif/'.$course->id) : url('course/access/'.$course->id.'/'.$next->id) }}" class="btn btn-primary">Next</a>
+              <a href="#">Gift this course</a> --}}
+              <a href="{{ $sertif ? url('course/sertif/'.$course->id) : url('course/access/'.$course->id.'/'.$next->id) }}" class="btn btn-primary" style="float: right">Next</a>
           </div>
     </div>
 
