@@ -22,7 +22,7 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav">
                                     @auth
-                                        <li class="nav-item">
+                                        <li class="nav-item active">
                                             <a class="nav-link" href="{{ url('dashboard') }}" id="navbarDropdown1" role="button" aria-expanded="false">Dashboard</a>
                                         </li>
                                     @endauth
@@ -80,7 +80,7 @@
                                     <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                                         <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                                             <div class="mb-3">
-                                                <img class="wd-80 ht-80 rounded-circle" src="" alt="{{ $user->name }}">
+                                                <img class="wd-80 ht-80 rounded-circle" src="{{asset("storage/default.png")}}" alt="{{ $user->name }}">
                                                 {{-- Link kedua --}}
                                             </div>
                                             <div class="text-center">

@@ -9,7 +9,7 @@
     CSS INDEX
     ===================
 
-    01. Theme default CSS
+    01.  default CSS
 	02. variables
     03. mixins
     04. common
@@ -338,7 +338,7 @@ section-title
 }
 
 .section-title h5 {
-  color: #FF723A;
+  color: #2772db;
 }
 
 .section-title h2 {
@@ -407,7 +407,7 @@ section-title
 .bottom-line::before {
   content: '';
   position: absolute;
-  background-color: #FF723A;
+  background-color: #2772db;
   width: 100%;
   height: 2px;
   left: 0;
@@ -883,6 +883,7 @@ section-title
 #theme-menu-one {
   border-bottom: 2px solid rgba(255, 114, 58, 0.1);
 }
+
 
 .navbar-nav .nav-item.active {
   color: #2878EB;
@@ -2727,7 +2728,7 @@ input.main-search-input:-ms-input-placeholder {
 
 .theme_btn:hover {
   color: #ffffff;
-  background: #e75115;
+  background: #FF723A;
 }
 
 .border_btn {
@@ -4281,7 +4282,7 @@ input.main-search-input:-ms-input-placeholder {
   border: 0;
   padding: 0;
   background: 0;
-  color: #FF723A;
+  color: #2772db;
   text-transform: uppercase;
   font-size: 16px;
   line-height: 1;
@@ -4307,7 +4308,7 @@ input.main-search-input:-ms-input-placeholder {
 
 .gf_btn:hover, .gf_btn.active {
   color: #ffffff;
-  background-color: #FF723A;
+  background-color: #2772db;
 }
 
 .gf_btn:hover::before, .gf_btn.active::before {
@@ -4954,12 +4955,12 @@ input.main-search-input:-ms-input-placeholder {
   }
 }
 
-.learn-box h5 {
+.learn-box h5{
   color: #1B212F;
   font-size: 20px;
   border-bottom: 1px solid rgba(164, 157, 157, 0.2);
   padding-bottom: 20px;
-  margin-bottom: 20px;
+
 }
 
 .learn-list {
@@ -4969,7 +4970,24 @@ input.main-search-input:-ms-input-placeholder {
   /* Handle */
 }
 
-@media (max-width: 767px) {
+.learn-list li {
+  height: auto;
+  font-size: 1.1em;
+  display: flex;
+}
+
+.learn-list li a:hover {
+  color: #2772db;
+}
+
+.learn-list li a.active {
+  color: #2772db;
+}
+.learn-list li a.active:hover {
+  color: #ff723a;
+}
+
+@media (max-width:767px) {
   .learn-list {
     margin-right: 5px;
   }
@@ -8796,45 +8814,6 @@ body {
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-.bg-turbo-yellow {
-  background-color: #ffcc19;
-}
-
-.bg-turbo-yellow-10 {
-  background-color: #fff9e5;
-}
-
-.bg-turbo-yellow-20 {
-  background-color: #ffeeb2;
-}
-
-.bg-turbo-yellow-30 {
-  background-color: #ffe37f;
-}
-
-.bg-turbo-yellow-40 {
-  background-color: #ffd74c;
-}
-
-.bg-turbo-yellow-50 {
-  background-color: #ffcc19;
-}
-
-.bg-turbo-yellow-60 {
-  background-color: #e5b200;
-}
-
-.bg-turbo-yellow-70 {
-  background-color: #b28b00;
-}
-
-.bg-turbo-yellow-80 {
-  background-color: #7f6300;
-}
-
-.bg-turbo-yellow-90 {
-  background-color: #4c3b00;
-}
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -8873,7 +8852,7 @@ a:focus {
 /*#fff*/
 /*#fff*/
 .text-sidebar {
-  color: #6b6b6b;
+  color: #2772db;
 }
 
 .wrapper {
@@ -8885,7 +8864,7 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #F5ebeb;
+  background:rgba(255, 114, 58, 0.1) ;
   color: #6b6b6b;
   transition: all 0.3s;
 }
@@ -8902,11 +8881,10 @@ a:focus {
 
 #sidebar ul.components {
   padding: 20px 0;
-  border-bottom: 1px solid #070F4e;
 }
 
 #sidebar ul p {
-  color: #6b6b6b;
+  color:#505050;
   padding: 10px;
 }
 
@@ -8914,16 +8892,21 @@ a:focus {
   padding: 10px;
   font-size: 1.1em;
   display: block;
+  color:#505050;
 }
 
 #sidebar ul li a:hover {
-  color: #ffcc19;
-  background: #6b6b6b;
+  color: #FFff;
+  background-color: #2772db;
+  
 }
 
 #sidebar ul li.active>a, a[aria-expanded="true"] {
-  color: #6b6b6b;
-	
+  color:#2772db ;
+}
+
+#sidebar ul li.active>a:hover{
+  color:#FF723A ;
 }
 
 a[data-toggle="collapse"] {
@@ -8958,16 +8941,7 @@ ul.CTAs a {
   margin-bottom: 5px;
 }
 
-a.download {
-  background: #6b6b6b;
-  color: #ffcc19;
-}
 
-a.article,
-a.article:hover {
-  background: #e5b200 !important;
-  color: #6b6b6b !important;
-}
 
 /* --------------------------------------------------- CONTENT STYLE ----------------------------------------------------- */
 #content {
@@ -8975,6 +8949,7 @@ a.article:hover {
   padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
+  position: relative;
 }
 
 /* --------------------------------------------------- MEDIAQUERIES ----------------------------------------------------- */

@@ -9,7 +9,7 @@
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
+                    <li class="active">
                         <a href="#">Home 1</a>
                     </li>
                     <li>
