@@ -75,13 +75,13 @@
                                 <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="rounded-circle wd-30 ht-30" src="" alt="{{ $user->name }}">
+                                        <img class="rounded-circle" src="{{asset("storage/default.png")}}" width="30" height="30" alt="{{ $user->name }}">
                                         {{-- Gambar ada 2 link --}}
                                     </a>
                                     <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                                         <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                                             <div class="mb-3">
-                                                <img class="img-responsive rounded-circle wd-80 ht-80" src="{{asset("storage/default.png")}}" alt="{{ $user->name }}">
+                                                <img class="rounded-circle" src="{{asset("storage/default.png")}}" width="80" height="80" alt="{{ $user->name }}">
                                                 {{-- Link kedua --}}
                                             </div>
                                             <div class="text-center">
