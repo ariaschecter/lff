@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         CourseList::factory(20)->create();
         CourseAccess::factory(1)->create();
         Order::factory(30)->create();
-        Payment::factory(5)->create();
+        Payment::factory(15)->create();
 
         Role::factory()->create(['role_name' => 'Admin']);
         Role::factory()->create(['role_name' => 'User']);
