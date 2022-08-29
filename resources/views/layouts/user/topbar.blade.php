@@ -26,7 +26,8 @@
                                             <a class="nav-link" href="{{ url('dashboard') }}" id="navbarDropdown1" role="button" aria-expanded="false">Dashboard</a>
                                         </li>
                                     @endauth
-                                    <li class="nav-item dropdown">
+
+                                    <li class="nav-item optional dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
                                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Course
@@ -74,13 +75,13 @@
                                 <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="wd-30 ht-30 rounded-circle" src="" alt="{{ $user->name }}">
+                                        <img class="rounded-circle wd-30 ht-30" src="" alt="{{ $user->name }}">
                                         {{-- Gambar ada 2 link --}}
                                     </a>
                                     <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                                         <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                                             <div class="mb-3">
-                                                <img class="wd-80 ht-80 rounded-circle" src="{{asset("storage/default.png")}}" alt="{{ $user->name }}">
+                                                <img class="img-responsive rounded-circle wd-80 ht-80" src="{{asset("storage/default.png")}}" alt="{{ $user->name }}">
                                                 {{-- Link kedua --}}
                                             </div>
                                             <div class="text-center">
@@ -120,7 +121,7 @@
                             @else
                                 <ul class="d-flex align-items-center">
                                     <li><a href="{{ url('auth/register') }}" class="theme_btn free_btn">Register</a></li>
-                                    <li><a href="{{ url('auth') }}" class="theme_btn free_btn" style="margin-right: 10px">Login</a></li>
+                                    <li><a href="{{ url('auth') }}" class="theme_btn free_btn" style="margin-left: 20px">Login</a></li>
                                     {{-- <li><a class="sign-in ml-20" href="login.html"><img src="{{ url('user/img/icon/user.svg') }}" alt=""></a></li> --}}
                                 </ul>
                             @endauth

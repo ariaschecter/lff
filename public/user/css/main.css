@@ -933,6 +933,9 @@ section-title
 .navbar-nav .nav-item:first-child .nav-link::before {
   display: none;
 }
+.navbar-nav .nav-item:optional .nav-link::before {
+  display: block;
+}
 
 .navbar-nav .nav-item:hover > .nav-link {
   color: #2878EB;
