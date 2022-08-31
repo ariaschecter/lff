@@ -27,7 +27,7 @@
                                         </li>
                                     @endauth
 
-                                    <li class="nav-item optional dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
                                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Course
@@ -74,8 +74,9 @@
                             @auth
                                 <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="rounded-circle" src="{{asset("storage/default.png")}}" width="30" height="30" alt="{{ $user->name }}">
+                                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="left: 40px">
+                                        <img class="rounded-circle" src="{{asset("storage/default.png")}}" width="40" height="40" alt="{{ $user->name }}">
+                                        <span class="nav-link" style="right: 30px"><p>{{$user->name}}</p></span>
                                         {{-- Gambar ada 2 link --}}
                                     </a>
                                     <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">

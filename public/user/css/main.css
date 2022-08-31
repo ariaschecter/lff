@@ -933,9 +933,7 @@ section-title
 .navbar-nav .nav-item:first-child .nav-link::before {
   display: none;
 }
-.navbar-nav .nav-item:optional .nav-link::before {
-  display: block;
-}
+
 
 .navbar-nav .nav-item:hover > .nav-link {
   color: #2878EB;
@@ -8867,7 +8865,7 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background:rgba(255, 114, 58, 0.1) ;
+  background:#ffff ;
   color: #6b6b6b;
   transition: all 0.3s;
 }
