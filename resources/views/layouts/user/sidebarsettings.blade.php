@@ -1,7 +1,10 @@
 <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>LFF</h3>
+            {{-- <div class="col-xl-2"> --}}
+                <div class="logo"><a href="{{ url('') }}"><img src="{{ url('user/img/logo/header_logo.png') }}" alt="logo"></a>
+                </div>
+            {{-- </div> --}}
         </div>
 
         <ul class="list-unstyled components">
@@ -45,7 +48,7 @@
         </ul>
 
     </nav>
-    
+
     {{-- <nav id="sidebar">
         <div class="p-4 pt-5">
             <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(img/logo/header_logo.jpg);"></a>
@@ -56,6 +59,6 @@
                 <li><a class="nav-item" href="{{ url('payment') }}">Payment</a></li>
                 <li><a class="nav-item" href="{{ url('setting') }}">Settings</a></li>
             </ul>
-            
+
         </div>
     </nav> --}}
