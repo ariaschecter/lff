@@ -2,17 +2,17 @@
 
 @include('layouts.user.sidebarsettings')
     <div id="content" class="p-4">
-        
-        @include('layouts.user.topbar')
+
+        @include('layouts.user.topbarperson')
 
         @yield('body')
 
     </div>
 </div>
-@include('layouts.user.footer')
+{{-- @include('layouts.user.footer') --}}
 
 
-{{-- <!-- JS here -->
+<!-- JS here -->
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
@@ -50,4 +50,4 @@
 <script src="{{ url('user/js/popper.js') }}"></script>
 </body>
 
-</html> --}}
+</html>

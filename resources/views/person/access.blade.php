@@ -14,7 +14,7 @@
               {{-- <a href="#">Add to wishlist</a>
               <a href="#">Share</a>
               <a href="#">Gift this course</a> --}}
-              <a href="{{ $sertif ? url('course/sertif/'.$course->id) : url('course/access/'.$course->id.'/'.$next->id) }}" class="btn btn-primary" style="float: right">Next</a>
+              <a href="{{ $sertif ? url('progress') : url('course/access/'.$course->id.'/'.$next->id) }}" class="btn btn-primary" style="float: right">{{ $sertif ? 'Done' : 'Next' }}</a>
           </div>
     </div>
 
