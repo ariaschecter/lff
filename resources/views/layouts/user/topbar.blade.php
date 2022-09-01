@@ -7,10 +7,12 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-xl-1">
+                    @auth
                     <button type="button" id="sidebarCollapse" class="btn text-sidebar ">
                         <i class="fas fa-align-left"></i>
                     </button>
                     <span></span>
+                    @endauth
                 </div>
                 <div class="col-xl-2">
                     <div class="logo"><a href="{{ url('') }}"><img src="{{ url('user/img/logo/header_logo.png') }}" alt="logo"></a>
@@ -21,7 +23,15 @@
                         <div class="nav-container">
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav">
+                                    <li class="nav-item active" style="display: none">
+                                    </li>
+                                    <li class="nav-item active" style="display: none">
+                                    </li>
                                     @auth
+                                    <li class="nav-item active" style="display: none">
+                                    </li>
+                                    <li class="nav-item active" style="display: none">
+                                    </li>
                                         <li class="nav-item active">
                                             <a class="nav-link" href="{{ url('dashboard') }}" id="navbarDropdown1" role="button" aria-expanded="false">Dashboard</a>
                                         </li>
@@ -74,9 +84,9 @@
                             @auth
                                 <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="left: 40px">
-                                        <img class="rounded-circle" src="{{asset("storage/default.png")}}" width="40" height="40" alt="{{ $user->name }}">
-                                        <span class="nav-link" style="right: 30px"><p>{{$user->name}}</p></span>
+                                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="left: 50px">
+                                        <img class="rounded-circle" src="{{asset("storage/default.png")}}"  width="40" height="40" alt="{{ $user->name }}">
+                                        <span class="nav-link" style="right: 20px"><p>{{$user->name}}</p></span>
                                         {{-- Gambar ada 2 link --}}
                                     </a>
                                     <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
