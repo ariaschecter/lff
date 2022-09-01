@@ -149,8 +149,10 @@ class PersonController extends Controller
     }
 
     public function access(Course $course, CourseList $courselist){
-        $sertif = false;
+        $terakhir = false;
+        $terawal = false;
         $noakhir = CourseList::where('course_id', $course->id)->orderBy('no', 'DESC')->first();
+        $noawal = CourseList::where('course_id', $course->id)->orderBy('no', 'ASC')->first();
         $akses = CourseAccess::where('course_id', $course->id)->where('user_id', Auth::id())->first();
         $last = CourseList::where('course_id', $course->id)
                 ->where('no', $akses->last_access)->first();
@@ -162,11 +164,14 @@ class PersonController extends Controller
             return redirect('course/access/'.$course->id);
         } else if($courselist->no > $akses->last_access) {
             return redirect('course/access/'.$course->id.'/'.$last->id);
+        } else if ($courselist->id == $noawal->id){
+            $terawal = true;
         } else if ($courselist->id == $noakhir->id){
-            $sertif = true;
+            $terakhir = true;
         }
 
         $next = CourseList::where('course_id', $course->id)->where('no', '>', $courselist->no)->orderBy('no', 'ASC')->first();
+        $prev = CourseList::where('course_id', $course->id)->where('no', '<', $courselist->no)->orderBy('no', 'DESC')->first();
         $lastaccess = CourseList::where('course_id', $course->id)->where('no', $akses->last_access)->first();
         // dd($lastaccess);
 
@@ -180,7 +185,9 @@ class PersonController extends Controller
             'time' => $time,
             'lastaccess' => $lastaccess,
             'next' => $next,
-            'sertif' => $sertif,
+            'prev' => $prev,
+            'terakhir' => $terakhir,
+            'terawal' => $terawal,
         ]);
     }
 

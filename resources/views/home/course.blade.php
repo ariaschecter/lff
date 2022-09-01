@@ -64,9 +64,9 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-7">
                             <div class="project-details mb-65">
-                                <h2 class="courses-title mb-30">Photography Learning A-Z</h2>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed di nonumy eirmod tempor invidunt ut labore et dolore magn aliq erat.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed di nonumy eirmod tempor invidunt ut labore et dolore magn aliq erat.</p>
-                                <ul class="seller-rating d-md-inline-flex align-items-center mt-20 mb-10">
+                                <h2 class="courses-title mb-30">{{ $course->course_name }}</h2>
+                                <p>{{ $course->desc }}</p>
+                                {{-- <ul class="seller-rating d-md-inline-flex align-items-center mt-20 mb-10">
                                     <li>
                                         <a href="#" class="theme_btn mb-10">Bestseller</a>
                                     </li>
@@ -84,13 +84,13 @@
                                         <h5 class="mb-10">Enroll 360,349</h5>
                                     </li>
                                 </ul>
-                                <h5 class="mb-25"><span>Created by</span> Jason Momoa & Uxaction Photography team</h5>
-                                <div class="date-lang">
-                                    <span><b>Date :</b> 31/05/2020</span>
-                                    <span><b>Language :</b> English</span>
+                                <h5 class="mb-25"><span>Created by</span> Jason Momoa & Uxaction Photography team</h5> --}}
+                                <div class="date-lang mt-25">
+                                    <span><b>Date :</b> {{ $course->updated_at->format('M Y') }}</span>
+                                    <span><b>Language :</b> Indonesia</span>
                                 </div>
                             </div>
-                            <div class="meet-our-teacher mb-65">
+                            {{-- <div class="meet-our-teacher mb-65">
                                  <h2 class="courses-title mb-30">Meet Your Teacher</h2>
                                  <div class="teachers-content mb-25">
                                      <img class="teacher_01" src="assets/img/course/details/teacher.png" alt="">
@@ -114,19 +114,19 @@
                                       <a href="#">Camera</a>
                                       <a href="#">Professional</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="col-xl-6 col-lg-5">
                             <div class="courses-ingredients">
                                 <h2 class="corses-title mb-30">Course Includes</h2>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed di nonumy eirmod tempor invidunt ut labore et dolore.</p>
+                                {{-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed di nonumy eirmod tempor invidunt ut labore et dolore.</p> --}}
                                 <ul class="courses-item mt-25">
-                                    <li><img src="assets/img/icon/video.svg" alt=""> 4 hours on-demand video</li>
-                                    <li><img src="assets/img/icon/newspaper.svg" alt=""> 73 articles</li>
-                                    <li><img src="assets/img/icon/download.svg" alt=""> 650+ downloadable resources</li>
-                                    <li><img src="assets/img/icon/infinity.svg" alt=""> Full Lifetime Access</li>
-                                    <li><img src="assets/img/icon/mobile.svg" alt=""> Access on mobile and TV or any devices</li>
-                                    <li><img src="assets/img/icon/certificate-line.svg" alt=""> Certificate of completion</li>
+                                    <li><img src="{{ url('user/img/icon/video.svg') }}" alt=""> 4 hours on-demand video</li>
+                                    <li><img src="{{ url('user/img/icon/newspaper.svg') }}" alt=""> 73 articles</li>
+                                    <li><img src="{{ url('user/img/icon/download.svg') }}" alt=""> 650+ downloadable resources</li>
+                                    <li><img src="{{ url('user/img/icon/infinity.svg') }}" alt=""> Full Lifetime Access</li>
+                                    <li><img src="{{ url('user/img/icon/mobile.svg') }}" alt=""> Access on mobile and TV or any devices</li>
+                                    <li><img src="{{ url('user/img/icon/certificate-line.svg') }}" alt=""> Certificate of completion</li>
                                 </ul>
                             </div>
                         </div>
