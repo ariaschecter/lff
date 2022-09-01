@@ -1,5 +1,5 @@
 <!--footer-area start-->
-<footer class="footer-are  footer-bg pt-300 pb-40">
+<footer class="footer-are  footer-bg pt-100 pb-40">
     <div class="container">
         <div class="row mb-15">
             <div class="col-xl-3 col-lg-4 col-md-6  wow fadeInUp2 animated" data-wow-delay='.1s'>
@@ -71,6 +71,19 @@
 <!--footer-area end-->
 
 <!-- JS here -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- JS here -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
 
 <script src="{{ url('user/js/vendor/modernizr-3.5.0.min.js') }}"></script>
 <script src="{{ url('user/js/vendor/jquery-2.2.4.min.js') }}"></script>
@@ -91,6 +104,7 @@
 <script src="{{ url('user/js/jquery.easypiechart.js') }}"></script>
 <script src="{{ url('user/js/plugins.js') }}"></script>
 <script src="{{ url('user/js/main.js') }}"></script>
+<script src="{{ url('user/js/popper.js') }}"></script>
 </body>
 
 </html>

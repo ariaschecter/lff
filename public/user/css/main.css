@@ -923,16 +923,29 @@ section-title
   z-index: 1;
 }
 
+
 .navbar-nav .nav-item .nav-link:hover {
   color: #2878EB;
 }
 
-.navbar-nav .nav-item:last-child .nav-link::before {
-  display: none;
-}
+
 .navbar-nav .nav-item:first-child .nav-link::before {
   display: none;
 }
+
+
+.navbar-nav .nav-item:last-child .nav-link::before {
+  display: none;
+}
+
+.navbar-nav .nav-item:nth-child(2) .nav-link::before {
+  display: block;
+}
+.navbar-nav .nav-item:nth-child(5) .nav-link::before {
+  display: none;
+}
+
+
 
 
 .navbar-nav .nav-item:hover > .nav-link {
