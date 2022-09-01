@@ -17,7 +17,6 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['only' => ['dashboard']]);
-        // $this->middleware('auth', ['except' => ['confirmPage', 'confirmOrder', 'invoice']]);
     }
 
     public function index(){
