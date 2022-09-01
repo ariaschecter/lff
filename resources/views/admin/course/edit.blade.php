@@ -14,7 +14,7 @@
         <div class="card ">
             <div class="card-body">
             <h6 class="card-title">Add Course</h6>
-                <form method="POST" action="{{ url('admin/course/update/'.$data->id) }}">
+                <form method="POST" action="{{ url('admin/course/update/'.$data->id) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-1">
                         <label for="course_name" class="form-label">Name</label>
@@ -22,8 +22,8 @@
                     </div>
                     @error('course_name') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="mb-1">
-                        <label for="course_picture" class="form-label">Picture</label>
-                        <input type="text" autofocus class="form-control @error('course_picture') is-invalid @enderror" id="course_picture" name="course_picture" value="{{ $data->course_picture }}" placeholder="Input Course">
+                        <label for="course_picture" class="form-label">Picture (Optional)</label>
+                        <input type="file" autofocus class="form-control @error('course_picture') is-invalid @enderror" id="course_picture" name="course_picture" value="{{ old('course_picture') }}" placeholder="Input Picture">
                     </div>
                     @error('course_picture') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="mb-1">
@@ -56,6 +56,15 @@
                 </form>
             </div>
         </div>
+    </div>
+    <div class="col-lg-4 mt-3">
+        <div class="card mb-3 p-2">
+            <img src="{{ asset('storage/'. $data->course_picture) }}" class="card-img-top" alt="{{ $data->course_name }}">
+            <div class="card-body">
+                <h2 class="card-title">{{ $data->course_name }}</h2>
+                <div class="btn btn-primary">{{ $data->enroll }} Enroll</div>
+            </div>
+          </div>
     </div>
 </div>
 @endsection

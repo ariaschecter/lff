@@ -11,7 +11,7 @@
     @include('sweetalert::alert')
 <div class="row col-lg-5">
     <div class="card mb-3 p-2">
-        <img src="{{ $payment->payment_picture }}" class="card-img-top" alt="{{ $payment->payment_ref }}">
+        <img src="{{ asset('storage/'. $payment->payment_picture) }}" class="card-img-top" alt="{{ $payment->payment_ref }}">
         <div class="card-body">
             <h2 class="card-title">Name {{ $payment->order->user->name }}</h2>
             <h5 class="card-text mb-1">Course {{ $payment->order->course->course_name }}</h5>

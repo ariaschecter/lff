@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\CourseList;
@@ -14,9 +15,12 @@ class CourseController extends Controller
     {
         $search = $request->keyword;
         if($search){
-            $data = Course::where('course_name', 'LIKE', "%{$search}%")
+            $data = Course::join('categories', 'courses.category_id', '=', 'categories.id')
+                        ->where('course_name', 'LIKE', "%{$search}%")
                         ->orWhere('price_old', 'LIKE', "%{$search}%")
                         ->orWhere('price_new', 'LIKE', "%{$search}%")
+                        ->orWhere('enroll', 'LIKE', "%{$search}%")
+                        ->orWhere('category_name', 'LIKE', "%{$search}%")
                             ->paginate(10);
         } else {
             $data = Course::paginate(10);
@@ -41,7 +45,7 @@ class CourseController extends Controller
     {
         $validated = $request->validate([
             'course_name' => 'required|unique:courses,course_name',
-            'course_picture' => 'required',
+            'course_picture' => 'required|image|file|max:1024',
             'category_id' => 'required',
             'desc' => 'required',
             'price_old' => 'required',
@@ -50,14 +54,16 @@ class CourseController extends Controller
             'updated_at' => now(),
         ]);
 
+        $upload = $request->file('course_picture')->store('img/course');
+
         $data = [
             'course_name' => $request->course_name,
-            'course_picture' => $request->course_picture,
+            'course_picture' => $upload,
             'category_id' => $request->category_id,
             'desc' => $request->desc,
             'price_old' => $request->price_old,
             'price_new' => $request->price_new,
-            'view' => 0,
+            'enroll' => 0,
         ];
 
         Course::insert($data);
@@ -65,24 +71,22 @@ class CourseController extends Controller
         return redirect('admin/course');
     }
 
-    public function edit($id)
+    public function edit(Course $course)
     {
         return view('admin.course.edit', [
             'active' => 'course',
             'title' => 'Edit Course',
-            'data' => Course::with('category')->where('id',$id)->first(),
+            'data' => Course::with('category')->where('id',$course->id)->first(),
             'categories' => Category::all(),
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Course $course)
     {
-        $data = Course::where('id',$id)->first();
-
-        if($data->course_name != $request->course_name){
+        if($course->course_name != $request->course_name){
             $validated = $request->validate([
                 'course_name' => 'required|unique:courses,course_name',
-                'course_picture' => 'required',
+                'course_picture' => 'image|file|max:1024',
                 'category_id' => 'required',
                 'desc' => 'required',
                 'price_old' => 'required',
@@ -91,7 +95,7 @@ class CourseController extends Controller
         } else {
             $validated = $request->validate([
                 'course_name' => 'required',
-                'course_picture' => 'required',
+                'course_picture' => 'image|file|max:1024',
                 'category_id' => 'required',
                 'desc' => 'required',
                 'price_old' => 'required',
@@ -99,24 +103,33 @@ class CourseController extends Controller
             ]);
         }
 
+        if($request->course_picture){
+            Storage::delete($course->course_picture);
+            $upload = $request->file('course_picture')->store('img/course');
+        } else {
+            $upload = $course->course_picture;
+        }
+
+
         $update = [
             'course_name' => $request->course_name,
-            'course_picture' => $request->course_picture,
+            'course_picture' => $upload,
             'category_id' => $request->category_id,
             'desc' => $request->desc,
             'price_old' => $request->price_old,
             'price_new' => $request->price_new,
             'updated_at' => now(),
         ];
-        Course::where('id', $id)->update($update);
+        Course::where('id', $course->id)->update($update);
         Alert::success('Congrats', 'You\'ve Update a Course!');
         return redirect('admin/course');
     }
 
-    public function destroy($id)
+    public function destroy(Course $course)
     {
-        Course::where('id', $id)->delete();
-        CourseList::where('course_id', $id)->delete();
+        Storage::delete($course->course_picture);
+        Course::where('id', $course->id)->delete();
+        CourseList::where('course_id', $course->id)->delete();
         Alert::success('Congrats', 'You\'ve Deleted a Course!');
         return redirect('admin/course');
     }

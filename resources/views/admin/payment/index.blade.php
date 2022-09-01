@@ -31,8 +31,8 @@
                             @php
                                 switch ($item->payment_status) {
                                     case 0: $table = ''; break;
-                                    case 0: $table = 'table-warning'; break;
-                                    case 0: $table = 'table-success'; break;
+                                    case 1: $table = 'table-warning'; break;
+                                    case 2: $table = 'table-success'; break;
                                 }
                             @endphp
                                 <tr class="{{ $table }}">

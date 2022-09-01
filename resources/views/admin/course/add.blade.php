@@ -14,7 +14,7 @@
         <div class="card ">
             <div class="card-body">
             <h6 class="card-title">Add Course</h6>
-                <form method="POST" action="{{ url('admin/course/add') }}">
+                <form method="POST" action="{{ url('admin/course/add') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-1">
                         <label for="course_name" class="form-label">Name</label>
@@ -23,7 +23,7 @@
                     @error('course_name') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="mb-1">
                         <label for="course_picture" class="form-label">Picture</label>
-                        <input type="text" autofocus class="form-control @error('course_picture') is-invalid @enderror" id="course_picture" name="course_picture" value="{{ old('course_picture') }}" placeholder="Input Picture">
+                        <input type="file" autofocus class="form-control @error('course_picture') is-invalid @enderror" id="course_picture" name="course_picture" value="{{ old('course_picture') }}" placeholder="Input Picture">
                     </div>
                     @error('course_picture') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="mb-1">

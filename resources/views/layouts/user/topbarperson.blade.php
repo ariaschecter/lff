@@ -80,14 +80,14 @@
                                 <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="left: 50px">
-                                        <img class="rounded-circle" src="{{asset("storage/default.png")}}"  width="40" height="40" alt="{{ $user->name }}">
+                                        <img class="rounded-circle" src={{ asset('storage/'. $user->user_picture) }}}}"  width="40" height="40" alt="{{ $user->name }}">
                                         <span class="nav-link" style="right: 20px"><p>{{$user->name}}</p></span>
                                         {{-- Gambar ada 2 link --}}
                                     </a>
                                     <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                                         <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                                             <div class="mb-3">
-                                                <img class="rounded-circle" src="{{asset("storage/default.png")}}" width="80" height="80" alt="{{ $user->name }}">
+                                                <img class="rounded-circle" src={{ asset('storage/'. $user->user_picture) }}}}" width="80" height="80" alt="{{ $user->name }}">
                                                 {{-- Link kedua --}}
                                             </div>
                                             <div class="text-center">

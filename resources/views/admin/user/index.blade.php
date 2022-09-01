@@ -21,6 +21,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Role</th>
+                                    <th>Member From</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -32,6 +33,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->role->role_name }}</td>
+                                        <td>{{ $item->created_at->format('M Y') }}</td>
                                         <td>
                                             <a href="{{ url('admin/user/update/'. $item->id) }}" class="btn btn-success">Update</a>
                                             <a href="{{ url('admin/user/reset/'. $item->id) }}" class="btn btn-warning">Reset</a>

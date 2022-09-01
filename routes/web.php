@@ -69,9 +69,9 @@ Route::middleware('auth','isAdmin')->prefix('admin')->group(function () {
         Route::get('/course', 'index');
         Route::get('/course/add', 'create');
         Route::post('/course/add', 'store');
-        Route::get('/course/update/{id}', 'edit');
-        Route::post('/course/update/{id}', 'update');
-        Route::get('/course/delete/{id}', 'destroy');
+        Route::get('/course/update/{course}', 'edit');
+        Route::post('/course/update/{course}', 'update');
+        Route::get('/course/delete/{course}', 'destroy');
     });
 
     Route::controller(CourseListController::class)->group(function () {

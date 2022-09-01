@@ -15,7 +15,7 @@
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form method="POST" action="{{ url('auth/register') }}" enctype="multipart/form-data">
+                                    <form method="POST" action="{{ url('auth/register') }}">
                                         @csrf
                                         <div class="d-flex align-items-center mb-3 pb-1">
                                             <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
@@ -35,21 +35,21 @@
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder="Email">
                                         </div>
                                         @error('email') <div class="text-danger">{{ $message }}</div> @enderror
-                                        
-                                        <div class="form-outline mb-4">
+
+                                        {{-- <div class="form-outline mb-4">
                                             <label for="user_picture" class="form-label">User Picture</label>
                                             <input type="file" class="form-control @error('user_picture') is-invalid @enderror" id="user_picture" name="user_picture">
                                         </div>
 
                                         @error('user_picture') <div class="text-danger">{{ $message }}</div> @enderror
-                                        
+ --}}
 
                                         <div class="form-outline mb-4">
                                             <label for="password" class="form-label">Password</label>
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
                                         </div>
                                         @error('password') <div class="text-danger">{{ $message }}</div> @enderror
-                                        
+
                                         <div class="form-outline mb-4">
                                             <label for="password1" class="form-label">Password Confirmation</label>
                                             <input type="password" class="form-control @error('password1') is-invalid @enderror" id="password1" name="password1" placeholder="Password Confirmation">

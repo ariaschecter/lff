@@ -64,7 +64,7 @@ class PersonController extends Controller
         $cek = Order::where('user_id', Auth::id())->where('course_id', $course->id)->first();
 
         $data = [
-            'order_ref' => Str::random(14),
+            'order_ref' => strtoupper(Str::random(14)),
             'user_id' => Auth::user()->id,
             'course_id' => $course->id,
             'price' => $course->price_new,
@@ -122,7 +122,7 @@ class PersonController extends Controller
             'order_id' => $request->order_id,
             'payment_method_id' => $request->payment_method_id,
             'payment_picture' => $payment_picture,
-            'payment_ref' => Str::random(10),
+            'payment_ref' => strtoupper(Str::random(10)),
             'payment_status' => 0,
             'created_at' => now(),
             'updated_at' => now(),

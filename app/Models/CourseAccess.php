@@ -11,7 +11,6 @@ class CourseAccess extends Model
 
     protected $guarded = ['id'];
 
-    
 
     public static function getAll(){
         return self::join('users','course_accesses.user_id','=','users.id')
@@ -23,7 +22,7 @@ class CourseAccess extends Model
     public static function search($search){
         return self::join('users','course_accesses.user_id','=','users.id')
         ->join('courses','course_accesses.course_id','=','courses.id')
-        ->orWhere('users.name', 'LIKE', "%{$search}%")
+        ->orWhere('users.email', 'LIKE', "%{$search}%")
         ->orWhere('courses.course_name', 'LIKE', "%{$search}%")
         ->orderBy('course_accesses.course_id', 'asc')
         ->paginate(10);

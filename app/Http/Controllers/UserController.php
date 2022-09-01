@@ -13,8 +13,11 @@ class UserController extends Controller
     {
         $search = $request->keyword;
         if($search){
-            $data = User::with('role')->where('name', 'LIKE', "%{$search}%")
+            $data = User::with('role')
+                        ->join('roles', 'users.role_id', '=', 'roles.id')
+                        ->where('name', 'LIKE', "%{$search}%")
                         ->orWhere('email', 'LIKE', "%{$search}%")
+                        ->orWhere('roles.role_name', 'LIKE', "%{$search}%")
                         ->paginate(10);
         } else {
             $data = User::with(['role'])->paginate(10);

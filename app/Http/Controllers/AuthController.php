@@ -53,17 +53,13 @@ class AuthController extends Controller
         $email = $request->email;
         $validated = $request->validate([
             'name' => 'required',
-            'user_picture' => 'image|file|max:1024',
+            // 'user_picture' => 'image|file|max:1024',
             'email' => 'required|unique:users,email',
             'password' => 'required',
             'password1' => 'required|same:password',
         ]);
 
-        if($request->user_picture){
-            $upload = $request->file('user_picture')->store('img/profile');
-        } else {
-            $upload = 'img/profile/default.png';
-        }
+        $upload = 'img/profile/default.png';
 
         $data = [
             'name' => $request->name,
