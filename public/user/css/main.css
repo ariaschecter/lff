@@ -9016,7 +9016,7 @@ ul.CTAs a {
 .profile-card-2 .profile-icons {
   position: absolute;
   bottom: 30px;
-  right: 30px;
+  right: 10px;
   color: #FFF;
   transition: all linear 0.25s;
 }
@@ -9053,5 +9053,5 @@ ul.CTAs a {
 }
 
 .profile-card-2:hover .profile-icons {
-  right: 40px;
+  right: 20px;
 }
