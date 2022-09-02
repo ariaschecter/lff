@@ -4980,14 +4980,14 @@ input.main-search-input:-ms-input-placeholder {
 .learn-list {
   overflow-y: scroll;
   height: 440px;
-  margin-right: 20px;
+  margin-right: 10px;
   /* Handle */
 }
 
 .learn-list li {
   height: auto;
   font-size: 1.1em;
-  display: flex;
+  
 }
 
 .learn-list li a:hover {
@@ -5013,7 +5013,7 @@ input.main-search-input:-ms-input-placeholder {
 
 .learn-list li {
   margin-bottom: 25px;
-  padding-right: 55px;
+  padding-right: 25px;
 }
 
 @media (max-width: 767px) {

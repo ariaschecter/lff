@@ -3,7 +3,7 @@
         <nav class="sidebar">
             {{-- <ul class="cart-list-tag d-sm-inline-flex align-items-center mb-50">
             </ul> --}}
-            <div class="learn-box  m-4">
+            <div class="learn-box m-4">
                 <h5>{{ count($course->courselist) }} Lessons ( {{ $time }}h )</h5>
 
                 <ul class="learn-list">
@@ -11,9 +11,9 @@
                         $access = true;
                     @endphp
                     @foreach ($lists as $list)
-                        <li>
+                        <li class="mt-20">
                             <a href="{{ $access ? url('course/access/'.$course->id.'/'. $list->id) : '#' }}">
-                                <span class="play-video"><i class="fal {{ $access ? 'fa-play' : 'fa-lock-alt' }}"></i></span> {{ $list->no }}. {{ $list->list_name }} <span class="time float-end">{{ $list->time }} minu</span>
+                                <span class="play-video"><i class="fal {{ $access ? 'fa-play' : 'fa-lock-alt' }}"></i> {{ $list->no }}. {{ $list->list_name }} </span> <span class="time float-end">{{ $list->time }} minutes</span>
                             </a>
                         </li>
 
