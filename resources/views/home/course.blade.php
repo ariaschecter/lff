@@ -26,7 +26,7 @@
                                 <ul class="cart-list-tag d-sm-inline-flex align-items-center mb-10">
                                     <li>
                                         <div class="price-list">
-                                            <h5><span>Rp. {{ number_format($course->price_old, 0) }}</span> <b class="sub-title">Rp. {{ number_format($course->price_new, 0) }}</b></h5>
+                                            <h5><span>Rp. {{ number_format($course->price_old, 0) }}</span> <b class="sub-title">Rp. {{number_format($course->price_new, 0)}}</b></h5>
                                         </div>
                                     </li>
                                     <li>

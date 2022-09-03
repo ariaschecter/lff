@@ -4925,6 +4925,7 @@ input.main-search-input:-ms-input-placeholder {
   color: #707070;
   font-size: 20px;
   font-weight: 600;
+  width: max-content;
 }
 
 .price-list h5 span {
@@ -4974,7 +4975,6 @@ input.main-search-input:-ms-input-placeholder {
   font-size: 20px;
   border-bottom: 1px solid rgba(164, 157, 157, 0.2);
   padding-bottom: 20px;
-
 }
 
 .learn-list {
@@ -8909,6 +8909,7 @@ a:focus {
   font-size: 1.1em;
   display: block;
   color:#505050;
+  font-weight: bold;
 }
 
 #sidebar ul li a:hover {
@@ -8966,6 +8967,7 @@ ul.CTAs a {
   min-height: 100vh;
   transition: all 0.3s;
   position: relative;
+  padding-top: 0px;
 }
 
 /* --------------------------------------------------- MEDIAQUERIES ----------------------------------------------------- */

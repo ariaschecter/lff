@@ -3,7 +3,7 @@
 @endphp
 
 <header>
-    <div id="theme-menu-two" class="main-header-area main-head-three pl-100 pr-100 pt-20 pb-15">
+    <div id="theme-menu-two" class="main-header-area main-head-three pl-100 pr-100 pb-15">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-xl-1">
