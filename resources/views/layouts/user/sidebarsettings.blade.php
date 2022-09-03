@@ -1,3 +1,8 @@
+@php
+    $user = Auth::user();
+@endphp
+
+
 <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -8,7 +13,7 @@
         </div>
 
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
+            <img class="rounded-circle mb-5" src="{{ asset('storage/'. $user->user_picture) }}"  width="100" height="100" style="margin-left:30%;" alt="{{ $user->name }}">
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
