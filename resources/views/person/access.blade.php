@@ -11,13 +11,13 @@
           <h2 class="courses-title mb-30">{{ $courselist->no.' - '.$courselist->list_name }}</h2>
           <div class="courses-tag-btn">
             @if(!$terawal)
-                <a href="{{ url('course/access/'.$course->id.'/'.$prev->id) }}" class="btn btn-primary">Prev</a>
+                <a href="{{ url('course/access/'.$course->slug.'/'.$prev->id) }}" class="btn btn-primary">Prev</a>
             @endif
 
               {{-- <a href="#">Add to wishlist</a>
               <a href="#">Share</a>
               <a href="#">Gift this course</a> --}}
-              <a href="{{ $terakhir ? url('progress') : url('course/access/'.$course->id.'/'.$next->id) }}" class="btn btn-primary" style="float: right">{{ $terakhir ? 'Done' : 'Next' }}</a>
+              <a href="{{ $terakhir ? url('progress') : url('course/access/'.$course->slug.'/'.$next->id) }}" class="btn btn-primary" style="float: right">{{ $terakhir ? 'Done' : 'Next' }}</a>
           </div>
     </div>
 

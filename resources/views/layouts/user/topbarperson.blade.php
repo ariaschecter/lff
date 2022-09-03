@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="nav-item active" style="display: none">
                                     </li>
-                                        <li class="nav-item active">
+                                        <li class="nav-item">
                                             <a class="nav-link" href="{{ url('dashboard') }}" id="navbarDropdown1" role="button" aria-expanded="false">Dashboard</a>
                                         </li>
                                     @endauth

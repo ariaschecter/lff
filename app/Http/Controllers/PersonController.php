@@ -26,7 +26,7 @@ class PersonController extends Controller
     public function progress(){
         $id = Auth::user()->id;
 
-        $courses = CourseAccess::with('course')->where('user_id', $id)->get();
+        $courses = CourseAccess::with('course')->where('user_id', $id)->orderBy('updated_at', 'DESC')->get();
         $categories = Category::all();
 
         return view('person.progress', [
@@ -143,7 +143,7 @@ class PersonController extends Controller
             $last = CourseList::where('course_id', $course->id)
                 ->where('no', $akses->last_access)->first();
 
-                return redirect('course/access/'.$course->id.'/'.$last->id);
+                return redirect('course/access/'.$course->slug.'/'.$last->id);
         }
 
     }
@@ -160,10 +160,10 @@ class PersonController extends Controller
 
         if($courselist->no == $akses->last_access + 1) {
             CourseAccess::where('course_id', $course->id)->where('user_id', Auth::id())
-                        ->update(['last_access' => $courselist->no]);
+                        ->update(['last_access' => $courselist->no, 'updated_at' => now(),]);
             return redirect('course/access/'.$course->id);
         } else if($courselist->no > $akses->last_access) {
-            return redirect('course/access/'.$course->id.'/'.$last->id);
+            return redirect('course/access/'.$course->id);
         } else if ($courselist->id == $noawal->id){
             $terawal = true;
         } else if ($courselist->id == $noakhir->id){
