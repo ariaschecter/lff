@@ -9,9 +9,8 @@ use Alert;
 
 class CourseListController extends Controller
 {
-    public function index(Request $request, $id)
+    public function index(Request $request, Course $course)
     {
-        $course = Course::where('id', $id)->first();
         $search = $request->keyword;
         if($search){
             $data = CourseList::where('no', 'LIKE', "%{$search}%")
@@ -20,7 +19,7 @@ class CourseListController extends Controller
                         ->orderBy('no', 'ASC')
                         ->paginate(10);
         } else {
-            $data = CourseList::where('course_id', $id)->orderBy('no', 'ASC')->paginate(10);
+            $data = CourseList::where('course_id', $course->id)->orderBy('no', 'ASC')->paginate(10);
         }
 
         return view('admin.course_list.index', [
@@ -31,76 +30,83 @@ class CourseListController extends Controller
         ]);
     }
 
-    public function create($id)
+    public function create(Course $course)
     {
-        $last = count(CourseList::where('course_id', $id)->get());
+        $last = count(CourseList::where('course_id', $course->id)->get());
         return view('admin.course_list.add', [
             'active' => 'course',
             'title' => 'Add Course List',
-            'id' => $id,
+            'course' => $course,
             'last_number' => $last + 1,
         ]);
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request, Course $course)
     {
-        $list = CourseList::where('course_id', $id)->where('no', $request->no)->first();
+        $list = CourseList::where('course_id', $course->id)->where('no', $request->no)->first();
         if($list){
             $validated = $request->validate([
                 'no' => 'required|unique:course_lists,no',
                 'list_name' => 'required',
+                'time' => 'required',
                 'link' => 'required|unique:course_lists,link',
             ]);
         } else {
             $validated = $request->validate([
                 'no' => 'required',
                 'list_name' => 'required',
+                'time' => 'required',
                 'link' => 'required|unique:course_lists,link',
             ]);
         }
 
         $data = [
             'no' => $request->no,
-            'course_id' => $id,
+            'course_id' => $course->id,
             'list_name' => $request->list_name,
             'link' => $request->link,
+            'time' => $request->time,
             'created_at' => now(),
             'updated_at' => now(),
         ];
 
         CourseList::insert($data);
         Alert::success('Congrats', 'You\'ve Add New Course List!');
-        return redirect('admin/course_list/'.$id);
+        return redirect('admin/course_list/'.$course->slug);
     }
 
-    public function edit($course_id, $id){
+    public function edit(Course $course, CourseList $courselist){
         return view('admin.course_list.edit', [
             'active' => 'course',
             'title' => 'Edit Course List',
-            'data' => CourseList::where('id',$id)->first(),
+            'course' => $course,
+            'data' => $courselist,
         ]);
     }
 
-    public function update(Request $request, $course_id, $id){
-        $list = CourseList::where('id', $id)->first();
+    public function update(Request $request, Course $course, CourseList $courselist){
+        $list = $courselist;
         if($list->no != $request->no){
-            $lagi = CourseList::where('course_id', $course_id)->where('no', $request->no)->first();
+            $lagi = CourseList::where('course_id', $course->id)->where('no', $request->no)->first();
             if($lagi){
                 $validated = $request->validate([
                     'no' => 'required|unique:course_lists,no',
                     'list_name' => 'required',
+                    'time' => 'required',
                     'link' => 'required',
                 ]);
             } else {
                 $validated = $request->validate([
                     'no' => 'required',
                     'list_name' => 'required',
+                    'time' => 'required',
                     'link' => 'required',
                 ]);
             }
         } else {
             $validated = $request->validate([
                 'no' => 'required',
+                'time' => 'required',
                 'list_name' => 'required',
                 'link' => 'required',
             ]);
@@ -109,13 +115,14 @@ class CourseListController extends Controller
         $data = [
             'no' => $request->no,
             'list_name' => $request->list_name,
+            'time' => $request->time,
             'link' => $request->link,
             'updated_at' => now(),
         ];
 
-        CourseList::where('id', $id)->update($data);
+        CourseList::where('id', $courselist->id)->update($data);
         Alert::success('Congrats', 'You\'ve Update Course List!');
-        return redirect('admin/course_list/'.$course_id);
+        return redirect('admin/course_list/'.$course->slug);
     }
 
     public function destroy($course_id, $id)

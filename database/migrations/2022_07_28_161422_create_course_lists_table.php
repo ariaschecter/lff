@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('no');
             $table->foreignId('course_id');
             $table->string('list_name');
-            $table->integer('free')->default(0);
             $table->integer('time');
             $table->string('link');
             $table->timestamps();

@@ -17,7 +17,7 @@
                 <select class="nice-select" id="order_id" name="order_id">
                     @foreach ($orders as $order)
                         <option class="form-control" value="{{ $order->id }}">
-                            #{{ $order->order_ref.' - '. $order->course->course_name.' - Rp. '. number_format($order->price, 0) }}
+                            {{ $order->course->course_name.' - Rp. '. number_format($order->price, 0) }}
                         </option>
                     @endforeach
                 </select>

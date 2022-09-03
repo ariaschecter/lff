@@ -205,7 +205,7 @@
                     <div class="col-lg-4 col-md-6 grid-item {{ $item->category_id }}">
                         <div class="z-gallery mb-30">
                             <div class="z-gallery__thumb mb-20">
-                                <a href="course-details.html"><img class="img-fluid" src="{{ $item->course_picture }}" alt="{{ $item->course_name }}"></a>
+                                <a href="course-details.html"><img class="img-fluid" src="{{ asset('storage/'. $item->course_picture) }}" alt="{{ $item->course_name }}"></a>
                                 <div class="feedback-tag">{{ $item->category->category_name }}</div>
                                 <div class="heart-icon"><i class="fas fa-heart"></i></div>
                             </div>
@@ -213,7 +213,7 @@
                              <div class="price-list">
                                  <h5><span class="text-danger">Rp. {{ number_format($item->price_old, 0) }}</span> <b class="sub-title">Rp. {{ number_format($item->price_new, 0) }}</b></h5>
                              </div>
-                                <h4 class="sub-title mb-20"><a href="{{ url('course/'.$item->id) }}">{{ $item->course_name }}</a></h4>
+                                <h4 class="sub-title mb-20"><a href="{{ url('course/'.$item->slug) }}">{{ $item->course_name }}</a></h4>
 
                                 <div class="course__meta">
                                     <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> {{ count($item->courselist) }} Class</span>

@@ -38,9 +38,9 @@
                                     <td>Rp. {{ number_format($item->price_new, 0) }}</td>
                                     <td>{{ $item->enroll }}</td>
                                     <td>
-                                        <a href="{{ url('admin/'.$active.'_list/'.$item->id) }}" class="btn btn-primary">View</a>
-                                        <a href="{{ url('admin/'.$active.'/update/'.$item->id) }}" class="btn btn-success">Update</a>
-                                        <a href="{{ url('admin/'.$active.'/delete/'.$item->id) }}" class="btn btn-danger show_confirm">Delete</a>
+                                        <a href="{{ url('admin/'.$active.'_list/'.$item->slug) }}" class="btn btn-primary">View</a>
+                                        <a href="{{ url('admin/'.$active.'/update/'.$item->slug) }}" class="btn btn-success">Update</a>
+                                        <a href="{{ url('admin/'.$active.'/delete/'.$item->slug) }}" class="btn btn-danger show_confirm">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

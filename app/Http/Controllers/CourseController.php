@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\CourseList;
 use App\Models\Category;
 use Alert;
+use Illuminate\Support\Str;
 
 class CourseController extends Controller
 {
@@ -50,20 +51,22 @@ class CourseController extends Controller
             'desc' => 'required',
             'price_old' => 'required',
             'price_new' => 'required',
-            'created_at' => now(),
-            'updated_at' => now(),
         ]);
 
         $upload = $request->file('course_picture')->store('img/course');
+        $slug = Str::slug($request->course_name, '-');
 
         $data = [
             'course_name' => $request->course_name,
+            'slug' => $slug,
             'course_picture' => $upload,
             'category_id' => $request->category_id,
             'desc' => $request->desc,
             'price_old' => $request->price_old,
             'price_new' => $request->price_new,
             'enroll' => 0,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
 
         Course::insert($data);
@@ -103,6 +106,8 @@ class CourseController extends Controller
             ]);
         }
 
+        $slug = Str::slug($request->course_name, '-');
+
         if($request->course_picture){
             Storage::delete($course->course_picture);
             $upload = $request->file('course_picture')->store('img/course');
@@ -113,6 +118,7 @@ class CourseController extends Controller
 
         $update = [
             'course_name' => $request->course_name,
+            'slug' => $slug,
             'course_picture' => $upload,
             'category_id' => $request->category_id,
             'desc' => $request->desc,

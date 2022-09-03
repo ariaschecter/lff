@@ -26,13 +26,13 @@
                     $btn = 'Accept';
                 }
             @endphp
-            <div class="btn btn-primary mb-2">Status : {{ $btn }}</div>
+            <div class="btn btn-info mb-2"><h5>Status : {{ $btn }}</h5></div>
             <div class="">
                 @if ($angka != 2)
-                <a href="{{ url('admin/payment/accept/'.$payment->payment_ref) }}" class="btn btn-success">Accept</a>
-                <a href="{{ url('admin/payment/decline/'.$payment->payment_ref) }}" class="btn btn-warning">Decline</a>
+                <a href="{{ url('admin/payment/accept/'.$payment->id) }}" class="btn btn-success">Accept</a>
+                <a href="{{ url('admin/payment/decline/'.$payment->id) }}" class="btn btn-warning">Decline</a>
                 @endif
-                {{-- <a href="{{ url('admin/payment/delete/'.$payment->payment_ref) }}" class="btn btn-danger show_confirm">Delete</a> --}}
+                {{-- <a href="{{ url('admin/payment/delete/'.$payment->id) }}" class="btn btn-danger show_confirm">Delete</a> --}}
             </div>
         </div>
     </div>

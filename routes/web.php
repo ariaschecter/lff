@@ -37,7 +37,7 @@ Route::prefix('/')->group(function(){
         Route::get('/', 'index')->name('home');
         Route::get('/dashboard', 'dashboard')->name('dashboard');
         Route::get('/courses', 'courses');
-        Route::get('/course/{course}', 'course');
+        Route::get('/course/{course:slug}', 'course');
         Route::get('/categories', 'categories'); // belum
         Route::get('/category/{category}', 'category'); // belum
     });
@@ -45,10 +45,10 @@ Route::prefix('/')->group(function(){
     Route::controller(PersonController::class)->group(function () {
         Route::get('/progress', 'progress');
         Route::get('/course', 'course');
-        Route::get('/course/access/{course}', 'getLast');
-        Route::get('/course/access/{course}/{courselist}', 'access');
+        Route::get('/course/access/{course:slug}', 'getLast');
+        Route::get('/course/access/{course:slug}/{courselist}', 'access');
         Route::get('/order', 'order');
-        Route::get('/course/order/{course}', 'storeOrder');
+        Route::get('/course/order/{course:slug}', 'storeOrder');
         Route::get('/payment', 'payment');
         Route::get('/payment/add', 'addPayment');
         Route::post('/payment/add', 'storePayment');
@@ -69,18 +69,18 @@ Route::middleware('auth','isAdmin')->prefix('admin')->group(function () {
         Route::get('/course', 'index');
         Route::get('/course/add', 'create');
         Route::post('/course/add', 'store');
-        Route::get('/course/update/{course}', 'edit');
-        Route::post('/course/update/{course}', 'update');
-        Route::get('/course/delete/{course}', 'destroy');
+        Route::get('/course/update/{course:slug}', 'edit');
+        Route::post('/course/update/{course:slug}', 'update');
+        Route::get('/course/delete/{course:slug}', 'destroy');
     });
 
     Route::controller(CourseListController::class)->group(function () {
-        Route::get('/course_list/{id}', 'index');
-        Route::get('/course_list/{id}/add', 'create');
-        Route::post('/course_list/{id}/add', 'store');
-        Route::get('/course_list/{course_id}/update/{id}', 'edit');
-        Route::post('/course_list/{course_id}/update/{id}', 'update');
-        Route::get('/course_list/{course_id}/delete/{id}', 'destroy');
+        Route::get('/course_list/{course:slug}', 'index');
+        Route::get('/course_list/{course:slug}/add', 'create');
+        Route::post('/course_list/{course:slug}/add', 'store');
+        Route::get('/course_list/{course:slug}/update/{courselist}', 'edit');
+        Route::post('/course_list/{course:slug}/update/{courselist}', 'update');
+        Route::get('/course_list/{course:slug}/delete/{courselist}', 'destroy');
     });
 
     Route::controller(OrderController::class)->group(function () {
@@ -91,9 +91,9 @@ Route::middleware('auth','isAdmin')->prefix('admin')->group(function () {
 
     Route::controller(PaymentController::class)->group(function () {
         Route::get('/payment', 'index');
-        Route::get('/payment/{payment_ref}', 'show');
-        Route::get('/payment/accept/{payment_ref}', 'edit');
-        Route::get('/payment/decline/{payment_ref}', 'destroy');
+        Route::get('/payment/{payment:payment_ref}', 'show');
+        Route::get('/payment/accept/{payment}', 'edit');
+        Route::get('/payment/decline/{payment}', 'destroy');
         // Route::get('/payment/delete/{payment_ref}', 'destroy');
     });
 

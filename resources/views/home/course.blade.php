@@ -7,23 +7,23 @@
                     <div class="row">
                         <div class="col-xxl-7 col-xl-7">
                             <div class="courses-details-wrapper mb-30">
-                                <h2 class="courses-title mb-30">{{ $course->course_name }}</h2>
+                                <h2 class="courses-title mb-30">Course : {{ $course->course_name }}</h2>
                                 {{-- <h5>Photography Specialist By Jason Momoa</h5> --}}
-                                <div class="course-details-img mb-30" style="background-image: url({{ $course->course_picture }});">
+                                <div class="course-details-img mb-30" style="background-image: url({{ asset('storage/'. $course->course_picture) }});">
                                   <div class="video-wrapper">
-                                      <a href="https://www.youtube.com/watch?v=7omGYwdcS04" class="popup-video"><i class="fas fa-play"></i></a>
+                                      <a href="https://www.youtube.com/watch?v={{ $list->link }}" class="popup-video"><i class="fas fa-play"></i></a>
                                       </div>
                                   </div>
-                                  <div class="courses-tag-btn">
+                                  {{-- <div class="courses-tag-btn">
                                       <a href="#">Add to wishlist</a>
                                       <a href="#">Share</a>
                                       <a href="#">Gift this course</a>
-                                  </div>
+                                  </div> --}}
                             </div>
                         </div>
                         <div class="col-xxl-5 col-xl-5">
                             <div class="learn-area mb-30">
-                                <ul class="cart-list-tag d-sm-inline-flex align-items-center mb-50">
+                                <ul class="cart-list-tag d-sm-inline-flex align-items-center mb-10">
                                     <li>
                                         <div class="price-list">
                                             <h5><span>Rp. {{ number_format($course->price_old, 0) }}</span> <b class="sub-title">Rp. {{ number_format($course->price_new, 0) }}</b></h5>
@@ -36,11 +36,25 @@
                                     </li>
                                     <li>
                                        <div class="video-wrapper courses-cart-video">
-                                          <a href="https://www.youtube.com/watch?v=7omGYwdcS04" class="popup-video"><i class="fas fa-play"></i></a>
+                                          <a href="https://www.youtube.com/watch?v={{ $list->link }}" class="popup-video"><i class="fas fa-play"></i></a>
                                        </div>
                                     </li>
                                 </ul>
-                                <div class="learn-box">
+                                <div class="courses-ingredients">
+                                    {{-- <div class="courses-ingredients"> --}}
+                                        <h2 class="corses-title mb-30">Course Includes</h2>
+                                        {{-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed di nonumy eirmod tempor invidunt ut labore et dolore.</p> --}}
+                                        <ul class="courses-item mt-25">
+                                            <li><img src="{{ url('user/img/icon/video.svg') }}" alt=""> {{ $time }} hours video</li>
+                                            <li><img src="{{ url('user/img/icon/newspaper.svg') }}" alt=""> 73 articles</li>
+                                            <li><img src="{{ url('user/img/icon/download.svg') }}" alt=""> {{ $course->enroll }}+ Enrolls Member</li>
+                                            <li><img src="{{ url('user/img/icon/infinity.svg') }}" alt=""> Full Lifetime Access</li>
+                                            <li><img src="{{ url('user/img/icon/mobile.svg') }}" alt=""> Access on mobile or any devices</li>
+                                            {{-- <li><img src="{{ url('user/img/icon/certificate-line.svg') }}" alt=""> Certificate of completion</li> --}}
+                                        </ul>
+                                    {{-- </div> --}}
+                                </div>
+                                {{-- <div class="learn-box">
                                     <h5>{{ count($lists) }} Lessons ( {{ $time }}h )</h5>
 
                                     <ul class="learn-list">
@@ -51,20 +65,20 @@
                                                 </a>
                                             </li>
                                         @endforeach
-                                        {{-- <li>
-                                            <a href="https://www.youtube.com/watch?v=7omGYwdcS04">
-                                                <span class="play-video"><i class="fal fa-lock-alt"></i></span> 02. How to Open Camera <span class="time float-end">2:03</span>
-                                            </a>
-                                        </li> --}}
+                                                        <li>
+                                                            <a href="https://www.youtube.com/watch?v=7omGYwdcS04">
+                                                                <span class="play-video"><i class="fal fa-lock-alt"></i></span> 02. How to Open Camera <span class="time float-end">2:03</span>
+                                                            </a>
+                                                        </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-6 col-lg-7">
                             <div class="project-details mb-65">
-                                <h2 class="courses-title mb-30">{{ $course->course_name }}</h2>
+                                <h2 class="courses-title mb-30">Description </h2>
                                 <p>{{ $course->desc }}</p>
                                 {{-- <ul class="seller-rating d-md-inline-flex align-items-center mt-20 mb-10">
                                     <li>
@@ -117,18 +131,7 @@
                             </div> --}}
                         </div>
                         <div class="col-xl-6 col-lg-5">
-                            <div class="courses-ingredients">
-                                <h2 class="corses-title mb-30">Course Includes</h2>
-                                {{-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed di nonumy eirmod tempor invidunt ut labore et dolore.</p> --}}
-                                <ul class="courses-item mt-25">
-                                    <li><img src="{{ url('user/img/icon/video.svg') }}" alt=""> 4 hours on-demand video</li>
-                                    <li><img src="{{ url('user/img/icon/newspaper.svg') }}" alt=""> 73 articles</li>
-                                    <li><img src="{{ url('user/img/icon/download.svg') }}" alt=""> 650+ downloadable resources</li>
-                                    <li><img src="{{ url('user/img/icon/infinity.svg') }}" alt=""> Full Lifetime Access</li>
-                                    <li><img src="{{ url('user/img/icon/mobile.svg') }}" alt=""> Access on mobile and TV or any devices</li>
-                                    <li><img src="{{ url('user/img/icon/certificate-line.svg') }}" alt=""> Certificate of completion</li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                 </div>

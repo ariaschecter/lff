@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Course>
@@ -18,6 +19,7 @@ class CourseFactory extends Factory
     {
         return [
             'course_name' => fake()->name(),
+            'slug' => Str::random(10),
             'course_picture' => 'https://picsum.photos/300?random='.fake()->randomNumber(3, false),
             'category_id' => fake()->numberBetween(1,2),
             'desc' => fake()->paragraph(),

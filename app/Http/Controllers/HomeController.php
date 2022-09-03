@@ -63,16 +63,16 @@ class HomeController extends Controller
 
     public function course(Course $course){
         $id = $course->id;
-        $lists = CourseList::where('course_id', $id)->orderBy('no', 'ASC')->get();
+        $list = CourseList::where('course_id', $id)->orderBy('no', 'ASC')->first();
         $time = round(CourseList::where('course_id', $id)->sum('time')/60, 2);
         $payed = CourseAccess::where('user_id', Auth::id())->where('course_id', $course->id)->first();
 
-        $payed ? $link = url('course/access/'.$course->id) : $link = url('course/order/'.$course->id);
+        $payed ? $link = url('course/access/'.$course->slug) : $link = url('course/order/'.$course->slug);
 
         return view('home.course', [
             'title' => $course->course_name,
             'course' => $course,
-            'lists' => $lists,
+            'list' => $list,
             'time' => $time,
             'payed' => $payed,
             'link' => $link,
