@@ -28,7 +28,7 @@
             @endphp
             <div class="btn btn-info mb-2"><h5>Status : {{ $btn }}</h5></div>
             <div class="">
-                @if ($angka != 2)
+                @if ($angka == 0)
                 <a href="{{ url('admin/payment/accept/'.$payment->id) }}" class="btn btn-success">Accept</a>
                 <a href="{{ url('admin/payment/decline/'.$payment->id) }}" class="btn btn-warning">Decline</a>
                 @endif

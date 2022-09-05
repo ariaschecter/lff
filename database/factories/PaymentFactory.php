@@ -18,7 +18,7 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            'order_id' => fake()->numberBetween(1,30),
+            'order_id' => fake()->numberBetween(1,2),
             'payment_method_id' => fake()->numberBetween(1,2),
             'payment_ref' => strtoupper(Str::random(10)),
             'payment_picture' => 'https://picsum.photos/300?random='.fake()->randomNumber(3, false),

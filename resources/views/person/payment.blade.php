@@ -26,7 +26,7 @@
                                 @foreach ($payments as $item)
                                 @php
                                     switch($item->payment_status){
-                                        case 0 : $css = 'btn-white'; $text = 'Pending'; break;
+                                        case 0 : $css = 'btn-info'; $text = 'Pending'; break;
                                         case 1 : $css = 'btn-warning'; $text = 'Decline'; break;
                                         case 2 : $css = 'btn-success'; $text = 'Success'; break;
                                     }
@@ -37,13 +37,13 @@
                                         <td>#{{ $item->payment_ref }}</td>
                                         <td>{{ $item->order->course->course_name }}</td>
                                         <td>Rp. {{ number_format($item->order->price, 0) }}</td>
-                                        <td>{{ $item->created_at }}</td>
+                                        <td>{{ $item->updated_at }}</td>
                                         <td>
                                             <div class="btn {{ $css }}">{{ $text }}</div>
                                         </td>
                                         <td>
-                                            @if ($item->payment == 2)
-                                                <button>Invoice</button>
+                                            @if ($item->payment_status == 2)
+                                                <a href="#" class="btn btn-success" target="_blank">Success</a>
                                             @else
                                                 <a href="{{ $chatWa }}" class="btn btn-primary" target="_blank">Follow Up</a>
                                             @endif
