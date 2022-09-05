@@ -161,9 +161,9 @@ class PersonController extends Controller
         if($courselist->no == $akses->last_access + 1) {
             CourseAccess::where('course_id', $course->id)->where('user_id', Auth::id())
                         ->update(['last_access' => $courselist->no, 'updated_at' => now(),]);
-            return redirect('course/access/'.$course->id);
+            return redirect('course/access/'.$course->slug);
         } else if($courselist->no > $akses->last_access) {
-            return redirect('course/access/'.$course->id);
+            return redirect('course/access/'.$course->slug);
         } else if ($courselist->id == $noawal->id){
             $terawal = true;
         } else if ($courselist->id == $noakhir->id){

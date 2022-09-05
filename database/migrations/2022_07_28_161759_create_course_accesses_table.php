@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('course_id');
-            $table->integer('last_access')->default(0);
+            $table->integer('last_access')->default(1);
             $table->timestamps();
         });
     }

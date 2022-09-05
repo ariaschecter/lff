@@ -45,14 +45,13 @@ class PaymentController extends Controller
         $data = [
             'user_id' => $order->user_id,
             'course_id' => $order->course_id,
-            'last_access' => 0,
             'created_at' => now(),
             'updated_at' => now(),
         ];
 
         CourseAccess::insert($data);
         Course::newEnroll($order->course_id);
-        Payment::where('id', $payment->id)->update(['payment_status' => 2]);
+        Payment::where('id', $payment->id)->update(['payment_status' => 2, 'updated_at' => now()]);
         Alert::success('Congrats', 'You\'ve Accept a Payment!');
         return redirect('admin/payment');
     }
