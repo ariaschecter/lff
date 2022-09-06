@@ -15,6 +15,7 @@ use App\Models\Payment;
 use App\Models\PaymentMethod;
 use App\Models\CourseAccess;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class PersonController extends Controller
 {
@@ -230,19 +231,33 @@ class PersonController extends Controller
             'updated_at' => now(),
         ];
 
+        dd($data);
         User::where('id', $user->id)->update($data);
         Alert::success('Congrats', 'You\'ve Update your Profile!');
         return back();
     }
 
     public function storePassword(Request $request){
+        $user = Auth::user();
+        // dd($user);
         $validated = $request->validate([
             'oldPassword' => 'required',
             'newPassword' => 'required',
             'passwordConfirmation' => 'required|same:newPassword',
         ]);
 
-        
+        if (Hash::check($request->oldPassword, $user->password)) {
+            $data = [
+                'password' => bcrypt($request->newPassword),
+                'updated_at' => now(),
+            ];
+            User::where('id', $user->id)->update($data);
+            Alert::success('Congrats', 'You\'ve Update your Profile!');
+        } else {
+            Alert::error('Error', 'Your Old Password does\'nt Match!');
+        }
+
+        return back();
     }
 
 
