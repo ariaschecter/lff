@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Alert;
 use App\Models\Course;
 use App\Models\CourseList;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\User;
 use App\Models\Payment;
 use App\Models\PaymentMethod;
 use App\Models\CourseAccess;
@@ -190,5 +192,58 @@ class PersonController extends Controller
             'terawal' => $terawal,
         ]);
     }
+
+    public function editProfile(){
+
+        return view('settings.editProfile', [
+            'title' => 'Edit Profile',
+            'user' => Auth::user(),
+        ]);
+    }
+
+    public function editPassword(){
+        return view('settings.editPassword', [
+            'title' => 'Edit Password'
+        ]);
+    }
+
+    public function storeProfile(Request $request){
+        $user = Auth::user();
+        $validated = $request->validate([
+            'name' => 'required',
+            'user_picture' => 'image|file|max:1024',
+        ]);
+
+        $upload = 'img/profile/default.png';
+        $picture = $user->user_picture;
+
+        if($request->user_picture){
+            if($picture != $upload){
+                Storage::delete($picture);
+            }
+            $picture = $request->file('user_picture')->store('img/profile');
+        }
+
+        $data = [
+            'name' => $request->name,
+            'user_picture' => $picture,
+            'updated_at' => now(),
+        ];
+
+        User::where('id', $user->id)->update($data);
+        Alert::success('Congrats', 'You\'ve Update your Profile!');
+        return back();
+    }
+
+    public function storePassword(Request $request){
+        $validated = $request->validate([
+            'oldPassword' => 'required',
+            'newPassword' => 'required',
+            'passwordConfirmation' => 'required|same:newPassword',
+        ]);
+
+        
+    }
+
 
 }

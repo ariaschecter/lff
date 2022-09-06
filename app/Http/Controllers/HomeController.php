@@ -51,9 +51,10 @@ class HomeController extends Controller
     public function courses(Request $request){
         $search = $request->keyword;
         if($search){
-            $courses = Course::where('course_name', 'LIKE', "%{$search}%")->get();
+            $courses = Course::where('course_name', 'LIKE', "%{$search}%")
+                            ->where('is_active', 1)->get();
         } else {
-            $courses = Course::all();
+            $courses = Course::where('is_active', 1)->get();
         }
         $categories = Category::all();
 
@@ -66,6 +67,7 @@ class HomeController extends Controller
     }
 
     public function course(Course $course){
+        if(!$course->is_active) return abort(404, 'Page Not Found');
         $id = $course->id;
         $list = CourseList::where('course_id', $id)->orderBy('no', 'ASC')->first();
         $time = round(CourseList::where('course_id', $id)->sum('time')/60, 2);
@@ -91,7 +93,7 @@ class HomeController extends Controller
     }
 
     public function category(Category $category){
-        $courses = Course::where('category_id', $category->id)->get();
+        $courses = Course::where('category_id', $category->id)->where('is_active', 1)->get();
         $categories = Category::all();
         return view('home.courses', [
             'title' => $category->category_name,
