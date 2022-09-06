@@ -49,7 +49,12 @@
                         <input type="number" class="form-control @error('price_new') is-invalid @enderror" id="price_new" name="price_new" value="{{ old('price_new') }}" placeholder="Input Course">
                     </div>
                     @error('price_new') <div class="text-danger">{{ $message }}</div> @enderror
-
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" value="1" id="is_active" name="is_active">
+                        <label class="form-check-label" for="is_active">
+                            Active
+                        </label>
+                    </div>
 
                     <button class="btn btn-primary m-1 text-white">Add Course</button>
                 </form>

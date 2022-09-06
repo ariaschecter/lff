@@ -53,6 +53,10 @@ Route::prefix('/')->group(function(){
         Route::get('/payment', 'payment');
         Route::get('/payment/add', 'addPayment');
         Route::post('/payment/add', 'storePayment');
+        Route::get('/edit-profile', 'editProfile');
+        Route::get('/edit-password', 'editPassword');
+        Route::post('/edit-profile', 'storeProfile');
+        Route::post('/edit-password', 'storePassword');
     });
 });
 

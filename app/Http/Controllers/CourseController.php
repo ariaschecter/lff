@@ -65,6 +65,7 @@ class CourseController extends Controller
             'price_old' => $request->price_old,
             'price_new' => $request->price_new,
             'enroll' => 0,
+            'is_active' => $request->is_active,
             'created_at' => now(),
             'updated_at' => now(),
         ];
@@ -124,6 +125,7 @@ class CourseController extends Controller
             'desc' => $request->desc,
             'price_old' => $request->price_old,
             'price_new' => $request->price_new,
+            'is_active' => $request->is_active,
             'updated_at' => now(),
         ];
         Course::where('id', $course->id)->update($update);
