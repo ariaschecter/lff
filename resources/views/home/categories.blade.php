@@ -5,7 +5,7 @@
     <div class="col-xl-12">
         <div class="section-title text-center mb-55">
             <h5 class="bottom-line mb-25">Browse Categories</h5>
-            <h2>Explore our Online Subjects</h2>
+            <h2>Explore our Categories</h2>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-5">

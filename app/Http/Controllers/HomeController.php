@@ -97,7 +97,13 @@ class HomeController extends Controller
             'title' => $category->category_name,
             'categories' => $categories,
             'courses' => $courses,
-            'all' => false
+            'all' => false,
+        ]);
+    }
+
+    public function about() {
+        return view('home.about', [
+            'title' => 'About Us',
         ]);
     }
 }

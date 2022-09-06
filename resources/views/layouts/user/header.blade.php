@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ url('user/css/slick.css') }}">
     <link rel="stylesheet" href="{{ url('user/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ url('user/css/main.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="{{ url('assets/js/dselect.js') }}"></script>
 </head>
 

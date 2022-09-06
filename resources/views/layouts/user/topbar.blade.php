@@ -19,13 +19,17 @@
                                     </li>
                                     <li class="nav-item active" style="display: none">
                                     </li>
+                                    <li class="nav-item active" style="display: none">
+                                    </li>
+                                    <li class="nav-item active" style="display: none">
+                                    </li>
                                     @auth
-                                    <li class="nav-item active" style="display: none">
-                                    </li>
-                                    <li class="nav-item active" style="display: none">
-                                    </li>
-                                        <li class="nav-item active">
+                                        <li class="nav-item">
                                             <a class="nav-link" href="{{ url('dashboard') }}" id="navbarDropdown1" role="button" aria-expanded="false">Dashboard</a>
+                                        </li>
+                                    @else
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ url('') }}" id="navbarDropdown1" role="button" aria-expanded="false">Home</a>
                                         </li>
                                     @endauth
 
@@ -36,13 +40,14 @@
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                                             <li><a class="dropdown-item" href="{{ url('courses') }}">All Courses</a></li>
-                                            <li><a class="dropdown-item" href="{{ url('progress') }}">Progress</a></li>
-                                            <li><a class="dropdown-item" href="{{ url('course') }}">Course</a></li>
-                                            <li><a class="dropdown-item" href="{{ url('order') }}">Order</a></li>
-                                            <li><a class="dropdown-item" href="{{ url('payment') }}">Payment</a></li>
+                                            <li><a class="dropdown-item" href="{{ url('categories') }}">Categories</a></li>
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('about') }}" id="navbarDropdown5" role="button"
+                                            aria-expanded="false">About Us</a>
+                                    </li>
+                                    {{-- <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3"
                                             role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
@@ -51,7 +56,7 @@
                                             <li><a class="dropdown-item" href="instructor.html">Instructor</a></li>
                                             <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                     <!-- <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 Blog
@@ -61,10 +66,6 @@
                                                 <li><a class="dropdown-item" href="blog-details.html">Blog Details</a></li>
                                             </ul>
                                         </li> -->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.html" id="navbarDropdown5" role="button"
-                                            aria-expanded="false">Contact</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -181,31 +182,53 @@
     <!-- side-mobile-menu start -->
     <nav class="side-mobile-menu">
         <ul id="mobile-menu-active">
+        @auth
             <li class="nav-item">
-                <a class="nav-link" href="index.html" id="navbarDropdown1" role="button"
+                <a class="nav-link" href="{{ url('dashboard') }}" id="navbarDropdown1" role="button"
                     aria-expanded="false">Dashboard</a>
             </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('') }}" id="navbarDropdown1" role="button"
+                    aria-expanded="false">Home</a>
+            </li>
+        @endauth
+        {{-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Course
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <li><a class="dropdown-item" href="{{ url('courses') }}">All Courses</a></li>
+                <li><a class="dropdown-item" href="{{ url('categories') }}">All Categories</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('about') }}" id="navbarDropdown5" role="button"
+                aria-expanded="false">About Us</a>
+        </li> --}}
             <li class="has-dropdown">
                 <a href="#" id="navbarDropdown2" role="button">
                     Course
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="index.html">My Course</a></li>
-                    <li><a href="index-2.html">All Course</a></li>
-                    <li><a href="index-3.html">Categories</a></li>
+                    <li><a href="{{ url('courses') }}">All Courses</a></li>
+                    <li><a href="{{ url('categories') }}">Categories</a></li>
                 </ul>
             </li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="{{ url('about') }}">About Us</a></li>
+            @auth
             <li class="has-dropdown">
-                <a href="#">Sidebar</a>
+                <a href="#">My Profile</a>
                 <ul class="sub-menu">
-                    <li><a href=""></a>Progress</li>
-                    <li><a href=""></a>Courses</li>
-                    <li><a href=""></a>Orders</li>
-                    <li><a href=""></a>Payments</li>
+                    <li><a href="{{ url('progress') }}"></a>Progress</li>
+                    <li><a href="{{ url('course') }}"></a>Courses</li>
+                    <li><a href="{{ url('order') }}"></a>Orders</li>
+                    <li><a href="{{ url('payment') }}"></a>Payments</li>
+                    <li><a href="{{ url('setting') }}"></a>Setting</li>
                 </ul>
             </li>
-            <li><a href="contact.html">Contacts Us</a></li>
+            @endauth
         </ul>
     </nav>
     <!-- side-mobile-menu end -->

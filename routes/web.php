@@ -40,6 +40,7 @@ Route::prefix('/')->group(function(){
         Route::get('/course/{course:slug}', 'course');
         Route::get('/categories', 'categories'); // belum
         Route::get('/category/{category}', 'category'); // belum
+        Route::get('/about', 'about');
     });
 
     Route::controller(PersonController::class)->group(function () {
