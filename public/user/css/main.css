@@ -8888,9 +8888,9 @@ a:focus {
 }
 
 #sidebar .sidebar-header {
-  padding: 20px;
-  background: #2772db;
-  
+  padding: 10px;
+  background: #F8F8FF;
+  max-height: max-content;
 }
 
 #sidebar ul.components {

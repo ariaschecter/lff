@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                                <img src="{{ url('user/img/auth/design.png') }}"
                                     alt="login form" class="img-fluid"
                                     style="border-radius: 0 1rem 1rem 0; height: 100%;" />
                             </div>
