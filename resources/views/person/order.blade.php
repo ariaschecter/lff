@@ -30,9 +30,9 @@
                                         <td>{{ $item->created_at }}</td>
                                         <td>
                                             @if ($item->order_status == 0)
-                                                <a href="{{ url('payment') }}" class="btn btn-primary">Pay</a>
+                                                <a href="{{ url('payment') }}" class="btn btn-primary rounded-pill">Pay</a>
                                             @else
-                                            <button class="btn btn-success" disabled>Payed</button>
+                                            <button class="btn btn-success rounded-pill"  disabled>Payed</button>
                                             @endif
                                         </td>
                                     </tr>

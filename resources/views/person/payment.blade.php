@@ -3,7 +3,7 @@
 @section('body')
 <div class="container">
     <div class="row">
-        <a href="{{ url('payment/add') }}" class="btn btn-primary m-3 col-lg-1">Add</a>
+        <a href="{{ url('payment/add') }}" class="btn btn-primary rounded-pill m-3 col-lg-1">Add</a>
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -39,13 +39,13 @@
                                         <td>Rp. {{ number_format($item->order->price, 0) }}</td>
                                         <td>{{ $item->updated_at }}</td>
                                         <td>
-                                            <div class="btn {{ $css }}">{{ $text }}</div>
+                                            <div class="btn rounded-pill {{ $css }}">{{ $text }}</div>
                                         </td>
                                         <td>
                                             @if ($item->payment_status == 2)
-                                                <a href="#" class="btn btn-success" target="_blank">Success</a>
+                                                <a href="#" class="btn btn-success rounded-pill" target="_blank">Success</a>
                                             @else
-                                                <a href="{{ $chatWa }}" class="btn btn-primary" target="_blank">Follow Up</a>
+                                                <a href="{{ $chatWa }}" class="btn btn-primary rounded-pill" target="_blank">Follow Up</a>
                                             @endif
                                         </td>
                                     </tr>
