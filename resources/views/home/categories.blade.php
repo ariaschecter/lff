@@ -16,7 +16,7 @@
             <div class="col">
                 <div class="single-category text-center mb-30 wow fadeInUp2 animated" data-wow-delay='.{{ $i++ }}s'>
                     <img class="mb-30" src="{{ url('user/img/category-icon/web-development.svg') }}" alt="">
-                    <h4 class="sub-title mb-10"><a href="{{ url('category/'.$item->id) }}">{{ $item->category_name }}</a></h4>
+                    <h4 class="sub-title mb-10"><a href="{{ url('category/'.$item->category_slug) }}">{{ $item->category_name }}</a></h4>
                     <p>{{ count($item->course) }}+ Courses Available</p>
                 </div>
             </div>

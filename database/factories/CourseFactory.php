@@ -26,6 +26,7 @@ class CourseFactory extends Factory
             'price_old' => fake()->randomNumber(6, true),
             'price_new' => fake()->randomNumber(6, true),
             'enroll' => fake()->randomNumber(4, true),
+            'is_active' => 1,
         ];
     }
 }
