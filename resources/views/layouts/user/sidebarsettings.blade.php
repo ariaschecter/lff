@@ -22,10 +22,10 @@
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-cogs"></i><span class="pl-10">Setting</span></a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="{{ url('edit-profile') }}">Edit Profile</a>
+                        <a href="{{ url('edit-profile') }}"><i class="fas fa-user"></i><span class="pl-10">Edit Profile</a>
                     </li>
                     <li>
-                        <a href="{{ url('edit-password') }}">Edit Password</a>
+                        <a href="{{ url('edit-password') }}"><i class="fas fa-key"></i><span class="pl-10">Edit Password</a>
                     </li>
                 </ul>
             </li>
