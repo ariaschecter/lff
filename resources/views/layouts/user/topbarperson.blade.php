@@ -99,9 +99,9 @@
                                                 </a>
                                             </li>
                                             <li class="dropdown-item py-2">
-                                                <a href="{{ url('user/settings') }}" class="text-body ms-0">
+                                                <a href="{{ url('edit-profile') }}" class="text-body ms-0">
                                                 <i class="me-2 icon-md" data-feather="user"></i>
-                                                <span>Setting</span>
+                                                <span>Profile Settings</span>
                                                 </a>
                                             </li>
                                             <li class="dropdown-item py-2">
@@ -217,7 +217,7 @@
                     <li><a href="{{ url('course') }}"></a>Courses</li>
                     <li><a href="{{ url('order') }}"></a>Orders</li>
                     <li><a href="{{ url('payment') }}"></a>Payments</li>
-                    <li><a href="{{ url('setting') }}"></a>Setting</li>
+                    <li><a href="{{ url('edit-profile') }}"></a>Profile Settings</li>
                 </ul>
             </li>
             @endauth
