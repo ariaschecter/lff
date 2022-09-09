@@ -43,7 +43,7 @@ License: For each use you must have a valid license purchased only from above li
 
   <!-- End layout styles -->
 
-  <link rel="shortcut icon" href="{{ url('assets/images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ url('assets/images/header_logo_old.png') }}" />
 
     <script src="{{ url('assets/js/dselect.js') }}"></script>
 </head>

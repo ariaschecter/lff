@@ -55,7 +55,7 @@
                                <h4 class="sub-title mb-20"><a href="{{ url('course/'.$item->slug) }}">{{ $item->course_name }}</a></h4>
 
                                <div class="course__meta">
-                                   <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> {{ count($item->courselist) }} Class</span>
+                                   <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> {{ count($item->courselist) }} Videos</span>
                                    <span><img class="icon" src="{{ url('user/img/icon/bar-chart.svg') }}" alt="course-meta"> All Levels</span>
                                    <span><img class="icon" src="{{ url('user/img/icon/user.svg') }}" alt="course-meta"> {{ $item->enroll }}</span>
                                </div>

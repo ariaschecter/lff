@@ -55,7 +55,7 @@ class AuthController extends Controller
             'name' => 'required',
             // 'user_picture' => 'image|file|max:1024',
             'email' => 'required|unique:users,email',
-            'password' => 'required',
+            'password' => 'required|min:6',
             'password1' => 'required|same:password',
         ]);
 

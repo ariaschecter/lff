@@ -231,7 +231,7 @@ class PersonController extends Controller
             'updated_at' => now(),
         ];
 
-        dd($data);
+        
         User::where('id', $user->id)->update($data);
         Alert::success('Congrats', 'You\'ve Update your Profile!');
         return back();
@@ -242,7 +242,7 @@ class PersonController extends Controller
         // dd($user);
         $validated = $request->validate([
             'oldPassword' => 'required',
-            'newPassword' => 'required',
+            'newPassword' => 'required|min:6',
             'passwordConfirmation' => 'required|same:newPassword',
         ]);
 

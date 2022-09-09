@@ -13,8 +13,9 @@
     <div class="col-md-12 grid-margin stretch-card col-lg-6">
         <div class="card ">
             <div class="card-body">
-            <h6 class="card-title">Add Course</h6>
-                <form method="POST" action="{{ url('admin/course/update/'.$data->id) }}" enctype="multipart/form-data">
+
+            <h6 class="card-title">Edit Course {{ $data->course_name }}</h6>
+                <form method="POST" action="{{ url('admin/course/update/'.$data->slug) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-1">
                         <label for="course_name" class="form-label">Name</label>
