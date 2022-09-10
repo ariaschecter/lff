@@ -34,12 +34,13 @@
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <div class="d-flex justify-content-between">
-                                                    <label class="form-label" for="password">Password</label><a href="{{ url('auth/forgotpassword') }}"><small>Forgot Password?</small></a>
+                                                    <label class="form-label" for="password">Password</label>
                                                 </div>
                                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                                <a href="{{ url('auth/forgotpassword') }}" class="float-end pt-10"><small>Forgot Password?</small></a>
                                             </div>
 
-                                        <div class="pt-1 mb-4">
+                                        <div class="pt-15 mb-4">
                                             <button class="btn theme_btn free-btn"
                                                 type="submit">Login</button>
                                         </div>

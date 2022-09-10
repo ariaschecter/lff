@@ -10,7 +10,9 @@
               <div class="col-12 col-sm-8 col-lg-6 pt-50">
                 <!-- Section Heading-->
                 <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                  <h3>Our <span> Team</span></h3>
+                  <div class="section-title text-center mb-50">
+                    <h2>Our Team</h2>
+                </div>
                   <p>Appland is completely creative, lightweight, clean &amp; super responsive app landing page.</p>
                   <div class="line"></div>
                 </div>
