@@ -1,10 +1,12 @@
 @php
     $user = Auth::user();
-    $explode = explode(' ', $user->name);
+    if($user){
+        $explode = explode(' ', $user->name);
 
-    $username = $user->name;
-    if(count($explode) > 2){
-        $username = $explode[0] . ' ' . $explode[1];
+        $username = $user->name;
+        if(count($explode) > 2){
+            $username = $explode[0] . ' ' . $explode[1];
+        }
     }
 @endphp
 
