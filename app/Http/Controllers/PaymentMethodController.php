@@ -47,20 +47,18 @@ class PaymentMethodController extends Controller
         return redirect('admin/payment_method');
     }
 
-    public function edit($id)
+    public function edit(PaymentMethod $paymentmethod)
     {
         return view('admin.payment_method.edit', [
             'active' => 'payment_method',
             'title' => 'Edit Payment Method',
-            'data' => PaymentMethod::where('id',$id)->first(),
+            'data' => $paymentmethod,
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, PaymentMethod $paymentmethod)
     {
-        $data = PaymentMethod::where('id',$id)->first();
-
-        if($data->payment_method != $request->payment_method){
+        if($paymentmethod->payment_method != $request->payment_method){
             $validated = $request->validate([
                 'payment_method' => 'required|unique:payment_methods,payment_method',
                 'payment_name' => 'required',
@@ -78,9 +76,9 @@ class PaymentMethodController extends Controller
         return redirect('admin/payment_method');
     }
 
-    public function destroy($id)
+    public function destroy(PaymentMethod $paymentmethod)
     {
-        PaymentMethod::where('id', $id)->delete();
+        PaymentMethod::where('id', $paymentmethod->id)->delete();
         Alert::success('Congrats', 'You\'ve Deleted a Payment Method!');
         return redirect('admin/payment_method');
     }

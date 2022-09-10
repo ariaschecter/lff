@@ -15,9 +15,9 @@
         @foreach ($categories as $item)
             <div class="col">
                 <div class="single-category text-center mb-30 wow fadeInUp2 animated" data-wow-delay='.{{ $i++ }}s'>
-                    <img class="mb-30" src="{{ url('user/img/category-icon/web-development.svg') }}" alt="">
+                    <img class="mb-30 img-thumbnail" src="{{ url('storage/'. $item->category_picture) }}" alt="gambar {{ $item->category_name }}">
                     <h4 class="sub-title mb-10"><a href="{{ url('category/'.$item->category_slug) }}">{{ $item->category_name }}</a></h4>
-                    <p>{{ count($item->course) }}+ Courses Available</p>
+                    <p>{{ count($item->course) }} Courses Available</p>
                 </div>
             </div>
         @endforeach

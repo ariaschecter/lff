@@ -19,6 +19,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Picture</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Price New</th>
@@ -32,6 +33,7 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <th>{{ $i++ }}</th>
+                                    <td><img src="{{ asset('storage/'. $item->course_picture) }}" alt="{{ $item->course_name }}"></td>
                                     <td>{{ $item->course_name }}</td>
                                     <td>{{ $item->category->category_name }}</td>
                                     <td>Rp. {{ number_format($item->price_new, 0) }}</td>

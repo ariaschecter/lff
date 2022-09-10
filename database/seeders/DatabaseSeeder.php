@@ -33,8 +33,8 @@ class DatabaseSeeder extends Seeder
         Role::factory()->create(['role_name' => 'Admin']);
         Role::factory()->create(['role_name' => 'User']);
 
-        Category::factory()->create(['category_name' => 'Design', 'category_slug' => 'design']);
-        Category::factory()->create(['category_name' => 'Front End', 'category_slug' => 'front-end']);
+        Category::factory()->create(['category_name' => 'Design', 'category_slug' => 'design', 'category_picture' => 'img/profile/default.png']);
+        Category::factory()->create(['category_name' => 'Front End', 'category_slug' => 'front-end', 'category_picture' => 'img/profile/default.png']);
 
         User::factory()->create([
             'name' => 'Aria Maulana',

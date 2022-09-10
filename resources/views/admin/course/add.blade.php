@@ -23,7 +23,7 @@
                     @error('course_name') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="mb-1">
                         <label for="course_picture" class="form-label">Picture</label>
-                        <input type="file" autofocus class="form-control @error('course_picture') is-invalid @enderror" id="course_picture" name="course_picture" value="{{ old('course_picture') }}" placeholder="Input Picture">
+                        <input type="file" autofocus class="form-control @error('course_picture') is-invalid @enderror" id="course_picture" name="course_picture">
                     </div>
                     @error('course_picture') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="mb-1">

@@ -115,18 +115,18 @@ Route::middleware('auth','isAdmin')->prefix('admin')->group(function () {
         Route::get('/payment_method', 'index');
         Route::get('/payment_method/add', 'create');
         Route::post('/payment_method/add', 'store');
-        Route::get('/payment_method/update/{id}', 'edit');
-        Route::post('/payment_method/update/{id}', 'update');
-        Route::get('/payment_method/delete/{id}', 'destroy');
+        Route::get('/payment_method/update/{paymentmethod}', 'edit');
+        Route::post('/payment_method/update/{paymentmethod}', 'update');
+        Route::get('/payment_method/delete/{paymentmethod}', 'destroy');
     });
 
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/category', 'index');
         Route::get('/category/add', 'create');
         Route::post('/category/add', 'store');
-        Route::get('/category/update/{id}', 'edit');
-        Route::post('/category/update/{id}', 'update');
-        Route::get('/category/delete/{id}', 'destroy');
+        Route::get('/category/update/{category}', 'edit');
+        Route::post('/category/update/{category}', 'update');
+        Route::get('/category/delete/{category}', 'destroy');
     });
 
     Route::controller(RoleController::class)->group(function () {

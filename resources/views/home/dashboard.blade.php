@@ -133,45 +133,20 @@
                          </div>
                      </div>
                      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-5">
-                         <div class="col">
-                             <div class="single-category text-center mb-30 wow fadeInUp2 animated" data-wow-delay='.1s'>
-                                 <img class="mb-30" src="{{ url('user/img/category-icon/atom.svg') }}" alt="">
-                                 <h4 class="sub-title mb-10"><a href="course-details.html">Science</a></h4>
-                                 <p>126+ Courses Available</p>
-                             </div>
-                         </div>
-                         <div class="col">
-                             <div class="single-category text-center mb-30 wow fadeInUp2 animated" data-wow-delay='.2s'>
-                                 <img class="mb-30" src="{{ url('user/img/category-icon/web-development.svg') }}" alt="">
-                                 <h4 class="sub-title mb-10"><a href="course-details.html">Development</a></h4>
-                                 <p>325+ Courses Available</p>
-                             </div>
-                         </div>
-                         <div class="col">
-                             <div class="single-category text-center mb-30 wow fadeInUp2 animated" data-wow-delay='.3s'>
-                                 <img class="mb-30" src="{{ url('user/img/category-icon/atom.svg') }}" alt="">
-                                 <h4 class="sub-title mb-10"><a href="course-details.html">Science</a></h4>
-                                 <p>95+ Courses Available</p>
-                             </div>
-                         </div>
-                         <div class="col">
-                             <div class="single-category text-center mb-30 wow fadeInUp2 animated" data-wow-delay='.4s'>
-                                 <img class="mb-30" src="{{ url('user/img/category-icon/career-path.svg') }}" alt="">
-                                 <h4 class="sub-title mb-10"><a href="course-details.html">Career</a></h4>
-                                 <p>156+ Courses Available</p>
-                             </div>
-                         </div>
-                         <div class="col">
-                             <div class="single-category text-center mb-30 wow fadeInUp2 animated" data-wow-delay='.5s'>
-                                 <img class="mb-30" src="{{ url('user/img/category-icon/graphic-tool.svg') }}" alt="">
-                                 <h4 class="sub-title mb-10"><a href="course-details.html">Arts & Design</a></h4>
-                                 <p>136+ Courses Available</p>
-                             </div>
-                         </div>
+
+                        @foreach ($categories as $category)
+                            <div class="col">
+                                <div class="single-category text-center mb-30 wow fadeInUp2 animated" data-wow-delay='.1s'>
+                                    <img class="mb-30 img-thumbnail" src="{{ asset('storage/'.$category->category_picture) }}" alt="gambar {{ $category->category_name }}">
+                                    <h4 class="sub-title mb-10"><a href="{{ url('category/'.$category->slug) }}">{{ $category->category_name }}</a></h4>
+                                    <p>{{ count($category->course) }} Courses Available</p>
+                                </div>
+                            </div>
+                         @endforeach
                      </div>
                      <div class="row justify-content-center">
                          <div class="col-md-12 mt-20 text-center mb-20 wow fadeInUp2 animated" data-wow-delay='.6s'>
-                             <a href="courses.html" class="theme_btn">All Categories</a>
+                             <a href="{{ url('categories') }}" class="theme_btn">All Categories</a>
                          </div>
                      </div>
                  </div>
@@ -249,7 +224,7 @@
                                      <img class="choses chose_02" src="{{ url('user/img/chose/02.png') }}" alt="Chose-img">
                                      <img class="choses chose_03" src="{{ url('user/img/chose/03.png') }}" alt="Chose-img">
                                      <img class="choses chose_04" src="{{ url('user/img/chose/04.png') }}" alt="Chose-img">
-                                     <span>{{ count($students) }}+</span>
+                                     <span>{{ count($students) }}</span>
                                  </div>
                                  <div class="feature tag_01"><span><img src="{{ url('user/img/icon/shield-check.svg') }}" alt=""></span> Safe & Secured</div>
                                  <div class="feature tag_02"><span><img src="{{ url('user/img/icon/catalog.svg') }}" alt=""></span> 120+ Catalog</div>

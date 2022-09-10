@@ -231,7 +231,6 @@ class PersonController extends Controller
             'updated_at' => now(),
         ];
 
-        
         User::where('id', $user->id)->update($data);
         Alert::success('Congrats', 'You\'ve Update your Profile!');
         return back();

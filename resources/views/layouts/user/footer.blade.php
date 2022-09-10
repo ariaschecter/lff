@@ -63,7 +63,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="copyright text-center">
-                        <h5>Copyright@ 2022 <a href="#">Learn For Future</a>. All Rights Reserved</h5>
+                        <h5>Copyright@ 2022 <a href="{{ url('') }}">Learn For Future</a>. All Rights Reserved</h5>
                     </div>
                 </div>
             </div>

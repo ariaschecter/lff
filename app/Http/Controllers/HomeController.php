@@ -20,8 +20,8 @@ class HomeController extends Controller
     }
 
     public function index(){
-        $categories = Category::all();
-        $popularCourse = Course::with(['courselist', 'category'])->orderBy('enroll', 'DESC')->take(6)->get();
+        $categories = Category::with('course')->take(5)->get();
+        $popularCourse = Course::with(['courselist', 'category'])->where('is_active', 1)->orderBy('enroll', 'DESC')->take(6)->get();
         return view('home.dashboard', [
             'title' => 'Home',
             'categories' => $categories,
