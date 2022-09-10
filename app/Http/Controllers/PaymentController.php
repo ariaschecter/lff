@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Payment;
 use App\Models\Order;
 use App\Models\Course;
+use App\Models\Finance;
 use App\Models\CourseAccess;
 use Alert;
 
@@ -49,6 +50,7 @@ class PaymentController extends Controller
             'updated_at' => now(),
         ];
 
+        Finance::addFromPayment($payment, $order->price);
         CourseAccess::insert($data);
         Course::newEnroll($order->course_id);
         Payment::where('id', $payment->id)->update(['payment_status' => 2, 'updated_at' => now()]);
@@ -75,26 +77,4 @@ class PaymentController extends Controller
         Alert::success('Congrats', 'You\'ve Decline a Payment!');
         return redirect('admin/payment');
     }
-
-    // public function destroy(Payment $payment)
-    // {
-    //
-    //     $order = Order::where('id', $payment->order_id)->first();
-
-    //     $data = [
-    //         'user_id' => $order->user_id,
-    //         'course_id' => $order->course_id,
-    //     ];
-    //     $update = [
-    //         'order_status' => 0,
-    //         'updated_at' => now(),
-    //     ];
-
-    //     Order::where('id', $payment->order_id)->update($update);
-    //     Payment::where('id', $payment->id)->delete();
-    //     CourseAccess::where($data)->delete();
-
-    //     Alert::success('Congrats', 'You\'ve Deleted a Payment!');
-    //     return redirect('admin/payment');
-    // }
 }

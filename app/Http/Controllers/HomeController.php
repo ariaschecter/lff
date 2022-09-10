@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Course;
 use App\Models\CourseList;
 use App\Models\CourseAccess;
-use App\Models\Category;
+use App\Models\Finance;
 
 class HomeController extends Controller
 {
@@ -35,10 +35,18 @@ class HomeController extends Controller
 
         switch($role){
             case 1:
-                
+                $user = count(User::where('role_id', 2)->get());
+                // $category = count(Category::all());
+                $course = count(Course::all());
+                $courselist = count(CourseList::all());
+
                 return view('admin.dashboard', [
                 'title' => 'Dashboard',
                 'active' => 'dashboard',
+                'total_user' => $user,
+                'detail' => Finance::getDetail(),
+                'total_course' => $course,
+                'total_courselist' => $courselist,
             ]);
             case 2:
                 $courses = CourseAccess::with('course')->where('user_id', Auth::id())->orderBy('updated_at', 'DESC')->take(3)->get();

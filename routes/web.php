@@ -9,6 +9,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseListController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\CourseAccessController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CategoryController;
@@ -118,6 +119,15 @@ Route::middleware('auth','isAdmin')->prefix('admin')->group(function () {
         Route::get('/payment_method/update/{paymentmethod}', 'edit');
         Route::post('/payment_method/update/{paymentmethod}', 'update');
         Route::get('/payment_method/delete/{paymentmethod}', 'destroy');
+    });
+
+    Route::controller(FinanceController::class)->group(function () {
+        Route::get('/transaction', 'index');
+        Route::get('/transaction/add', 'create');
+        Route::post('/transaction/add', 'store');
+        Route::get('/transaction/update/{finance}', 'edit');
+        Route::post('/transaction/update/{finance}', 'update');
+        Route::get('/transaction/delete/{finance}', 'destroy');
     });
 
     Route::controller(CategoryController::class)->group(function () {

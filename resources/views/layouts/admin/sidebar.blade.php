@@ -68,6 +68,12 @@
             <span class="link-title">Payment Method</span>
           </a>
         </li>
+        <li class="nav-item {{ ('transaction' == $active)? 'active' : '' }}">
+          <a href="{{ url('admin/transaction') }}" class="nav-link">
+            <i class="link-icon" data-feather="dollar-sign"></i>
+            <span class="link-title">Transaction</span>
+          </a>
+        </li>
 
         <li class="nav-item nav-category">Admin</li>
         <li class="nav-item {{ ('users' == $active)? 'active' : '' }}">

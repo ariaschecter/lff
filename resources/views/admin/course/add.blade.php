@@ -36,7 +36,7 @@
                     </div>
                     <div class="mb-1">
                         <label for="desc" class="form-label">Description</label>
-                        <textarea name="desc" class="form-control" @error('desc') is-invalid @enderror" id="desc" cols="30" rows="10"></textarea>
+                        <textarea name="desc" class="form-control" @error('desc') is-invalid @enderror id="desc" cols="30" rows="10"></textarea>
                     </div>
                     @error('desc') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="mb-1">
