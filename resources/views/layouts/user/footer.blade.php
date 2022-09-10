@@ -25,7 +25,7 @@
                 <div class="footer__widget mb-30 pl-40 pl-md-0 pl-xs-0">
                     <h6 class="widget-title mb-35">Contact us</h6>
                     <ul class="fot-list">
-                        <li><a href="#">learnforfuture.grup@gmail.com</a></li>
+                        <li><a href="mailto:learnforfuture.grup@gmail.com">learnforfuture.grup@gmail.com</a></li>
                         <li><a href="#">+00 235 695 58</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
                         <li><a href="#">Privacy Policy</a></li>
@@ -49,7 +49,7 @@
                 <div class="footer__widget mb-30 pl-150 pl-lg-0 pl-md-0 pl-xs-0">
                     <h6 class="widget-title mb-35">Office</h6>
                     <ul class="fot-list mb-30">
-                        <li>Addres </li>
+                        <li>Address</li>
                         <li>Malang, Jawa Timur</li>
                         <li>Kode Pos</li>
                         <li><a href="#">Help Center</a></li>

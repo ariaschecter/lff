@@ -25,6 +25,7 @@
                                                                         <input type="hidden" name="email" value="{{ $email }}">
                                                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Email Verification</h5>
                                                                         <h6 class="fw-normal" style="letter-spacing: 1px;">We have sent a verification mail to your account</h6>
+                                                                        <h6 class="fw-normal" style="letter-spacing: 1px;">Not recieve any email?</h6>
                                                                         <h6 class="fw-normal" style="letter-spacing: 1px;">Resend link?</h6>
                                                                         <div class="pt-30" id="timer_div"></div>
                                                                         <script>
