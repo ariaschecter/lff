@@ -4389,7 +4389,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 .z-gallery__thumb .heart-icon {
-  color: #070F4E;
+  color: red;
   font-size: 15px;
   background-color: #ffffff;
   display: inline-block;

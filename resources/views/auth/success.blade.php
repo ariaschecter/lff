@@ -13,8 +13,8 @@
                                                     <div class="card" style="border-radius: 1rem;">
                                                         <div class="row g-0">
                                                             <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                                                {{-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
-                                                                    alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" /> --}}
+                                                                <img src="{{ url('user/img/auth/design.png') }}"
+                                                                    alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                                                             </div>
 
                                                             <div class="col-md-8 col-lg-6 d-flex align-items-center">
@@ -25,18 +25,20 @@
                                                                         <input type="hidden" name="email" value="{{ $email }}">
                                                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Email Verification</h5>
                                                                         <h6 class="fw-normal" style="letter-spacing: 1px;">We have sent a verification mail to your account</h6>
-                                                                        <h6 class="fw-normal" style="letter-spacing: 1px;">Resend link? <span class="text-primary" id="timer_div"></span></h6>
+                                                                        <h6 class="fw-normal" style="letter-spacing: 1px;">Resend link?</h6>
+                                                                        <div class="pt-30" id="timer_div"></div>
                                                                         <script>
-                                                                            var seconds_left = 3;
+                                                                            var seconds_left = 60;
                                                                             var interval = setInterval(function () {
                                                                                 document.getElementById('timer_div').innerHTML = --seconds_left;
                                                                                 let text = "resend the verification email"
-                                                                                let result = '<div><button type="submit" class="btn btn-primary">' + text + "</button></div>";
+                                                                                let result = '<div><button type="submit" class="btn btn-primary ">' + text + "</button></div>";
                                                                                 if (seconds_left <= 0) {
                                                                                     document.getElementById('timer_div').innerHTML = result;
                                                                                     clearInterval(interval);
                                                                                 }
-                                                                            }, 1000);</script>
+                                                                            }, 1000);
+                                                                        </script>
 
                                                                         {{-- <div class="pt-1 mb-4">
                                                                             <button style="text-decoration: none">asdasd</button>
