@@ -1,5 +1,11 @@
 @php
     $user = Auth::user();
+    $explode = explode(' ', $user->name);
+
+    $username = $user->name;
+    if(count($explode) > 2){
+        $username = $explode[0] . ' ' . $explode[1];
+    }
 @endphp
 
 <header>
@@ -79,7 +85,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="left: 50px">
                                         <img class="rounded-circle" src="{{ asset('storage/'. $user->user_picture) }}"  width="40" height="40" alt="{{ $user->name }}">
-                                        <span class="nav-link" style="right: 20px"><p>{{$user->name}}</p></span>
+                                        <span class="nav-link" style="right: 20px"><p>{{ $username }}</p></span>
                                         {{-- Gambar ada 2 link --}}
                                     </a>
                                     <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
@@ -89,7 +95,7 @@
                                                 {{-- Link kedua --}}
                                             </div>
                                             <div class="text-center">
-                                                <p class="tx-16 fw-bolder">{{ $user->name }}</p>
+                                                <p class="tx-16 fw-bolder">{{ $username }}</p>
                                                 <p class="tx-12 text-muted">{{ $user->email }}</p>
                                             </div>
                                         </div>
