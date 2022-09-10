@@ -32,8 +32,8 @@
                                     <td><img src="{{ asset('storage/'. $item->category_picture) }}" class="img-thumbnail" alt="{{ $item->category_name }}"></td>
                                     <td>{{ $item->category_name }}</td>
                                     <td>
-                                        <a href="{{ url('admin/'.$active.'/update/'.$item->id) }}" class="btn btn-success">Update</a>
-                                        <a href="{{ url('admin/'.$active.'/delete/'.$item->id) }}" class="btn btn-danger show_confirm">Delete</a>
+                                        <a href="{{ url('admin/'.$active.'/update/'.$item->category_slug) }}" class="btn btn-success">Update</a>
+                                        <a href="{{ url('admin/'.$active.'/delete/'.$item->category_slug) }}" class="btn btn-danger show_confirm">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

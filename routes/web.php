@@ -124,9 +124,9 @@ Route::middleware('auth','isAdmin')->prefix('admin')->group(function () {
         Route::get('/category', 'index');
         Route::get('/category/add', 'create');
         Route::post('/category/add', 'store');
-        Route::get('/category/update/{category}', 'edit');
-        Route::post('/category/update/{category}', 'update');
-        Route::get('/category/delete/{category}', 'destroy');
+        Route::get('/category/update/{category:category_slug}', 'edit');
+        Route::post('/category/update/{category:category_slug}', 'update');
+        Route::get('/category/delete/{category:category_slug}', 'destroy');
     });
 
     Route::controller(RoleController::class)->group(function () {

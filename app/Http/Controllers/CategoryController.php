@@ -56,12 +56,12 @@ class CategoryController extends Controller
         return redirect('admin/category');
     }
 
-    public function edit($id)
+    public function edit(Category $category)
     {
         return view('admin.category.edit', [
             'active' => 'category',
             'title' => 'Edit Category',
-            'data' => Category::where('id',$id)->first(),
+            'data' => $category,
         ]);
     }
 
@@ -82,10 +82,10 @@ class CategoryController extends Controller
         $slug = Str::slug($request->category_name, '-');
 
         if($request->category_picture){
-            Storage::delete($course->category_picture);
+            Storage::delete($category->category_picture);
             $upload = $request->file('category_picture')->store('img/category');
         } else {
-            $upload = $course->category_picture;
+            $upload = $category->category_picture;
         }
 
         $update = [
@@ -94,7 +94,7 @@ class CategoryController extends Controller
             'category_picture' => $upload,
             'updated_at' => now(),
         ];
-        Category::where('id', $id)->update($update);
+        Category::where('id', $category->id)->update($update);
         Alert::success('Congrats', 'You\'ve Update a Category!');
         return redirect('admin/category');
     }

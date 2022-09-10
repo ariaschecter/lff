@@ -32,15 +32,19 @@ class HomeController extends Controller
 
     public function dashboard(){
         $role = Auth::user()->role_id;
-        $courses = CourseAccess::with('course')->where('user_id', Auth::id())->orderBy('updated_at', 'DESC')->take(3)->get();
-        $categories = Category::all();
 
         switch($role){
-            case 1: return view('admin.dashboard', [
+            case 1:
+                
+                return view('admin.dashboard', [
                 'title' => 'Dashboard',
                 'active' => 'dashboard',
             ]);
-            case 2: return view('person.dashboard',[
+            case 2:
+                $courses = CourseAccess::with('course')->where('user_id', Auth::id())->orderBy('updated_at', 'DESC')->take(3)->get();
+                $categories = Category::all();
+
+                return view('person.dashboard',[
                 'title' => 'Dashboard',
                 'courses' => $courses,
                 'categories' => $categories,
