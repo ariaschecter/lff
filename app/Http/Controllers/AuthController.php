@@ -36,11 +36,10 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');
+        } else {
+            Alert::error('Warning', 'Email or Password doesn\'t Match');
+            return back();
         }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
     }
 
     public function create(){
@@ -53,7 +52,6 @@ class AuthController extends Controller
         $email = $request->email;
         $validated = $request->validate([
             'name' => 'required',
-            // 'user_picture' => 'image|file|max:1024',
             'email' => 'required|unique:users,email',
             'password' => 'required|min:6',
             'password1' => 'required|same:password',
