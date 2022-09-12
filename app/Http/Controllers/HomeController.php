@@ -9,7 +9,9 @@ use App\Models\User;
 use App\Models\Course;
 use App\Models\CourseList;
 use App\Models\CourseAccess;
+use App\Models\Category;
 use App\Models\Finance;
+
 
 class HomeController extends Controller
 {
