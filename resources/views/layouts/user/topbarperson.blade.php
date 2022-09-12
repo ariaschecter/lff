@@ -21,7 +21,7 @@
                     </button>
                     @endauth
                 </div>
-                <div class="col-xl-6">
+                <div class="col-xl-8">
                     <nav class="main-menu navbar navbar-expand-lg justify-content-center">
                         <div class="nav-container">
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -75,7 +75,7 @@
                     <div class="right-nav d-flex align-items-center justify-content-end">
                         <div class="right-btn mr-25 mr-xs-15">
                             @auth
-                                <ul class="navbar-nav">
+                                <ul class="navbar-nav float-right">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="left: 50px">
                                         <img class="rounded-circle" src="{{ asset('storage/'. $user->user_picture) }}"  width="40" height="40" alt="{{ $user->name }}">

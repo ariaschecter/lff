@@ -8,9 +8,9 @@
                         <a href="{{ url('') }}" class="logo">
                             <img src="{{ url('user/img/logo/header_logo.png') }}" alt="">
                         </a>
-                        <a href="https://www.umm.ac.id/" class="logo">
+                        {{-- <a href="https://www.umm.ac.id/" class="logo">
                             <img src="{{ url('user/img/logo/logoumm.png') }}" alt="">
-                        </a>
+                        </a> --}}
                     </div>
                     <p>Lorem ipsum dolor sit amet, consetetur sadip scing elitr, sed di nonumy eirmod temporinvi dunt ut labore lorem ipsum.</p>
                     <div class="social-media footer__social mt-30">
