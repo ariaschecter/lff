@@ -6,7 +6,6 @@
         <form method="POST" action="{{ url('payment/add') }}" enctype="multipart/form-data">
             @csrf
             <div class="d-flex align-items-center mb-3 pb-1">
-                <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
                 <span class="h1 fw-bold mb-0">Payment</span>
             </div>
 
@@ -22,11 +21,6 @@
                     @endforeach
                 </select>
             </div>
-
-            {{-- <div class="form-outline mb-4">
-                <label for="price" class="form-label">Price</label>
-                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Price">
-            </div> --}}
 
             <div class="form-outline mb-4">
                 <label for="payment_method_id" class="select-label mt-2 ms-3">Payment Method</label>
@@ -53,18 +47,9 @@
     </div>
 </div>
 <script>
-    // var course_id = document.querySelector('#course_id');
-
-    // dselect(course_id, {
-    //     search: true
-    // });
-
-    // document.getElementById('order_id').addEventListener('onclick', price);
-
     function price(price){
         var isinya = document.getElementById("price");
         isinya.value = price;
     }
-
 </script>
 @endsection

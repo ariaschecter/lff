@@ -70,7 +70,7 @@
                 <h2 class="card-title">{{ $data->course_name }}</h2>
                 <div class="btn btn-primary">{{ $data->enroll }} Enroll</div>
             </div>
-          </div>
+        </div>
     </div>
 </div>
 @endsection

@@ -4,7 +4,7 @@
 <section class="feature-course pt-md-95 pb-md-80 pt-xs-95 pb-xs-80">
     <div class="container">
         <div class="row">
-           <div class="col-xl-12">
+            <div class="col-xl-12">
                 <div class="section-title text-center mb-50">
                     <h5 class="bottom-line mb-25">My Progress</h5>
                     <h2>All Progress</h2>
@@ -16,7 +16,7 @@
                 <div class="portfolio-menu mb-30">
                     <button class="gf_btn active" data-filter='*'>All</button>
                     @foreach ($categories as $item)
-                       <button class="gf_btn" data-filter='.{{ $item->id }}'>{{ $item->category_name }}</button>
+                    <button class="gf_btn" data-filter='.{{ $item->id }}'>{{ $item->category_name }}</button>
                     @endforeach
                 </div>
             </div>

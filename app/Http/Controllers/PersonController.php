@@ -23,7 +23,6 @@ class PersonController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        // $this->middleware('auth', ['only'/'except' => ['confirmPage', 'confirmOrder', 'invoice']]);
     }
 
     public function progress(){

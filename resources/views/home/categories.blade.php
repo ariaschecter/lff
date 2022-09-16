@@ -22,10 +22,5 @@
             </div>
         @endforeach
     </div>
-    {{-- <div class="row justify-content-center">
-        <div class="col-md-12 mt-20 text-center mb-20 wow fadeInUp2 animated" data-wow-delay='.6s'>
-            <a href="courses.html" class="theme_btn">All Categories</a>
-        </div>
-    </div> --}}
 </div>
 @endsection

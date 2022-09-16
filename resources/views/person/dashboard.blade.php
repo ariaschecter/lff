@@ -4,11 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                 <div class="section-title text-center mb-50">
-                     <h2>Recently Access</h2>
-                 </div>
-             </div>
-         </div>
+                <div class="section-title text-center mb-50">
+                    <h2>Recently Access</h2>
+                </div>
+            </div>
+        </div>
         <div class="grid row">
             @foreach ($courses as $item)
                 <div class="col-lg-4 col-md-6 grid-item {{ $item->course->category_id }}">

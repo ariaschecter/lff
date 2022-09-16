@@ -3,8 +3,6 @@
 @section('body')
 @include('sweetalert::alert')
 <main>
-    <!--page-title-area start-->
-    <!-- Section: Design Block -->
     <section class="vh-100" style="background-color: white;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -41,6 +39,5 @@
             </div>
         </div>
     </section>
-    <!--contact-form-area end-->
 </main>
 @endsection

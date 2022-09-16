@@ -20,7 +20,7 @@
                 <p class="card-text mb-1">{{ $course->desc }}</p>
                 <div class="btn btn-primary">{{ $course->enroll }} Enroll</div>
             </div>
-          </div>
+        </div>
     </div>
     <div class="col-lg-9">
     <a href="{{ url('admin/course_list/'.$course->slug.'/add') }}" class="btn btn-primary m-3 col-lg-1">Add</a>

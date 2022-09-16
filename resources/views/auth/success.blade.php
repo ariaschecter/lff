@@ -4,8 +4,6 @@
                                 @section('body')
                                 @include('sweetalert::alert')
                                 <main>
-                                    <!--page-title-area start-->
-                                    <!-- Section: Design Block -->
                                     <section class="vh-100" style="background-color: white;">
                                         <div class="container py-5 h-100">
                                             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -16,10 +14,8 @@
                                                                 <img src="{{ url('user/img/auth/design.png') }}"
                                                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                                                             </div>
-
                                                             <div class="col-md-8 col-lg-6 d-flex align-items-center">
                                                                 <div class="card-body p-4 p-lg-5 text-black">
-
                                                                     <form class="forms-sample" method="post" action="{{ url('resend-email') }}">
                                                                         @csrf
                                                                         <input type="hidden" name="email" value="{{ $email }}">
@@ -40,12 +36,7 @@
                                                                                 }
                                                                             }, 1000);
                                                                         </script>
-
-                                                                        {{-- <div class="pt-1 mb-4">
-                                                                            <button style="text-decoration: none">asdasd</button>
-                                                                        </div> --}}
                                                                     </form>
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -54,6 +45,5 @@
                                             </div>
                                         </div>
                                     </section>
-                                    <!--contact-form-area end-->
                                 </main>
                                 @endsection

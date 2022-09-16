@@ -37,7 +37,7 @@
     <div class="col-lg-4 mt-3">
         <div class="card mb-3 p-2">
             <img src="{{ asset('storage/'. $data->category_picture) }}" class="card-img-top" alt="{{ $data->category_name }}">
-          </div>
+        </div>
     </div>
 </div>
 @endsection

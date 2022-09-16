@@ -3,8 +3,6 @@
 @section('body')
 @include('sweetalert::alert')
 <main>
-    <!--page-title-area start-->
-    <!-- Section: Design Block -->
     <section class="vh-100" style="background-color: white;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -21,7 +19,6 @@
                                     <form class="forms-sample" method="post" action="{{ url('auth') }}">
                                         @csrf
                                         <div class="d-flex align-items-center mb-3 pb-1">
-                                            <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
                                             <span class="h1 fw-bold mb-0">Login</span>
                                         </div>
 
