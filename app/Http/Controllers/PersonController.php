@@ -63,7 +63,8 @@ class PersonController extends Controller
     }
 
     public function storeOrder(Course $course){
-        $cek = Order::where('user_id', Auth::id())->where('course_id', $course->id)->first();
+        $cekOrder = Order::where('user_id', Auth::id())->where('course_id', $course->id)->first();
+        $cekAccess = CourseAccess::where('user_id', Auth::id())->where('course_id', $course->id)->first();
 
         $data = [
             'order_ref' => strtoupper(Str::random(14)),
@@ -74,7 +75,7 @@ class PersonController extends Controller
             'created_at' => now(),
         ];
 
-        if($cek){
+        if($cekOrder || $cekAccess){
             Alert::error('Error', 'You Can\'t Buy This Course Again');
             return back();
         } else {
