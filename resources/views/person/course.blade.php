@@ -31,7 +31,7 @@
                         <div class="heart-icon"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="z-gallery__content">
-                        <h4 class="sub-title mb-20"><a href="{{ url('course/access/'.$item->course->id) }}">{{ $item->course->course_name }}</a></h4>
+                        <h4 class="sub-title mb-20"><a href="{{ url('course/access/'.$item->course->slug) }}">{{ $item->course->course_name }}</a></h4>
 
                         <div class="course__meta">
                             <span><img class="icon" src="{{ url('user/img/icon/time.svg') }}" alt="course-meta"> {{ count($item->course->courselist) }} Video</span>
