@@ -8503,6 +8503,14 @@ input.main-search-input:-ms-input-placeholder {
   transition: all 0.3s ease 0s;
 }
 
+.fot-list .mb {
+  color: #707070;
+  display: inline-block;
+  margin-bottom: 20px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
 .fot-list a:hover {
   color: #070F4E;
 }

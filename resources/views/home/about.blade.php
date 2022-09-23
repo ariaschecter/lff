@@ -1,8 +1,8 @@
 @extends('layouts.user.template')
-
 @section('body')
 <main>
-    <section class="vh-100" style="background-color: white;">
+  <div class="why-chose-section-wrapper">
+    <section class="why-chose-us" style="background-color: white;">
         <div class="container">
             <div class="row justify-content-center">
               <div class="col-12 col-sm-8 col-lg-6 pt-50">
@@ -16,7 +16,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row align-items-center">
                 @foreach ($data as $item)
                     <div class="profile-card-2"><img src="{{ url('user/img/profile-team/'. $item['img']) }}" class="img img-responsive" alt="Foto {{ $item['nama'] }}">
                         <div class="profile-name">{{ $item['nama'] }}</div>
@@ -29,5 +29,6 @@
             </div>
           </div>
     </section>
+  </div>
 </main>
 @endsection
