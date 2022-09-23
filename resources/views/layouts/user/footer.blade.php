@@ -1,5 +1,5 @@
 <!--footer-area start-->
-<footer class="footer-are  footer-bg pt-200 pb-40">
+<footer class="footer-area footer-bg pt-200 pb-40">
     <div class="container">
         <div class="row mb-15">
             <div class="col-xl-3 col-lg-4 col-md-6  wow fadeInUp2 animated" data-wow-delay='.1s'>
