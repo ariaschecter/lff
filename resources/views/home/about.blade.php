@@ -18,7 +18,7 @@
             </div>
             <div class="row">
                 @foreach ($data as $item)
-                    <div class="profile-card-2"><img src="{{ url('user/img/profile-team/'. $item['img']) }}" class="img img-responsive">
+                    <div class="profile-card-2"><img src="{{ url('user/img/profile-team/'. $item['img']) }}" class="img img-responsive" alt="Foto {{ $item['nama'] }}">
                         <div class="profile-name">{{ $item['nama'] }}</div>
                         <div class="profile-username">{{ $item['position'] }}</div>
                         <div class="profile-icons">
