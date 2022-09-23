@@ -118,8 +118,39 @@ class HomeController extends Controller
     }
 
     public function about() {
+        $data = [
+            [
+                'nama' => 'Prayuda Riansyah',
+                'img' => 'prayuda-riansyah.JPG',
+                'position' => 'CEO',
+                'instagram' => 'yudarynsh',
+                'linkedin' => 'muhammad-prayuda-riansyah-820b62213',
+            ],
+            [
+                'nama' => 'Aria Maulana',
+                'img' => 'aria-maulana.JPG',
+                'position' => 'DEVELOPER',
+                'instagram' => 'acielana',
+                'linkedin' => 'aria-maulana-eka-mahendra-5a2843193',
+            ],
+            [
+                'nama' => 'Moh Ainur',
+                'img' => 'moh-ainur.JPG',
+                'position' => 'DEVELOPER',
+                'instagram' => 'ainurbrr',
+                'linkedin' => 'moh-ainur-bahtiar-rohman-a1333b1b3',
+            ],
+            [
+                'nama' => 'Nabil Ihza',
+                'img' => 'nabil-ihza.JPG',
+                'position' => 'CREATIVE & MARKETING',
+                'instagram' => 'nabilihzaa',
+                'linkedin' => 'nabil-ihza-ambariyono-12585224b',
+            ],
+        ];
         return view('home.about', [
             'title' => 'About Us',
+            'data' => $data,
         ]);
     }
 }
