@@ -30,7 +30,7 @@
             <span class="link-title">Course</span>
           </a>
         </li>
-        
+
         <li class="nav-item {{ $active == 'access' ? 'active' : '' }}">
           <a href="{{ url('admin/course_access') }}" class="nav-link">
             <i class="link-icon" data-feather="key"></i>
@@ -124,12 +124,12 @@
                             </div>
                             <ul class="list-unstyled p-1">
                                 <li class="dropdown-item py-2">
-                                    <a href="{{ url('user/profile/'.$user->id) }}" class="text-body ms-0">
+                                    <a href="{{ url('edit-profile') }}" class="text-body ms-0">
                                     <i class="me-2 icon-md" data-feather="user"></i>
                                     <span>Profile</span>
                                     </a>
                                 </li>
-                                <li class="dropdown-item py-2">
+                                {{-- <li class="dropdown-item py-2">
                                     <a href="javascript:;" class="text-body ms-0">
                                     <i class="me-2 icon-md" data-feather="edit"></i>
                                     <span>Edit Profile</span>
@@ -140,7 +140,7 @@
                                     <i class="me-2 icon-md" data-feather="repeat"></i>
                                     <span>Switch User</span>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="dropdown-item py-2">
                                     <a href="{{ url('auth/logout') }}" class="text-body ms-0">
                                     <i class="me-2 icon-md" data-feather="log-out"></i>
