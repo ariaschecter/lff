@@ -848,9 +848,9 @@ section-title
   position: relative;
 }
 
-.main-head-three.sticky {
+/* .main-head-three.sticky {
   position: fixed;
-}
+} */
 
 .main-menu {
   margin-left: 130px;

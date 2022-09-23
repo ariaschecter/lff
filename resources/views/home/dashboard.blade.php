@@ -216,7 +216,7 @@
                                     <span>{{ count($students) }}</span>
                                 </div>
                                 <div class="feature tag_01"><span><img src="{{ url('user/img/icon/shield-check.svg') }}" alt=""></span> Safe & Secured</div>
-                                <div class="feature tag_02"><span><img src="{{ url('user/img/icon/catalog.svg') }}" alt=""></span> 120+ Catalog</div>
+                                <div class="feature tag_02"><span><img src="{{ url('user/img/icon/catalog.svg') }}" alt=""></span> 120+ Videos</div>
                                 <div class="feature tag_03"><span><i class="fal fa-check"></i></span> Quality Education</div>
                                 <div class="video-wrapper">
                                     <a href="https://www.youtube.com/watch?v=7omGYwdcS04" class="popup-video"><i class="fas fa-play"></i></a>
