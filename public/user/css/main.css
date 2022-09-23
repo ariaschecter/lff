@@ -4987,7 +4987,7 @@ input.main-search-input:-ms-input-placeholder {
 .learn-list li {
   height: auto;
   font-size: 1.1em;
-  
+
 }
 
 .learn-list li a:hover {
@@ -8504,11 +8504,19 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 .fot-list .mb {
+<<<<<<< HEAD
   color: #707070;
   display: inline-block;
   margin-bottom: 20px;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+=======
+    color: #707070;
+    display: inline-block;
+    margin-bottom: 20px;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+>>>>>>> dda2e57de1b32a5c2a4afed086d85bb3834d02d1
 }
 
 .fot-list a:hover {
@@ -8923,7 +8931,7 @@ a:focus {
 #sidebar ul li a:hover {
   color: #FFff;
   background-color: #2772db;
-  
+
 }
 
 #sidebar ul li.active>a, a[aria-expanded="true"] {
@@ -8951,7 +8959,7 @@ a[data-toggle="collapse"] {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  
+
 }
 
 ul.CTAs {
