@@ -8,49 +8,41 @@
                         <a href="{{ url('') }}" class="logo">
                             <img src="{{ url('user/img/logo/header_logo.png') }}" alt="">
                         </a>
-                        
+
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadip scing elitr, sed di nonumy eirmod temporinvi dunt ut labore lorem ipsum.</p>
-                    <div class="social-media footer__social mt-30">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                    </div>
+                    <p>Learn For Future bergerak di bidang edukasi teknologi yang bertujuan untuk menciptakan sumber daya manusia yang mempunyai skill dan knowledge di bidang teknologi.</p>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay='.3s'>
                 <div class="footer__widget mb-30 pl-40 pl-md-0 pl-xs-0">
                     <h6 class="widget-title mb-35">Contact us</h6>
                     <ul class="fot-list">
-                        <li><a href="mailto:learnforfuture.grup@gmail.com">learnforfuture.grup@gmail.com</a></li>
-                        <li><a href="#">+00 235 695 58</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="contact.html">Contacts</a></li>
-                        <li><a href="#">Our Careers</a></li>
+                        <li><a href="mailto:learnforfuture.grup@gmail.com" target="_blank">learnforfuture.grup@gmail.com</a></li>
+                        <li><a href="wa.me/6283150993913" target="_blank">WhatsApp</a></li>
+                        <li><a href="https://www.instagram.com/learnforfuture.id" target="_blank">Instagram</a></li>
+                        {{-- <li><a href="#">Terms & Conditions</a></li> --}}
+                        {{-- <li><a href="#">Privacy Policy</a></li> --}}
                     </ul>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6  wow fadeInUp2 animated" data-wow-delay='.5s'>
+            <div class="col-xl-2 col-lg-4 col-md-6  wow fadeInUp2 animated" data-wow-delay='.5s'>
                 <div class="footer__widget mb-25 pl-90 pl-md-0 pl-xs-0">
                     <h6 class="widget-title mb-35">Quick Links</h6>
                     <ul class="fot-list">
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="about.html">About US</a></li>
-                        <li><a href="#"></a></li>
+                        <li><a href="{{ url('categories') }}">Categories</a></li>
+                        <li><a href="{{ url('courses') }}">Courses</a></li>
+                        <li><a href="{{ url('about') }}">About US</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp2 animated" data-wow-delay='.7s'>
+            <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp2 animated" data-wow-delay='.7s'>
                 <div class="footer__widget mb-30 pl-150 pl-lg-0 pl-md-0 pl-xs-0">
                     <h6 class="widget-title mb-35">Office</h6>
-                    <ul class="fot-list mb-30">
-                        <li>Address</li>
-                        <li>Malang, Jawa Timur</li>
-                        <li>Kode Pos</li>
-                        <li><a href="#">Help Center</a></li>
+                    <ul class="fot-list">
+                        <li class="mb">Learn For Future</li>
+                        <li class="mb">Jl. Tirto Utomo Gg.VIII no.3</li>
+                        <li class="mb">Malang, Jawa Timur</li>
+                        <li class="mb">65151</li>
                     </ul>
                 </div>
             </div>
