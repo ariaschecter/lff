@@ -8,18 +8,12 @@
                         <a href="{{ url('') }}" class="logo">
                             <img src="{{ url('user/img/logo/header_logo.png') }}" alt="">
                         </a>
-<<<<<<< HEAD
                         
                     </div>
                     <p>Lorem ipsum dolor sit amet, consetetur sadip scing elitr, sed di nonumy eirmod temporinvi dunt ut labore lorem ipsum.</p>
                     <div class="social-media footer__social mt-30">
                         <a href="#"><i class="fab fa-instagramphp"></i> <span>Learn for future</span></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
-=======
 
->>>>>>> dda2e57de1b32a5c2a4afed086d85bb3834d02d1
                     </div>
                     <p>Learn For Future bergerak di bidang edukasi teknologi yang bertujuan untuk menciptakan sumber daya manusia yang mempunyai skill dan knowledge di bidang teknologi.</p>
                 </div>

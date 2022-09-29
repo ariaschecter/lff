@@ -1,7 +1,7 @@
 @extends('layouts.user.template')
 
 @section('body')
-        <section class="course-details-area pt-150 pb-120 pt-md-100 pb-md-70 pt-xs-100 pb-xs-70">
+        <section class="course-details-area pt-150 pb-100 pt-md-100 pb-md-70 pt-xs-100 pb-xs-70">
             <div class="container">
                     <div class="row">
                         <div class="col-xxl-7 col-xl-7">
@@ -67,4 +67,44 @@
                     </div>
                 </div>
         </section>
+        <section class="faq-area pb-150 pt-xs-95 pb-xs-90">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="faq-que-list mb-30">
+                            <div class="section-title text-center mb-45">
+                                <h2 class="mb-25">Silabus</h2>
+                            </div>
+                            <div class="accordion accordion-two" id="accoedion-ex-two">
+                                <div class="accordion-item mb-30">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Judul materi
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accoedion-ex-two">
+                                        <div class="accordion-body">
+                                            <p>Deskripsi materi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-30">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Judul2
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accoedion-ex-two">
+                                        <div class="accordion-body">
+                                            <p>ajndsfuikfns</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </section>
 @endsection

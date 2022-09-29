@@ -21,7 +21,7 @@
                             <img class="slide-shape img-three" src="{{ url('user/img/slider/03.png') }}" alt="">
                             <img class="slide-shape img-four" src="{{ url('user/img/shape/dot-box-1.svg') }}" alt="">
                             <img class="slide-shape img-five" src="{{ url('user/img/shape/dot-box-2.svg') }}" alt="">
-                            <img class="slide-shape img-six" src="{{ url('user/img/shape/zigzg-1.svg') }}" alt="">
+                            {{-- <img class="slide-shape img-six" src="{{ url('user/img/shape/zigzg-1.svg') }}" alt=""> --}}
                             <img class="slide-shape img-seven wow fadeInRight animated" data-delay="1.5s" src="{{ url('user/img/icon/dot-plan-1.svg') }}" alt="Chose-img">
                             <img class="slide-shape img-eight" src="{{ url('user/img/slider/earth-bg.svg') }}" alt="">
                         </div>

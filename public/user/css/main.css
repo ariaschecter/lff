@@ -8190,7 +8190,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 .accordion-two .collapsed {
-  border: 1px solid rgba(255, 114, 58, 0.2) !important;
+  border: 1px solid rgba(41, 115, 219, 0.2) !important;
   border-radius: 5px;
   background-color: transparent !important;
 }
@@ -8199,8 +8199,8 @@ input.main-search-input:-ms-input-placeholder {
   color: #1B212F;
   font-size: 22px !important;
   font-weight: 600;
-  background-color: rgba(255, 114, 58, 0.05);
-  border-color: rgba(255, 114, 58, 0.05);
+  background-color: rgba(41, 115, 219, 0.05);
+  border-color: rgba(41, 115, 219, 0.05);
   border-radius: 5px;
   padding-left: 40px;
   -webkit-box-shadow: none;
@@ -8219,7 +8219,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 .accordion-two .accordion-body {
-  background-color: rgba(255, 114, 58, 0.05);
+  background-color: rgba(41, 115, 219, 0.05);
   padding-top: 0;
 }
 
