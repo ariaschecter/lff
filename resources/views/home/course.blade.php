@@ -39,7 +39,7 @@
 
                                         <ul class="courses-item mt-25">
                                             <li><img src="{{ url('user/img/icon/video.svg') }}" alt=""> {{ $time }} hours video</li>
-                                            <li><img src="{{ url('user/img/icon/newspaper.svg') }}" alt=""> 73 articles</li>
+                                            <li><img src="{{ url('user/img/icon/newspaper.svg') }}" alt=""> {{ count($courselist) }} Videos</li>
                                             <li><img src="{{ url('user/img/icon/download.svg') }}" alt=""> {{ $course->enroll }}+ Enrolls Member</li>
                                             <li><img src="{{ url('user/img/icon/infinity.svg') }}" alt=""> Full Lifetime Access</li>
                                             <li><img src="{{ url('user/img/icon/mobile.svg') }}" alt=""> Access on mobile or any devices</li>
