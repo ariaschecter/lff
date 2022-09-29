@@ -10,7 +10,7 @@
                                 {{-- <h5>Photography Specialist By Jason Momoa</h5> --}}
                                 <div class="course-details-img mb-30" style="background-image: url({{ asset('storage/'. $course->course_picture) }});">
                                     <div class="video-wrapper">
-                                        <a href="https://www.youtube.com/watch?v={{ $list->link }}" class="popup-video"><i class="fas fa-play"></i></a>
+                                        <a href="https://www.youtube.com/watch?v={{ $courselist[0]->link }}" class="popup-video"><i class="fas fa-play"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -30,13 +30,13 @@
                                     </li>
                                     <li>
                                         <div class="video-wrapper courses-cart-video">
-                                            <a href="https://www.youtube.com/watch?v={{ $list->link }}" class="popup-video"><i class="fas fa-play"></i></a>
+                                            <a href="https://www.youtube.com/watch?v={{ $courselist[0]->link }}" class="popup-video"><i class="fas fa-play"></i></a>
                                         </div>
                                     </li>
                                 </ul>
                                 <div class="courses-ingredients">
                                         <h2 class="corses-title mb-30">Course Includes</h2>
-                                        
+
                                         <ul class="courses-item mt-25">
                                             <li><img src="{{ url('user/img/icon/video.svg') }}" alt=""> {{ $time }} hours video</li>
                                             <li><img src="{{ url('user/img/icon/newspaper.svg') }}" alt=""> 73 articles</li>
@@ -45,7 +45,7 @@
                                             <li><img src="{{ url('user/img/icon/mobile.svg') }}" alt=""> Access on mobile or any devices</li>
                                             {{-- <li><img src="{{ url('user/img/icon/certificate-line.svg') }}" alt=""> Certificate of completion</li> --}}
                                         </ul>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                             <div class="project-details mb-65">
                                 <h2 class="courses-title mb-30">Description </h2>
                                 <p>{{ $course->desc }}</p>
-                                
+
                                 <div class="date-lang mt-25">
                                     <span><b>Date :</b> {{ $course->updated_at->format('M Y') }}</span>
                                     <span><b>Language :</b> Indonesia</span>
@@ -76,7 +76,7 @@
                                 <h2 class="mb-25">Silabus</h2>
                             </div>
                             <div class="accordion accordion-two" id="accoedion-ex-two">
-                                <div class="accordion-item mb-30">
+                                {{-- <div class="accordion-item mb-30">
                                     <h2 class="accordion-header" id="headingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                             Judul materi
@@ -87,20 +87,22 @@
                                             <p>Deskripsi materi</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="accordion-item mb-30">
                                     <h2 class="accordion-header" id="headingThree">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Judul2
+                                            {{ $course->course_name }}
                                         </button>
                                     </h2>
                                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accoedion-ex-two">
                                         <div class="accordion-body">
-                                            <p>ajndsfuikfns</p>
+                                            @foreach ($courselist as $list)
+                                                <p>{{ $list->no }}. {{ $list->list_name }}</p>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>

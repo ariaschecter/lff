@@ -82,9 +82,9 @@ class HomeController extends Controller
 
     public function course(Course $course){
         if(!$course->is_active) return abort(404, 'Page Not Found');
-        $id = $course->id;
-        $list = CourseList::where('course_id', $id)->orderBy('no', 'ASC')->first();
-        $time = round(CourseList::where('course_id', $id)->sum('time')/60, 2);
+
+        $courseList = CourseList::where('course_id', $course->id)->orderBy('no', 'ASC')->get();
+        $time = round(CourseList::where('course_id', $course->id)->sum('time')/60, 2);
         $payed = CourseAccess::where('user_id', Auth::id())->where('course_id', $course->id)->first();
 
         $payed ? $link = url('course/access/'.$course->slug) : $link = url('course/order/'.$course->slug);
@@ -92,7 +92,7 @@ class HomeController extends Controller
         return view('home.course', [
             'title' => $course->course_name,
             'course' => $course,
-            'list' => $list,
+            'courselist' => $courseList,
             'time' => $time,
             'payed' => $payed,
             'link' => $link,

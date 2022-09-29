@@ -10,7 +10,7 @@
                     @endphp
                     @foreach ($lists as $list)
                         <li class="mt-20">
-                            <a href="{{ $access ? url('course/access/'.$course->id.'/'. $list->id) : '#' }}">
+                            <a href="{{ $access ? url('course/access/'.$course->slug.'/'. $list->id) : '#' }}">
                                 <span class="play-video"><i class="fal {{ $access ? 'fa-play' : 'fa-lock-alt' }}"></i> {{ $list->no }}. {{ $list->list_name }} </span> <span class="time float-end">{{ $list->time }} minutes</span>
                             </a>
                         </li>
