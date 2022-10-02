@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\CourseList;
+use App\Models\CourseSubList;
 use App\Models\CourseAccess;
 use App\Models\Role;
 use App\Models\Order;
@@ -25,6 +26,10 @@ class DatabaseSeeder extends Seeder
     {
 
         Course::factory(4)->create();
+        CourseSubList::factory()->create(['course_id' => 1,'sub_list_no' => 1, 'sub_list_name' => 'Perkenalan',]);
+        CourseSubList::factory()->create(['course_id' => 1,'sub_list_no' => 2, 'sub_list_name' => 'Materi pertama',]);
+        CourseSubList::factory()->create(['course_id' => 1,'sub_list_no' => 3, 'sub_list_name' => 'Materi Inti',]);
+        CourseSubList::factory()->create(['course_id' => 1,'sub_list_no' => 4, 'sub_list_name' => 'Closing',]);
         CourseList::factory(20)->create();
         CourseAccess::factory(1)->create();
         Order::factory(2)->create();

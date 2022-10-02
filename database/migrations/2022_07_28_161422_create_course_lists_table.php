@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('course_lists', function (Blueprint $table) {
             $table->id();
+            $table->integer('course_sub_list_id');
             $table->integer('no');
             $table->foreignId('course_id');
             $table->string('list_name');

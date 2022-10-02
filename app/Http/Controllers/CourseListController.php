@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\CourseList;
+use App\Models\CourseSubList;
 use Alert;
 
 class CourseListController extends Controller
@@ -21,23 +22,27 @@ class CourseListController extends Controller
         } else {
             $data = CourseList::where('course_id', $course->id)->orderBy('no', 'ASC')->paginate(10);
         }
+        $dataSubList = CourseSubList::where('course_id', $course->id)->orderBy('sub_list_no', 'ASC')->get();
 
         return view('admin.course_list.index', [
             'active' => 'course',
             'title' => 'Add Course',
             'course' => $course,
-            'data' => $data,
+            'courseList' => $data,
+            'subCourseList' => $dataSubList,
         ]);
     }
 
     public function create(Course $course)
     {
         $last = count(CourseList::where('course_id', $course->id)->get());
+        $dataSubList = CourseSubList::where('course_id', $course->id)->orderBy('sub_list_no', 'ASC')->get();
         return view('admin.course_list.add', [
             'active' => 'course',
             'title' => 'Add Course List',
             'course' => $course,
             'last_number' => $last + 1,
+            'subCourseList' => $dataSubList,
         ]);
     }
 
@@ -76,11 +81,13 @@ class CourseListController extends Controller
     }
 
     public function edit(Course $course, CourseList $courselist){
+        $dataSubList = CourseSubList::where('course_id', $course->id)->orderBy('sub_list_no', 'ASC')->get();
         return view('admin.course_list.edit', [
             'active' => 'course',
             'title' => 'Edit Course List',
             'course' => $course,
             'data' => $courselist,
+            'subCourseList' => $dataSubList,
         ]);
     }
 
@@ -125,10 +132,10 @@ class CourseListController extends Controller
         return redirect('admin/course_list/'.$course->slug);
     }
 
-    public function destroy($course_id, $id)
+    public function destroy(Course $course, CourseList $courselist)
     {
-        CourseList::where('id', $id)->delete();
+        CourseList::where('id', $courselist->id)->delete();
         Alert::success('Congrats', 'You\'ve Deleted a Course List!');
-        return redirect('admin/course_list/'.$course_id);
+        return redirect('admin/course_list/'.$course->slug);
     }
 }

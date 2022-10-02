@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="col-lg-9">
-    <a href="{{ url('admin/course_list/'.$course->slug.'/add') }}" class="btn btn-primary m-3 col-lg-1">Add</a>
+    <a href="{{ url('admin/course_sub_list/'.$course->slug.'/add') }}" class="btn btn-primary m-3 col-lg-1">Add Sub Course</a>
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -33,6 +33,41 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Sub List Name</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            <tbody>
+                                @php $i = 1; @endphp
+                                @foreach ($subCourseList as $item)
+                                    <tr>
+                                        <td>{{ $item->sub_list_no }}</td>
+                                        <td>{{ $item->sub_list_name }}</td>
+                                        <td>
+                                        <a href="{{ url('admin/'.$active.'_sub_list/'.$course->slug.'/update/'.$item->id) }}" class="btn btn-success">Update</a>
+                                        <a href="{{ url('admin/'.$active.'_sub_list/'.$course->slug.'/delete/'.$item->id) }}" class="btn btn-danger show_confirm">Delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+    <a href="{{ url('admin/course_list/'.$course->slug.'/add') }}" class="btn btn-primary m-3 col-lg-1">Add Course List</a>
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                <h6 class="card-title">All Course List</h6>
+                    <div class="table-responsive mb-2">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Sub List</th>
                                         <th>Name</th>
                                         <th>Link</th>
                                         <th>Action</th>
@@ -40,9 +75,10 @@
                                 </thead>
                             <tbody>
                                 @php $i = 1; @endphp
-                                @foreach ($data as $item)
+                                @foreach ($courseList as $item)
                                     <tr>
                                         <td>{{ $item->no }}</td>
+                                        <td>{{ $item->coursesSubList->sub_list_name }}</td>
                                         <td>{{ $item->list_name }}</td>
                                         <td>{{ $item->link }}</td>
                                         <td>
@@ -54,7 +90,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{ $data->links() }}
+                    {{ $courseList->links() }}
                 </div>
             </div>
         </div>
