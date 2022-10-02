@@ -21,7 +21,7 @@ class CourseSubListController extends Controller
         ]);
     }
 
-    public function store(Request $request, CourseSubList $coursesublist)
+    public function store(Request $request, Course $course)
     {
         $list = CourseSubList::where('course_id', $course->id)->where('sub_list_no', $request->sub_list_no)->first();
         if($list){
