@@ -5013,7 +5013,7 @@ input.main-search-input:-ms-input-placeholder {
 
 .learn-list li {
   margin-bottom: 25px;
-  padding-right: 25px;
+  padding-right: 10px;
 }
 
 @media (max-width: 767px) {
@@ -8504,19 +8504,16 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 .fot-list .mb {
-<<<<<<< HEAD
   color: #707070;
   display: inline-block;
   margin-bottom: 20px;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-=======
     color: #707070;
     display: inline-block;
     margin-bottom: 20px;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
->>>>>>> dda2e57de1b32a5c2a4afed086d85bb3834d02d1
 }
 
 .fot-list a:hover {
