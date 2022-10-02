@@ -6,6 +6,7 @@ use App\Http\Controllers\PersonController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CourseSubListController;
 use App\Http\Controllers\CourseListController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
@@ -80,6 +81,14 @@ Route::middleware('auth','isAdmin')->prefix('admin')->group(function () {
         Route::get('/course/delete/{course:slug}', 'destroy');
     });
 
+    Route::controller(CourseSubListController::class)->group(function () {
+        Route::get('/course_sub_list/{course:slug}/add', 'create');
+        Route::post('/course_sub_list/{course:slug}/add', 'store');
+        Route::get('/course_sub_list/{course:slug}/update/{coursesublist}', 'edit');
+        Route::post('/course_sub_list/{course:slug}/update/{coursesublist}', 'update');
+        Route::get('/course_sub_list/{course:slug}/delete/{coursesublist}', 'destroy');
+    });
+
     Route::controller(CourseListController::class)->group(function () {
         Route::get('/course_list/{course:slug}', 'index');
         Route::get('/course_list/{course:slug}/add', 'create');
@@ -100,7 +109,6 @@ Route::middleware('auth','isAdmin')->prefix('admin')->group(function () {
         Route::get('/payment/{payment:payment_ref}', 'show');
         Route::get('/payment/accept/{payment}', 'edit');
         Route::get('/payment/decline/{payment}', 'destroy');
-        // Route::get('/payment/delete/{payment_ref}', 'destroy');
     });
 
     Route::controller(CourseAccessController::class)->group(function () {

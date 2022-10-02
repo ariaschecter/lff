@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('course_lists', function (Blueprint $table) {
+        Schema::create('course_sub_lists', function (Blueprint $table) {
             $table->id();
-            $table->integer('course_sub_list_id');
-            $table->integer('no');
             $table->foreignId('course_id');
-            $table->string('list_name');
-            $table->integer('time');
-            $table->string('link');
+            $table->integer('sub_list_no');
+            $table->string('sub_list_name');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_lists');
+        Schema::dropIfExists('course_sub_lists');
     }
 };

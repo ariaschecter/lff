@@ -19,6 +19,7 @@ class CourseListFactory extends Factory
     {
         return [
             'id' => fake()->randomNumber(4, true),
+            'course_sub_list_id' => fake()->numberBetween(1,3),
             'no' => fake()->numberBetween(1,10),
             'course_id' => 1,
             'list_name' => fake()->name(),
