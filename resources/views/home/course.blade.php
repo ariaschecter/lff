@@ -88,21 +88,22 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                <div class="accordion-item mb-30">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            {{ $course->course_name }}
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accoedion-ex-two">
-                                        <div class="accordion-body">
-                                            @foreach ($courselist as $list)
-                                                <p>{{ $list->no }}. {{ $list->list_name }}</p>
-                                            @endforeach
+                                @foreach ($subCourse as $subList)
+                                    <div class="accordion-item mb-30">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                {{ $subList->sub_list_name }}
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accoedion-ex-two">
+                                            <div class="accordion-body">
+                                                @foreach ($subList->courselist as $list)
+                                                    <p>{{ $list->no }}. {{ $list->list_name }}</p>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
+                                @endforeach
                             </div>
                         </div>
                     </div>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Alert;
 use App\Models\Course;
 use App\Models\CourseList;
+use App\Models\CourseSubList;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\User;
@@ -178,13 +179,13 @@ class PersonController extends Controller
         $lastaccess = CourseList::where('course_id', $course->id)->where('no', $akses->last_access)->first();
         // dd($lastaccess);
 
-        $lists = CourseList::where('course_id', $course->id)->orderBy('no', 'ASC')->get();
+        $courseSubList = CourseSubList::where('course_id', $course->id)->orderBy('sub_list_no', 'ASC')->get();
         $time = round(CourseList::where('course_id', $course->id)->sum('time')/60, 2);
         return view('person.access', [
             'title' => $course->course_name,
             'course' => $course,
             'courselist' => $courselist,
-            'lists' => $lists,
+            'courseSubList' => $courseSubList,
             'time' => $time,
             'lastaccess' => $lastaccess,
             'next' => $next,

@@ -8,6 +8,7 @@ use Alert;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\CourseList;
+use App\Models\CourseSubList;
 use App\Models\CourseAccess;
 use App\Models\Category;
 use App\Models\Finance;
@@ -83,7 +84,8 @@ class HomeController extends Controller
     public function course(Course $course){
         if(!$course->is_active) return abort(404, 'Page Not Found');
 
-        $courseList = CourseList::where('course_id', $course->id)->orderBy('no', 'ASC')->get();
+        $subCourse = CourseSubList::where('course_id', $course->id)->orderBy('sub_list_no', 'ASC')->get();
+        $played = CourseList::where('course_id', $course->id)->orderBy('no', 'ASC')->get();
         $time = round(CourseList::where('course_id', $course->id)->sum('time')/60, 2);
         $payed = CourseAccess::where('user_id', Auth::id())->where('course_id', $course->id)->first();
 
@@ -92,7 +94,8 @@ class HomeController extends Controller
         return view('home.course', [
             'title' => $course->course_name,
             'course' => $course,
-            'courselist' => $courseList,
+            'subCourse' => $subCourse,
+            'courselist' => $played,
             'time' => $time,
             'payed' => $payed,
             'link' => $link,
