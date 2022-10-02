@@ -5013,7 +5013,7 @@ input.main-search-input:-ms-input-placeholder {
 
 .learn-list li {
   margin-bottom: 25px;
-  padding-right: 25px;
+  padding-right: 10px;
 }
 
 @media (max-width: 767px) {
