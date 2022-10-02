@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ $title }} | Learn For Future</title>
-    <meta name="keywords" content="online education, e-learning, coaching, education, teaching, learning">
-    <meta name="description" content="Zoomy is a e-learnibg HTML template for all kinds of education, coaching, online education website">
+    <meta name="keywords" content="online education, e-learning, coaching, education, teaching, learning, lff, learnforfuture, learn for future, lff.id, lffid">
+    <meta name="description" content="Learn For Future bergerak di bidang edukasi teknologi yang bertujuan untuk menciptakan sumber daya manusia yang mempunyai skill dan knowledge di bidang teknologi.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="site.webmanifest">

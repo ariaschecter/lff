@@ -8,11 +8,6 @@
                         <a href="{{ url('') }}" class="logo">
                             <img src="{{ url('user/img/logo/header_logo.png') }}" alt="">
                         </a>
-                        
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadip scing elitr, sed di nonumy eirmod temporinvi dunt ut labore lorem ipsum.</p>
-                    <div class="social-media footer__social mt-30">
-                        <a href="#"><i class="fab fa-instagramphp"></i> <span>Learn for future</span></a>
 
                     </div>
                     <p>Learn For Future bergerak di bidang edukasi teknologi yang bertujuan untuk menciptakan sumber daya manusia yang mempunyai skill dan knowledge di bidang teknologi.</p>
@@ -25,8 +20,6 @@
                         <li><a href="mailto:learnforfuture.grup@gmail.com" target="_blank">learnforfuture.grup@gmail.com</a></li>
                         <li><a href="wa.me/6283150993913" target="_blank">WhatsApp</a></li>
                         <li><a href="https://www.instagram.com/learnforfuture.id" target="_blank">Instagram</a></li>
-                        {{-- <li><a href="#">Terms & Conditions</a></li> --}}
-                        {{-- <li><a href="#">Privacy Policy</a></li> --}}
                     </ul>
                 </div>
             </div>
