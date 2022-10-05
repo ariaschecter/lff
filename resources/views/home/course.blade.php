@@ -75,7 +75,7 @@
                             <div class="section-title text-center mb-45">
                                 <h2 class="mb-25">Silabus</h2>
                             </div>
-                            <div class="accordion accordion-two" id="accoedion-ex-two">
+                            <div class="accordion accordion-two">
                                 {{-- <div class="accordion-item mb-30">
                                     <h2 class="accordion-header" id="headingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -89,13 +89,20 @@
                                     </div>
                                 </div> --}}
                                 @foreach ($subCourse as $subList)
+                                @php
+                                $explode = explode(' ', $subList->sub_list_name);
+                                $collapse_name = $subList->sub_list_name;
+                                if (count($explode)>1) {
+                                    $collapse_name = $explode[1];
+                                }
+                                @endphp
                                     <div class="accordion-item mb-30">
-                                        <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <h2 class="accordion-header" id="heading{{$collapse_name}}">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$collapse_name}}" aria-expanded="false" aria-controls="collapse{{$collapse_name}}">
                                                 {{ $subList->sub_list_name }}
                                             </button>
                                         </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accoedion-ex-two">
+                                        <div id="collapse{{$collapse_name}}" class="accordion-collapse collapse" aria-labelledby="heading{{$collapse_name}}" data-bs-parent="#accoedion-ex-two">
                                             <div class="accordion-body">
                                                 @foreach ($subList->courselist as $list)
                                                     <p>{{ $list->no }}. {{ $list->list_name }}</p>
