@@ -67,6 +67,7 @@ class CourseListController extends Controller
 
         $data = [
             'no' => $request->no,
+            'course_sub_list_id' => $request->course_sub_list_id,
             'course_id' => $course->id,
             'list_name' => $request->list_name,
             'link' => $request->link,
@@ -121,6 +122,7 @@ class CourseListController extends Controller
 
         $data = [
             'no' => $request->no,
+            'course_sub_list_id' => $request->course_sub_list_id,
             'list_name' => $request->list_name,
             'time' => $request->time,
             'link' => $request->link,
