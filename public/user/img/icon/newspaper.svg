@@ -1,9 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="26.629" height="20.416" viewBox="0 0 26.629 20.416">
-  <g id="newspaper" transform="translate(-1.125 -5.063)">
-    <path id="Path_12285" data-name="Path 12285" d="M5.12,5.063V22.594a1.11,1.11,0,1,1-2.219,0V9.5H1.125V22.594A2.888,2.888,0,0,0,4.01,25.478h20.86a2.888,2.888,0,0,0,2.885-2.885V5.063Zm20.86,17.531A1.111,1.111,0,0,1,24.87,23.7H6.672a2.87,2.87,0,0,0,.222-1.109V6.838H25.979Z" fill="#2772db"/>
-    <path id="Path_12286" data-name="Path 12286" d="M18.677,9.563H10.688v8.876h7.989Zm-1.775,7.1H12.463V11.338H16.9Z" transform="translate(-2.018 -0.949)" fill="#2772db"/>
-    <path id="Path_12287" data-name="Path 12287" d="M23.063,9.563h5.77v1.775h-5.77Z" transform="translate(-4.629 -0.949)" fill="#2772db"/>
-    <path id="Path_12288" data-name="Path 12288" d="M23.063,14.063h5.77v1.775h-5.77Z" transform="translate(-4.629 -1.899)" fill="#2772db"/>
-    <path id="Path_12289" data-name="Path 12289" d="M23.063,18.563h5.77v1.775h-5.77Z" transform="translate(-4.629 -2.848)" fill="#2772db"/>
-  </g>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26.629" height="20.416"
+	 viewBox="0 0 485 485" style="enable-background:new 0 0 485 485;" xml:space="preserve">
+<path d="M485,30V0H0v30h27.5v65H15v295h12.5v65H0v30h485v-30h-27.5v-65H470V95h-12.5V30H485z M347.5,455h-50v-65h50V455z M137.5,30
+	h50v65h-50V30z M201.878,172.5l121.244,70l-121.244,70V172.5z M217.5,95V30h50v65H217.5z M187.5,390v65h-50v-65H187.5z M217.5,390
+	h50v65h-50V390z M297.5,95V30h50v65H297.5z M57.5,30h50v65h-50V30z M57.5,390h50v65h-50V390z M427.5,455h-50v-65h50V455z M427.5,95
+	h-50V30h50V95z" fill="#2772db"/>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
 </svg>
