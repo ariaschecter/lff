@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('list_name');
             $table->integer('time');
             $table->string('link');
+            $table->text('course_desc')->nullable();
             $table->timestamps();
         });
     }

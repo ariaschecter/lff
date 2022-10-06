@@ -45,6 +45,12 @@
                         <input type="number" class="form-control @error('time') is-invalid @enderror" id="time" name="time" value="{{ old('time') }}" placeholder="Input Course">
                     </div>
                     @error('time') <div class="text-danger">{{ $message }}</div> @enderror
+                    <div class="mb-1">
+                        <label for="course_desc" class="form-label">Course Description</label>
+                        <textarea class="form-control" name="course_desc" id="course_desc" rows="10"></textarea>
+                    </div>
+                    @error('course_desc') <div class="text-danger">{{ $message }}</div> @enderror
+
 
                     <button class="btn btn-primary m-1 text-white">Add Course List</button>
                 </form>

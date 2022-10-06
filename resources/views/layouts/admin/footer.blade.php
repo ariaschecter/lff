@@ -17,6 +17,8 @@
 <script src="{{ url('assets/vendors/sweetalert2/sweetalert2.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
+<link rel="stylesheet" href="{{ url('assets/vendors/simplemde/simplemde.min.css') }}">
+
 <script src="{{ url('assets/vendors/feather-icons/feather.min.js') }}"></script>
 <script src="{{ url('assets/js/template.js') }}"></script>
 

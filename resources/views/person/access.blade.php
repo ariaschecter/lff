@@ -14,5 +14,6 @@
             @endif
         </div>
     </div>
+    <p>{{ $courselist->course_desc }}</p>
 
 @endsection

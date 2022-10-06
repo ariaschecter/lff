@@ -72,6 +72,7 @@ class CourseListController extends Controller
             'list_name' => $request->list_name,
             'link' => $request->link,
             'time' => $request->time,
+            'course_desc' => $request->course_desc,
             'created_at' => now(),
             'updated_at' => now(),
         ];
@@ -126,6 +127,7 @@ class CourseListController extends Controller
             'list_name' => $request->list_name,
             'time' => $request->time,
             'link' => $request->link,
+            'course_desc' => $request->course_desc,
             'updated_at' => now(),
         ];
 
