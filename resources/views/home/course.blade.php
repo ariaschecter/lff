@@ -36,7 +36,7 @@
                                 </ul>
                                 <div class="courses-ingredients">
                                         <h2 class="corses-title mb-30">Course Includes</h2>
-
+                                        
                                         <ul class="courses-item mt-25">
                                             <li><img src="{{ url('user/img/icon/video.svg') }}" alt=""> {{ $time }} hours video</li>
                                             <li><img src="{{ url('user/img/icon/newspaper.svg') }}" alt=""> {{ count($courselist) }} Videos</li>

@@ -11,7 +11,7 @@
                     @endphp
                     @foreach ($courseSubList as $subList)
                         <li class="mt-20">
-                            <a href="#{{ $subList->id }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <a href="#{{ $subList->id }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">
                                 {{ $subList->sub_list_name }}
                             </a>
                                 <ul class="collapse pt-10" id="{{ $subList->id }}">
