@@ -213,7 +213,6 @@
                                     <li>Instruktur Berpengalaman. </li>
                                     <li>Mendapatkan Sertifikat Kelulusan. </li>
                                 </ul>
-                                <a href="about.html" class="theme_btn wow fadeInUp2 animated" data-wow-delay='.3s'>More Details</a>
                             </div>
                         </div>
                     </div>
