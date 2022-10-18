@@ -4988,7 +4988,6 @@ input.main-search-input:-ms-input-placeholder {
 .learn-list li {
   height: auto;
   font-size: 1.1em;
-
 }
 
 .learn-list li a:hover {
@@ -4999,6 +4998,17 @@ input.main-search-input:-ms-input-placeholder {
   color: #2772db;
 }
 .learn-list li a.active:hover {
+  color: #070F4E;
+}
+
+.learn-list-sub li a:hover {
+  color: #2772db;
+}
+
+.learn-list-sub li a.active {
+  color: #2772db;
+}
+.learn-list-sub li a.active:hover {
   color: #070F4E;
 }
 
