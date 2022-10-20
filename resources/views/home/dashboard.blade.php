@@ -147,7 +147,7 @@
                     <div class="col-lg-4 col-md-6 grid-item {{ $item->category_id }}">
                         <div class="z-gallery mb-30">
                             <div class="z-gallery__thumb mb-20">
-                                <a href="course-details.html"><img class="img-fluid" src="{{ asset('storage/'. $item->course_picture) }}" alt="{{ $item->course_name }}"></a>
+                                <a href="{{ url('course/'.$item->slug) }}"><img class="img-fluid" src="{{ asset('storage/'. $item->course_picture) }}" alt="{{ $item->course_name }}"></a>
                                 <div class="feedback-tag">{{ $item->category->category_name }}</div>
                                 <div class="heart-icon"><i class="fas fa-heart"></i></div>
                             </div>
