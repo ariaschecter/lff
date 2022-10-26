@@ -18,7 +18,7 @@
                     <h6 class="widget-title mb-35">Contact us</h6>
                     <ul class="fot-list">
                         <li><a href="mailto:learnforfuture.grup@gmail.com" target="_blank">learnforfuture.grup@gmail.com</a></li>
-                        <li><a href="wa.me/6283150993913" target="_blank">WhatsApp</a></li>
+                        <li><a href="https://wa.me/6283150993913" target="_blank">WhatsApp</a></li>
                         <li><a href="https://www.instagram.com/learnforfuture.id" target="_blank">Instagram</a></li>
                     </ul>
                 </div>
