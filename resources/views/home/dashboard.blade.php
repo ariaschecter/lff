@@ -147,7 +147,7 @@
                     <div class="col-lg-4 col-md-6 grid-item {{ $item->category_id }}">
                         <div class="z-gallery mb-30">
                             <div class="z-gallery__thumb mb-20">
-                                <a href="course-details.html"><img class="img-fluid" src="{{ asset('storage/'. $item->course_picture) }}" alt="{{ $item->course_name }}"></a>
+                                <a href="{{ url('course/'.$item->slug) }}><img class="img-fluid" src="{{ asset('storage/'. $item->course_picture) }}" alt="{{ $item->course_name }}"></a>
                                 <div class="feedback-tag">{{ $item->category->category_name }}</div>
                                 <div class="heart-icon"><i class="fas fa-heart"></i></div>
                             </div>
@@ -181,20 +181,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-7 col-lg-7">
                             <div class="chose-img-wrapper mb-50 pos-rel">
-                                <div class="coures-member">
-                                    <h5>Total Students</h5>
-                                    <img class="choses chose_01" src="{{ url('user/img/chose/01.png') }}" alt="Chose-img">
-                                    <img class="choses chose_02" src="{{ url('user/img/chose/02.png') }}" alt="Chose-img">
-                                    <img class="choses chose_03" src="{{ url('user/img/chose/03.png') }}" alt="Chose-img">
-                                    <img class="choses chose_04" src="{{ url('user/img/chose/04.png') }}" alt="Chose-img">
-                                    <span>{{ count($students) }}</span>
-                                </div>
-                                <div class="feature tag_01"><span><img src="{{ url('user/img/icon/shield-check.svg') }}" alt=""></span> Safe & Secured</div>
-                                <div class="feature tag_02"><span><img src="{{ url('user/img/icon/catalog.svg') }}" alt=""></span> 120+ Videos</div>
-                                <div class="feature tag_03"><span><i class="fal fa-check"></i></span> Quality Education</div>
-                                <div class="video-wrapper">
-                                    <a href="https://www.youtube.com/watch?v=7omGYwdcS04" class="popup-video"><i class="fas fa-play"></i></a>
-                                </div>
+                                
                                 <div class="img-bg pos-rel">
                                     <img class="chose_05 pl-70 pl-lg-0 pl-md-0 pl-xs-0" src="{{ url('user/img/logo/under.webp') }}" alt="Chose-img">
                                 </div>
