@@ -22,6 +22,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Course Name</th>
+                                    <th>Payment Method</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -41,6 +42,7 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->course_name }}</td>
+                                    <td>{{ $item->paymentmethod->payment_method }}</td>
                                     <td>
                                         <a href="{{ url('admin/'.$active.'/'.$item->payment_ref) }}" class="btn btn-primary">Show</a>
                                     </td>

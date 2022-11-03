@@ -25,7 +25,7 @@ class Payment extends Model
         ->join('users','orders.user_id','=','users.id')
         ->join('courses','orders.course_id','=','courses.id')
         ->select('*')
-        ->orderBy('payments.payment_status', 'ASC')
+        ->orderBy('payments.updated_at', 'DESC')
         ->paginate(10);
     }
 
@@ -41,7 +41,7 @@ class Payment extends Model
         ->orWhere('courses.course_name', 'LIKE', "%{$search}%")
         // ->select('orders.id AS order_id', 'users.name as name', 'users.email as email',
         // 'courses.course_name as course_name', 'orders.status as status')
-        ->orderBy('payments.payment_status', 'ASC')
+        ->orderBy('payments.updated_at', 'DESC')
         ->paginate(10);
     }
 }
