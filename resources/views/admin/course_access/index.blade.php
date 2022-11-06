@@ -21,6 +21,7 @@
                                     <th>#</th>
                                     <th>Course Name</th>
                                     <th>Email</th>
+                                    <th>Persentase</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -31,6 +32,7 @@
                                     <th>{{ $i++ }}</th>
                                     <td>{{ $item->course_name }}</td>
                                     <td>{{ $item->email }}</td>
+                                    <td>{{ number_format($item->last_access*100 / count($item->course->courselist), 0) }} %</td>
                                     <td>
                                         <a href="{{ url('admin/'.$active.'/update/'.$item->id) }}" class="btn btn-success">Update</a>
                                         <a href="{{ url('admin/'.$active.'/delete/'.$item->id) }}" class="btn btn-danger show_confirm">Delete</a>
