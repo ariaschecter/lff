@@ -700,6 +700,30 @@ section-title
 .logo img {
   max-width: 100%;
 }
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .logo img {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .logo img {
+    max-width: 50%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .logo img {
+    max-width: 50%;
+  }
+}
+
+@media only screen and (min-width: 333px) and (max-width: 767px) {
+  .logo img {
+    max-width: 50%;
+  }
+}
+
 
 .main-header-area {
   position: absolute;
@@ -816,6 +840,7 @@ section-title
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
+  
   .side-mobile-menu {
     display: block;
   }
@@ -1011,7 +1036,7 @@ section-title
   }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+/* @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .right-btn ul li:first-child {
     display: none;
   }
@@ -1021,7 +1046,7 @@ section-title
   .right-btn ul li:first-child {
     display: none;
   }
-}
+} */
 
 .sign-in {
   background: rgba(40, 120, 235, 0.1);
@@ -1323,7 +1348,7 @@ ul.breadcrumb li a {
 
 .side-mobile-menu ul li a[aria-expanded="true"]:before {
   background: #070F4E;
-  border-color: #070F4E;
+  border-color: #f5ebeb;
 }
 
 .side-mobile-menu ul li ul {
@@ -1342,7 +1367,7 @@ ul.breadcrumb li a {
 
 .side-mobile-menu ul li ul li:hover > a:before {
   background: #070F4E;
-  border-color: #070F4E;
+  border-color: #f5ebeb;
 }
 
 .side-mobile-menu ul li ul li a {

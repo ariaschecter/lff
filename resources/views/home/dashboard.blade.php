@@ -185,7 +185,6 @@
                     <div class="row align-items-center">
                         <div class="col-xl-7 col-lg-7">
                             <div class="chose-img-wrapper mb-50 pos-rel">
-                                
                                 <div class="img-bg pos-rel">
                                     <img class="chose_05 pl-70 pl-lg-0 pl-md-0 pl-xs-0" src="{{ url('user/img/logo/under.webp') }}" alt="Chose-img">
                                 </div>

@@ -60,7 +60,7 @@
                         </div>
                     </nav>
                 </div>
-                <div class="col-xl-3 col-lg-2 col-7">
+                <div class="col-xl-3 col-lg-2 col-11">
                     <div class="right-nav d-flex align-items-center justify-content-end">
                         <div class="right-btn mr-25 mr-xs-15">
                             @auth
@@ -163,13 +163,15 @@
             <li><a href="{{ url('about') }}">About Us</a></li>
             @auth
             <li class="has-dropdown">
-                <a href="#">My Profile</a>
+                <a href="#" id="navbarDropdown3" role="button">
+                    My Profile
+                </a>
                 <ul class="sub-menu">
-                    <li><a href="{{ url('progress') }}"></a>Progress</li>
-                    <li><a href="{{ url('course') }}"></a>Courses</li>
-                    <li><a href="{{ url('order') }}"></a>Orders</li>
-                    <li><a href="{{ url('payment') }}"></a>Payments</li>
-                    <li><a href="{{ url('edit-profile') }}"></a>Profile Settings</li>
+                    <li><a href="{{ url('progress') }}">Progress</a></li>
+                    <li><a href="{{ url('course') }}">Courses</a></li>
+                    <li><a href="{{ url('order') }}">Orders</a></li>
+                    <li><a href="{{ url('payment') }}">Payments</a></li>
+                    <li><a href="{{ url('edit-profile') }}">Profile Settings</a></li>
                 </ul>
             </li>
             @endauth
